@@ -55,10 +55,11 @@ export function MissionSection() {
             Our Core Mission
           </h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-            We work at the intersection of traditional wisdom and innovative
-            solutions to create lasting change in Ghana's indigenous
-            communities.
-          </p>
+  We work at the intersection of traditional wisdom and innovative
+  solutions to create lasting change in Ghana&apos;s indigenous
+  communities.
+</p>
+
         </div>
 
         {/* Cards */}

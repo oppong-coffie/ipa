@@ -51,7 +51,7 @@ export function VideoHero() {
             is a youth-led organization fostering climate resilience,
             sustainable livelihoods, and social equity in{" "}
             <span className="text-yellow-400 font-semibold">
-              Ghana's indigenous regions
+              Ghanas indigenous regions
             </span>
           </motion.p>
 

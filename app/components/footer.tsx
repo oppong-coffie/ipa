@@ -45,14 +45,16 @@ export default function Footer() {
           </motion.div>
 
           {/* Quick Links */}
-          <motion.div whileHover={{ scale: 1.02 }} className="flex flex-col space-y-2 text-center md:text-left">
-            <h3 className="font-semibold text-yellow-400 mb-2">Quick Links</h3>
-            <a href="/" className="hover:text-yellow-300 transition-colors">Home</a>
-            <a href="/about" className="hover:text-yellow-300 transition-colors">About</a>
-            <a href="/projects" className="hover:text-yellow-300 transition-colors">Projects</a>
-            <a href="/resources" className="hover:text-yellow-300 transition-colors">Resources</a>
-            <a href="/contact" className="hover:text-yellow-300 transition-colors">Contact</a>
-          </motion.div>
+          {/* Quick Links */}
+<motion.div whileHover={{ scale: 1.02 }} className="flex flex-col space-y-2 text-center md:text-left">
+  <h3 className="font-semibold text-yellow-400 mb-2">Quick Links</h3>
+  <Link href="/" className="hover:text-yellow-300 transition-colors">Home</Link>
+  <Link href="/about" className="hover:text-yellow-300 transition-colors">About</Link>
+  <Link href="/projects" className="hover:text-yellow-300 transition-colors">Projects</Link>
+  <Link href="/resources" className="hover:text-yellow-300 transition-colors">Resources</Link>
+  <Link href="/contact" className="hover:text-yellow-300 transition-colors">Contact</Link>
+</motion.div>
+
 
           {/* Social / Contact */}
           <motion.div whileHover={{ scale: 1.02 }} className="text-center md:text-left">
