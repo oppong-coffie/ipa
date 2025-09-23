@@ -28,7 +28,7 @@ export function MissionSection() {
       title: "Sustainable Lives",
       description:
         "Creating income opportunities that preserve culture and sustain communities.",
-      image: "/images/mission2.jpg",
+      image: "/images/so.jpg",
     },
     {
       number: "03",
