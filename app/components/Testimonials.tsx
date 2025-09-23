@@ -1,0 +1,117 @@
+"use client";
+
+import { motion } from "framer-motion";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
+const testimonials = [
+  {
+    name: "Ama Owusu",
+    position: "Community Leader",
+    text: "IPA's initiatives transformed our community, creating sustainable livelihoods and empowering women and youth alike.",
+    image: "/images/testimonial1.jpg",
+  },
+  {
+    name: "Kwame Mensah",
+    position: "Youth Advocate",
+    text: "Working with IPA allows us to preserve indigenous knowledge while embracing modern solutions for climate resilience.",
+    image: "/images/testimonial2.jpg",
+  },
+  {
+    name: "Efua Adom",
+    position: "Environmental Specialist",
+    text: "IPA connects grassroots communities with global initiatives for lasting impact.",
+    image: "/images/testimonial3.jpg",
+  },
+  {
+    name: "Kojo Asante",
+    position: "Social Entrepreneur",
+    text: "IPA’s programs address real community needs while fostering innovation and sustainable growth.",
+    image: "/images/testimonial4.jpg",
+  },
+  {
+    name: "Kojo Asante",
+    position: "Social Entrepreneur",
+    text: "IPA’s programs address real community needs while fostering innovation and sustainable growth.",
+    image: "/images/testimonial4.jpg",
+  },
+  {
+    name: "Kojo Asante",
+    position: "Social Entrepreneur",
+    text: "IPA’s programs address real community needs while fostering innovation and sustainable growth.",
+    image: "/images/testimonial4.jpg",
+  },
+  {
+    name: "Kojo Asante",
+    position: "Social Entrepreneur",
+    text: "IPA’s programs address real community needs while fostering innovation and sustainable growth.",
+    image: "/images/testimonial4.jpg",
+  },
+];
+
+export default function Testimonials() {
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true, easing: "ease-in-out" });
+  }, []);
+
+  return (
+    <section className="relative py-32 bg-gray-50 overflow-hidden">
+      {/* Diagonal background */}
+      <div className="absolute top-0 left-0 w-full h-1/2 bg-yellow-50 -skew-y-6 origin-top-left"></div>
+
+      <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
+        <div className="text-center mb-20">
+          <motion.h2
+            className="text-4xl md:text-5xl font-extrabold text-yellow-500 mb-4"
+            whileHover={{ scale: 1.02 }}
+          >
+            What People Are Saying
+          </motion.h2>
+          <motion.p
+            className="text-lg text-gray-700 max-w-2xl mx-auto"
+            whileHover={{ scale: 1.01 }}
+          >
+            Stories from community members, partners, and experts about the impact of Indigenous People Alliance.
+          </motion.p>
+        </div>
+
+        {/* Continuous sliding carousel */}
+        <div className="overflow-hidden relative pb-7">
+          <motion.div
+            className="flex gap-8 w-max"
+            animate={{ x: ["0%", "-50%"] }} // slower slide
+            transition={{
+              duration: 60, // slower, 60 seconds for full loop
+              ease: "linear",
+              repeat: Infinity,
+            }}
+          >
+            {[...testimonials, ...testimonials].map((testimonial, i) => (
+              <motion.div
+                key={i}
+                className="bg-white rounded-3xl shadow-xl p-6 min-w-[280px] max-w-[280px] relative"
+              >
+                <div className="absolute -top-0 left-1/2 transform -translate-x-1/2">
+                  <motion.img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-20 h-20 rounded-full border-4 border-yellow-400 shadow-lg object-cover"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.35 }}
+                  />
+                </div>
+                <p className="text-gray-700 hover:text-yellow-800 mt-16 text-center mb-4">{testimonial.text}</p>
+                <div className="text-center">
+                  <div className="font-semibold text-yellow-500 hover:text-yellow-800">{testimonial.name}</div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+     
+      </div>
+    </section>
+  );
+}
