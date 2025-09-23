@@ -1,26 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { Button } from "antd";
 import { motion } from "framer-motion";
-import AOS from "aos";
 import "aos/dist/aos.css";
 
 export function VideoHero() {
 
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-
-    // Init AOS
-    AOS.init({
-      duration: 800,
-      once: true,
-      easing: "ease-in-out",
-    });
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  
 
   return (
     <div className="relative h-screen w-full overflow-hidden">

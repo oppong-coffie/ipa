@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import Link from "next/link";
 
 export default function Footer() {
   useEffect(() => {
@@ -50,10 +51,10 @@ export default function Footer() {
             <h3 className="font-semibold text-yellow-400 mb-2">Connect With Us</h3>
             <p className="text-gray-300 mb-4">info@ipa.org | +233 24 000 0000</p>
             <div className="flex justify-center md:justify-start gap-4">
-              <a href="#" className="hover:text-yellow-300 transition-colors">🌐</a>
-              <a href="#" className="hover:text-yellow-300 transition-colors">🐦</a>
-              <a href="#" className="hover:text-yellow-300 transition-colors">📘</a>
-              <a href="#" className="hover:text-yellow-300 transition-colors">📸</a>
+              <Link href="#" className="hover:text-yellow-300 transition-colors">🌐</Link>
+              <Link href="#" className="hover:text-yellow-300 transition-colors">🐦</Link>
+              <Link href="#" className="hover:text-yellow-300 transition-colors">📘</Link>
+              <Link href="#" className="hover:text-yellow-300 transition-colors">📸</Link>
             </div>
           </motion.div>
         </div>
