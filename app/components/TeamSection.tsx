@@ -1,5 +1,5 @@
 'use client'
-import { Button, Card } from 'antd'
+import { Card } from 'antd'
 import { motion } from 'framer-motion'
 
 export default function TeamSection() {

@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, Button } from "antd";
+import { Card } from "antd";
 import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
