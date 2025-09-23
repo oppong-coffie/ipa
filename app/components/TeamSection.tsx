@@ -1,6 +1,10 @@
 'use client'
 import { Card } from 'antd'
-import { motion } from 'framer-motion'
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+
+const MotionImage = motion(Image);
+
 
 export default function TeamSection() {
   const team = [
@@ -30,11 +34,12 @@ export default function TeamSection() {
     <section className="bg-yellow-50">
       {/* Hero Section */}
       <div className="relative h-80 md:h-96">
-        <img
-          src="/images/teamwork4.jpg" // 🔥 general teamwork hero image
-          alt="Teamwork"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+      <Image
+  src="/images/teamwork4.jpg" // general teamwork hero image
+  alt="Teamwork"
+  fill // makes it absolute + covers parent container
+  className="object-cover"
+/>
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <motion.h1
             className="text-white text-4xl md:text-5xl font-bold text-center"
@@ -75,15 +80,17 @@ export default function TeamSection() {
       hoverable
       className="rounded-xl overflow-hidden border-none shadow-md hover:shadow-xl transition-shadow"
       cover={
-        <motion.img
-          alt={member.name}
-          src={member.image}
-          className="h-80 md:64 w-full object-cover"
-          // 🔥 Framer Motion animation
-          whileHover={{ scale: 1.05, y: -5 }} // scale & lift on hover
-          whileTap={{ scale: 0.97 }}          // small press animation
-          transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-        />
+        <MotionImage
+        alt={member.name}
+        src={member.image}
+        width={400}                 // Required: must set width & height or `fill`
+        height={320}
+        className="h-80 md:h-64 w-full object-cover"
+        whileHover={{ scale: 1.05, y: -5 }}
+        whileTap={{ scale: 0.97 }}
+        transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+      />
+      
       }
     >
       <div className="text-center">

@@ -5,6 +5,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import Link from "next/link";
+import Image from 'next/image';
+
 
 export default function Footer() {
   useEffect(() => {
@@ -27,7 +29,13 @@ export default function Footer() {
           <motion.div whileHover={{ scale: 1.02 }} className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start space-x-3 mb-4">
               <div className="h-12 w-12 rounded-lg bg-yellow-400 flex items-center justify-center overflow-hidden">
-                <img src="/images/logo.png" alt="IPA Logo" className="h-full w-full object-contain" />
+              <Image
+  src="/images/logo.png"
+  alt="IPA Logo"
+  width={200}         // adjust as needed
+  height={80}         // adjust as needed
+  className="object-contain"
+/>
               </div>
               <span className="font-bold text-xl text-yellow-400">IPA</span>
             </div>

@@ -6,6 +6,8 @@
     import { motion } from "framer-motion";
     import AOS from "aos";
     import "aos/dist/aos.css";
+    import Image from "next/image";
+
 import Footer from "../components/footer";
 
     export default function PagesLayout({ children }: { children: React.ReactNode }) {
@@ -46,11 +48,13 @@ import Footer from "../components/footer";
             {/* Logo */}
             <div className="flex items-center space-x-3">
                 <div className="h-10 w-10 rounded-lg bg-yellow-400 flex items-center justify-center overflow-hidden">
-                <img
-                    src="/images/logo.png"
-                    alt="Logo"
-                    className="h-full w-full object-contain"
-                />
+                <Image
+  src="/images/logo.png"
+  alt="Logo"
+  width={40}   // match your container height/width
+  height={40}
+  />
+  
                 </div>
                 <div className="leading-tight">
                 <div className="font-bold text-lg text-yellow-400">IPA</div>

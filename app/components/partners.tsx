@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Image from 'next/image';
+
 import { useEffect } from "react";
 
 const partners = [
@@ -51,11 +53,13 @@ export default function Partners() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.25 }}
             >
-              <img
-                src={partner.logo}
-                alt={partner.name}
-                className="max-h-16 object-contain"
-              />
+          <Image
+  src={partner.logo}
+  alt={partner.name}
+  width={120}              // or appropriate width
+  height={64}              // or appropriate height
+  className="object-contain max-h-16"
+/>
             </motion.div>
           ))}
         </div>

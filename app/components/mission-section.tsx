@@ -5,6 +5,10 @@ import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import Image from 'next/image';
+
+const MotionImage = motion(Image);
+
 
 export function MissionSection() {
   useEffect(() => {
@@ -31,7 +35,7 @@ export function MissionSection() {
       title: "Social Equity",
       description:
         "Advocating for indigenous rights and representation in decisions.",
-      image: "/images/mission3.jpg",
+      image: "/images/mission2.jpg",
     },
     {
       number: "04",
@@ -75,20 +79,23 @@ export function MissionSection() {
                   <div className="relative">
                     {/* Image */}
 
-                    <motion.img
-                      alt={mission.title}
-                      src={mission.image}
-                      className="h-48 w-full object-cover rounded-t-lg"
-                      whileHover={{
-                        scale: 1.05,
-                        filter: "brightness(1.1)", // brighten a little
-                        transition: { duration: 0.3 },
-                      }}
-                      whileTap={{
-                        scale: 0.95,
-                        transition: { duration: 0.2 },
-                      }}
-                    />
+                    <MotionImage
+  alt={mission.title}
+  src={mission.image}
+  width={800} // adjust to your layout
+  height={192} // ~h-48 in Tailwind
+  className="w-full object-cover rounded-t-lg"
+  whileHover={{
+    scale: 1.05,
+    filter: 'brightness(1.1)',
+    transition: { duration: 0.3 },
+  }}
+  whileTap={{
+    scale: 0.95,
+    transition: { duration: 0.2 },
+  }}
+/>
+
 
                     {/* Number badge */}
                     <div className="absolute top-3 left-3 bg-yellow-500 text-white font-bold px-3 py-1 rounded-lg shadow-md text-sm">

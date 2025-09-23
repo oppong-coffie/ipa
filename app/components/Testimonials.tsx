@@ -1,9 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const MotionImage = motion(Image);
+
 
 const testimonials = [
   {
@@ -93,13 +97,15 @@ export default function Testimonials() {
                 className="bg-white rounded-3xl shadow-xl p-6 min-w-[280px] max-w-[280px] relative"
               >
                 <div className="absolute -top-0 left-1/2 transform -translate-x-1/2">
-                  <motion.img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-20 h-20 rounded-full border-4 border-yellow-400 shadow-lg object-cover"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.35 }}
-                  />
+                <MotionImage
+  src={testimonial.image}
+  alt={testimonial.name}
+  width={40}             // match your original  w-20
+  height={80}            // match your original h-20
+  className="rounded-full w-20 h-20 border-4 border-yellow-400 shadow-lg object-cover"
+  whileHover={{ scale: 1.1 }}
+  whileTap={{ scale: 0.95 }}
+/>
                 </div>
                 <p className="text-gray-700 hover:text-yellow-800 mt-16 text-center mb-4">{testimonial.text}</p>
                 <div className="text-center">

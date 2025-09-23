@@ -5,6 +5,10 @@ import CountUp from "react-countup";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
+import Image from "next/image";
+
+const MotionImage = motion(Image);
+
 
 const images = [
   "/images/community2.jpg",
@@ -117,16 +121,19 @@ export function ImpactSection() {
         {/* --- Right Image Carousel (Fixed Container) --- */}
         <div className="relative w-full h-[500px] overflow-hidden rounded-2xl shadow-lg">
           <AnimatePresence>
-            <motion.img
-              key={images[current]}
-              src={images[current]}
-              alt={`Slide ${current + 1}`}
-              className="w-full h-full object-cover rounded-2xl"
-              initial={{ x: "100%", opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "-100%", opacity: 0 }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
-            />
+          <MotionImage
+  key={images[current]}
+  src={images[current]}
+  alt={`Slide ${current + 1}`}
+  width={800}          // set an appropriate width
+  height={450}         // set an appropriate height
+  className="rounded-2xl object-cover w-full h-full"
+  initial={{ x: "100%", opacity: 0 }}
+  animate={{ x: 0, opacity: 1 }}
+  exit={{ x: "-100%", opacity: 0 }}
+  transition={{ duration: 0.8, ease: "easeInOut" }}
+  priority={true}      // optional, if this slide is important
+/>
           </AnimatePresence>
 
           {/* Navigation Buttons */}

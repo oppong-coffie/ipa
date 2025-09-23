@@ -6,6 +6,7 @@ import Testimonials from "../components/Testimonials"
 import Partners from "../components/partners"
 import MapLocation from "../components/map"
 
+
 export default function HomePage() {
   return (
     <main className="min-h-screen">
