@@ -68,7 +68,6 @@ export function VideoHero() {
               Get Involved
             </Button>
             <Button
-              variant="outline"
               size="large"
               className="bg-black/30 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black backdrop-blur-sm px-8 py-4 text-lg"
             >
