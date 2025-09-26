@@ -60,97 +60,109 @@ export function ImpactSection() {
   ];
 
   return (
-    <section id="impact-section" className="relative py-24 bg-white text-black overflow-hidden">
-      <div className="absolute -top-24 -right-24 w-72 h-72 bg-yellow-300/20 blur-3xl rounded-full"></div>
-      <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-yellow-300/20 blur-3xl rounded-full"></div>
+<section
+  id="impact-section"
+  className="relative py-24 bg-amber-50 text-gray-900 overflow-hidden"
+>
+  {/* Soft glowing accents */}
+  <div className="absolute -top-24 -right-24 w-72 h-72 bg-yellow-300/30 blur-3xl rounded-full"></div>
+  <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-yellow-300/30 blur-3xl rounded-full"></div>
 
-      <div className="max-w-6xl mx-auto px-6 lg:px-12 relative grid lg:grid-cols-2 gap-16 items-center">
-        {/* --- Left Text & Stats --- */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          data-aos="fade-right"
-        >
-          <motion.h2
-            className="text-4xl md:text-5xl font-extrabold text-yellow-500 mb-6 leading-tight"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.97 }}
+  <div className="max-w-6xl mx-auto px-6 lg:px-12 relative grid lg:grid-cols-2 gap-16 items-center">
+    {/* --- Left Text & Stats --- */}
+    <motion.div
+      initial={{ opacity: 0, x: -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+      data-aos="fade-right"
+    >
+      <motion.h2
+        className="text-4xl md:text-5xl font-extrabold text-yellow-900 mb-6 leading-tight"
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.97 }}
+      >
+        Creating Lasting Impact Together
+      </motion.h2>
+
+      <motion.p
+        className="text-lg text-gray-700 mb-10 leading-relaxed max-w-xl"
+        whileHover={{ scale: 1.01 }}
+      >
+        We collaborate with communities and partners to build a future that honors
+        indigenous knowledge while embracing sustainable innovation.
+      </motion.p>
+
+      <div className="grid grid-cols-2 gap-6 mb-10">
+        {stats.map((stat, i) => (
+          <motion.div
+            key={stat.label}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ delay: i * 0.1 }}
+            className="text-center rounded-xl bg-yellow-50 hover:bg-yellow-100 px-5 py-6 shadow-md border border-yellow-200"
           >
-            Creating Lasting Impact Together
-          </motion.h2>
-
-          <motion.p
-            className="text-lg text-gray-700 mb-10 leading-relaxed max-w-xl"
-            whileHover={{ scale: 1.01 }}
-          >
-            We collaborate with communities and partners to build a future that honors
-            indigenous knowledge while embracing sustainable innovation.
-          </motion.p>
-
-          <div className="grid grid-cols-2 gap-6 mb-10">
-            {stats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ delay: i * 0.1 }}
-                className="text-center rounded-xl bg-yellow-50 hover:bg-yellow-100 px-5 py-6 shadow-md border border-yellow-200"
-              >
-                <div className="text-4xl font-extrabold text-yellow-500 mb-2">
-                  {startCounting ? (
-                    <CountUp end={stat.number} duration={15.5} separator="," suffix={stat.suffix} />
-                  ) : (
-                    "0"
-                  )}
-                </div>
-                <div className="text-sm uppercase tracking-wide text-gray-700">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <div className="bg-yellow-400 text-center hover:bg-yellow-300 text-black px-8 py-4 font-semibold rounded-xl shadow-md cursor-pointer">
-              Learn About Our Work
+            <div className="text-4xl font-extrabold text-yellow-700 mb-2">
+              {startCounting ? (
+                <CountUp
+                  end={stat.number}
+                  duration={15.5}
+                  separator=","
+                  suffix={stat.suffix}
+                />
+              ) : (
+                "0"
+              )}
+            </div>
+            <div className="text-sm uppercase tracking-wide text-gray-700">
+              {stat.label}
             </div>
           </motion.div>
-        </motion.div>
-
-        {/* --- Right Image Carousel (Fixed Container) --- */}
-        <div className="relative w-full h-[500px] overflow-hidden rounded-2xl shadow-lg">
-          <AnimatePresence>
-          <MotionImage
-  key={images[current]}
-  src={images[current]}
-  alt={`Slide ${current + 1}`}
-  width={800}          // set an appropriate width
-  height={450}         // set an appropriate height
-  className="rounded-2xl object-cover w-full h-full"
-  initial={{ x: "100%", opacity: 0 }}
-  animate={{ x: 0, opacity: 1 }}
-  exit={{ x: "-100%", opacity: 0 }}
-  transition={{ duration: 0.8, ease: "easeInOut" }}
-  priority={true}      // optional, if this slide is important
-/>
-          </AnimatePresence>
-
-          {/* Navigation Buttons */}
-          <button
-            onClick={() => setCurrent((prev) => (prev - 1 + images.length) % images.length)}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-yellow-400/70 hover:bg-yellow-400 text-black px-3 py-2 rounded-full"
-          >
-            ◀
-          </button>
-          <button
-            onClick={() => setCurrent((prev) => (prev + 1) % images.length)}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-yellow-400/70 hover:bg-yellow-400 text-black px-3 py-2 rounded-full"
-          >
-            ▶
-          </button>
-        </div>
+        ))}
       </div>
-    </section>
+
+      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        <div className="bg-yellow-800 text-center hover:bg-yellow-700 text-white px-8 py-4 font-semibold rounded-xl shadow-md cursor-pointer">
+          Learn About Our Work
+        </div>
+      </motion.div>
+    </motion.div>
+
+    {/* --- Right Image Carousel --- */}
+    <div className="relative w-full h-[500px] overflow-hidden rounded-2xl shadow-lg">
+      <AnimatePresence>
+        <MotionImage
+          key={images[current]}
+          src={images[current]}
+          alt={`Slide ${current + 1}`}
+          width={800}
+          height={450}
+          className="rounded-2xl object-cover w-full h-full"
+          initial={{ x: "100%", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: "-100%", opacity: 0 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          priority={true}
+        />
+      </AnimatePresence>
+
+      {/* Navigation Buttons */}
+      <button
+        onClick={() => setCurrent((prev) => (prev - 1 + images.length) % images.length)}
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-yellow-700/80 hover:bg-yellow-700 text-white px-3 py-2 rounded-full"
+      >
+        ◀
+      </button>
+      <button
+        onClick={() => setCurrent((prev) => (prev + 1) % images.length)}
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-yellow-700/80 hover:bg-yellow-700 text-white px-3 py-2 rounded-full"
+      >
+        ▶
+      </button>
+    </div>
+  </div>
+</section>
+
   );
 }

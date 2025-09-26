@@ -8,7 +8,6 @@ import { motion } from "framer-motion";
 
 const MotionImage = motion(Image);
 
-
 const testimonials = [
   {
     name: "Ama Owusu",
@@ -34,24 +33,6 @@ const testimonials = [
     text: "IPA’s programs address real community needs while fostering innovation and sustainable growth.",
     image: "/images/testimonial4.jpg",
   },
-  {
-    name: "Kojo Asante",
-    position: "Social Entrepreneur",
-    text: "IPA’s programs address real community needs while fostering innovation and sustainable growth.",
-    image: "/images/testimonial4.jpg",
-  },
-  {
-    name: "Kojo Asante",
-    position: "Social Entrepreneur",
-    text: "IPA’s programs address real community needs while fostering innovation and sustainable growth.",
-    image: "/images/testimonial4.jpg",
-  },
-  {
-    name: "Kojo Asante",
-    position: "Social Entrepreneur",
-    text: "IPA’s programs address real community needs while fostering innovation and sustainable growth.",
-    image: "/images/testimonial4.jpg",
-  },
 ];
 
 export default function Testimonials() {
@@ -60,20 +41,20 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="relative py-32 bg-gray-50 overflow-hidden">
+    <section className="relative py-32 bg-[#fdfaf5] overflow-hidden">
       {/* Diagonal background */}
-      <div className="absolute top-0 left-0 w-full h-1/2 bg-yellow-50 -skew-y-6 origin-top-left"></div>
+      <div className="absolute top-0 left-0 w-full h-1/2 bg-yellow-100 -skew-y-6 origin-top-left"></div>
 
       <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-20">
           <motion.h2
-            className="text-4xl md:text-5xl font-extrabold text-yellow-500 mb-4"
+            className="text-4xl md:text-5xl font-extrabold text-[#8B4513] mb-4"
             whileHover={{ scale: 1.02 }}
           >
             What People Are Saying
           </motion.h2>
           <motion.p
-            className="text-lg text-gray-700 max-w-2xl mx-auto"
+            className="text-lg text-[#5C4033] max-w-2xl mx-auto"
             whileHover={{ scale: 1.01 }}
           >
             Stories from community members, partners, and experts about the impact of Indigenous People Alliance.
@@ -84,9 +65,9 @@ export default function Testimonials() {
         <div className="overflow-hidden relative pb-7">
           <motion.div
             className="flex gap-8 w-max"
-            animate={{ x: ["0%", "-50%"] }} // slower slide
+            animate={{ x: ["0%", "-50%"] }}
             transition={{
-              duration: 60, // slower, 60 seconds for full loop
+              duration: 60,
               ease: "linear",
               repeat: Infinity,
             }}
@@ -94,29 +75,32 @@ export default function Testimonials() {
             {[...testimonials, ...testimonials].map((testimonial, i) => (
               <motion.div
                 key={i}
-                className="bg-white rounded-3xl shadow-xl p-6 min-w-[280px] max-w-[280px] relative"
+                className="group bg-[#fffaf5] rounded-3xl shadow-xl p-6 min-w-[280px] max-w-[280px] relative border border-yellow-200 hover:border-[#8B4513] transition-colors duration-300"
               >
                 <div className="absolute -top-0 left-1/2 transform -translate-x-1/2">
-                <MotionImage
-  src={testimonial.image}
-  alt={testimonial.name}
-  width={40}             // match your original  w-20
-  height={80}            // match your original h-20
-  className="rounded-full w-20 h-20 border-4 border-yellow-400 shadow-lg object-cover"
-  whileHover={{ scale: 1.1 }}
-  whileTap={{ scale: 0.95 }}
-/>
+                  <MotionImage
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    width={40}
+                    height={80}
+                    className="rounded-full w-20 h-20 border-4 border-yellow-400 shadow-lg object-cover"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  />
                 </div>
-                <p className="text-gray-700 hover:text-yellow-800 mt-16 text-center mb-4">{testimonial.text}</p>
+
+                <p className="text-[#5C4033] group-hover:text-[#8B4513] mt-16 text-center mb-4 transition-colors duration-300">
+                  {testimonial.text}
+                </p>
                 <div className="text-center">
-                  <div className="font-semibold text-yellow-500 hover:text-yellow-800">{testimonial.name}</div>
+                  <div className="font-semibold text-yellow-600 group-hover:text-[#8B4513] transition-colors duration-300">
+                    {testimonial.name}
+                  </div>
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
-
-     
       </div>
     </section>
   );

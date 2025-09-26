@@ -5,6 +5,7 @@ import TeamSection from "../components/TeamSection"
 import Testimonials from "../components/Testimonials"
 import Partners from "../components/partners"
 import MapLocation from "../components/map"
+import FAQ from "../components/faq"
 
 
 export default function HomePage() {
@@ -16,6 +17,7 @@ export default function HomePage() {
       <ImpactSection />
       < Testimonials />
       < Partners />
+      < FAQ />
       < MapLocation />
     </main> 
   )

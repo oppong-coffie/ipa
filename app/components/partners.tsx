@@ -3,8 +3,7 @@
 import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Image from 'next/image';
-
+import Image from "next/image";
 import { useEffect } from "react";
 
 const partners = [
@@ -22,21 +21,21 @@ export default function Partners() {
   }, []);
 
   return (
-    <section className="pb-24 bg-gray-50 relative">
-      {/* Decorative yellow accent circles */}
-      <div className="absolute -top-20 -right-20 w-72 h-72 bg-yellow-300/20 blur-3xl rounded-full"></div>
-      <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-yellow-300/20 blur-3xl rounded-full"></div>
+    <section className="pb-24 bg-[#fdfaf5] relative">
+      {/* Decorative brown & yellow accent circles */}
+      <div className="absolute -top-20 right-0 w-72 h-72 bg-yellow-300/20 blur-3xl rounded-full"></div>
+      <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-[#8B4513]/10 blur-3xl rounded-full"></div>
 
       <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-16" data-aos="fade-up">
           <motion.h2
-            className="text-4xl md:text-5xl font-extrabold text-yellow-500 mb-4"
+            className="text-4xl md:text-5xl font-extrabold text-[#8B4513] mb-4"
             whileHover={{ scale: 1.02 }}
           >
             Our Partners
           </motion.h2>
           <motion.p
-            className="text-lg text-gray-700 max-w-2xl mx-auto"
+            className="text-lg text-[#5C4033] max-w-2xl mx-auto"
             whileHover={{ scale: 1.01 }}
           >
             We collaborate with local and international organizations to empower communities, preserve indigenous knowledge, and drive sustainable change.
@@ -47,19 +46,19 @@ export default function Partners() {
           {partners.map((partner, i) => (
             <motion.div
               key={partner.name}
-              className="flex items-center justify-center p-6 bg-white rounded-2xl shadow-lg border border-gray-200 hover:shadow-2xl transition-shadow duration-300"
+              className="flex items-center justify-center p-6 bg-white rounded-2xl shadow-md border border-yellow-200 hover:border-[#8B4513] hover:shadow-xl transition-all duration-300"
               data-aos="fade-up"
               data-aos-delay={i * 100}
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.25 }}
+              whileTap={{ scale: 0.95 }}
             >
-          <Image
-  src={partner.logo}
-  alt={partner.name}
-  width={120}              // or appropriate width
-  height={64}              // or appropriate height
-  className="object-contain max-h-16"
-/>
+              <Image
+                src={partner.logo}
+                alt={partner.name}
+                width={120}
+                height={64}
+                className="object-contain max-h-16"
+              />
             </motion.div>
           ))}
         </div>
