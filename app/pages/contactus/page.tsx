@@ -14,7 +14,7 @@ export default function ContactPage() {
             Get in Touch 📞
           </h1>
           <p className="text-xl text-brown-800">
-            Ready to make a difference? We&apos;d love to hear from you and explore
+            Ready to make a difference? Wed love to hear from you and explore
             how we can work together!
           </p>
         </div>
@@ -27,7 +27,7 @@ export default function ContactPage() {
           className="border-brown-700 bg-yellow-50 shadow-lg"
         >
           <p className="text-brown-700 mb-4">
-            Fill out the form below and we&apos;ll get back to you within 24 hours.
+            Fill out the form below and well get back to you within 24 hours.
           </p>
           <form className="space-y-4">
             <input
