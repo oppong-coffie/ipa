@@ -13,12 +13,12 @@ export default function TeamSection() {
       image: '/images/team7.png'
     },
     {
-      name: 'David Djangmah Tawiah',
+      name: 'David D. Tawiah',
       position: 'Team Member',
       image: '/images/team2.jpg'
     },
     {
-      name: 'Gabriel Owusu Akyaw',
+      name: 'Gabriel O. Akyaw',
       position: 'Team Member',
       image: '/images/team3.jpg'
     },
@@ -26,6 +26,11 @@ export default function TeamSection() {
       name: 'Hilda Darko',
       position: 'Communications Officer',
       image: '/images/team6.png'
+    },
+    {
+      name: 'Ekow Freeman',
+      position: 'Media officer',
+      image: '/images/team8.jpg'
     }
   ]
 
@@ -67,7 +72,7 @@ export default function TeamSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8">
           {team.map((member, index) => (
             <motion.div
               key={member.name}

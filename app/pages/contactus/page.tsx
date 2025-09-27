@@ -27,7 +27,7 @@ export default function ContactPage() {
           className="border-brown-700 bg-yellow-50 shadow-lg"
         >
           <p className="text-brown-700 mb-4">
-            Fill out the form below and we'll get back to you within 24 hours.
+            Fill out the form below and we&apos;ll get back to you within 24 hours.
           </p>
           <form className="space-y-4">
             <input
@@ -76,8 +76,7 @@ export default function ContactPage() {
             }
             className="border-brown-700 bg-yellow-50 shadow-md"
           >
-            <p className="text-brown-800">+233 24 567 8901</p>
-            <p className="text-brown-800">+233 20 111 2233</p>
+            <p className="text-brown-800">+233 50 846 9840</p>
           </Card>
         </div>
 
@@ -87,7 +86,7 @@ export default function ContactPage() {
           className="border-brown-700 bg-yellow-50 shadow-lg"
         >
           <p className="text-brown-700 mb-4">
-            We have presence across Ghana's indigenous regions.
+            We have presence across Ghana&apos;s indigenous regions.
           </p>
           <div className="grid grid-cols-1 gap-4">
             <div className="flex justify-between items-center p-3 bg-yellow-100 rounded-lg">
@@ -131,45 +130,7 @@ export default function ContactPage() {
           </div>
         </Card>
 
-        {/* FAQ */}
-        <section className="py-16 bg-yellow-50">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-brown-900 mb-4">
-              Frequently Asked Questions ❓
-            </h2>
-            <p className="text-lg text-brown-800">
-              Quick answers to common questions...
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            <Card
-              title={
-                <span className="text-brown-900 font-bold">
-                  How can I volunteer with IPA? 🙋‍♀️
-                </span>
-              }
-              className="border-brown-700 bg-white shadow-md"
-            >
-              <p className="text-brown-800">
-                We welcome volunteers with diverse skills. Fill out our volunteer form to join our team.
-              </p>
-            </Card>
-
-            <Card
-              title={
-                <span className="text-brown-900 font-bold">
-                  How can I donate to IPA? 💝
-                </span>
-              }
-              className="border-brown-700 bg-white shadow-md"
-            >
-              <p className="text-brown-800">
-                You can donate securely through our website or contact our finance office directly.
-              </p>
-            </Card>
-          </div>
-        </section>
+      
       </section>
     </div>
   );

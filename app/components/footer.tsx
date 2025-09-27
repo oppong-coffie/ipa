@@ -57,7 +57,7 @@ export default function Footer() {
           {/* Social / Contact */}
           <motion.div whileHover={{ scale: 1.02 }} className="text-center md:text-left">
             <h3 className="font-semibold text-yellow-400 mb-2">Connect With Us</h3>
-            <p className="text-[#F8EBD7] mb-4">info@ipa.org | +233 24 000 0000</p>
+            <p className="text-[#F8EBD7] mb-4">info@ipa.org | +233 50 846 9840</p>
             <div className="flex justify-center md:justify-start gap-4">
               <Link href="#" className="hover:text-yellow-300 transition-colors">🌐</Link>
               <Link href="#" className="hover:text-yellow-300 transition-colors">🐦</Link>

@@ -13,7 +13,7 @@ export default function AboutPage() {
               About Indigenous People Alliance 🌍
             </h1>
             <p className="text-xl text-white">
-              Discover our story, mission, and the passionate team working to empower Ghana's indigenous communities.
+              Discover our story, mission, and the passionate team working to empower Ghana&apos;s indigenous communities.
             </p>
           </div>
         </div>
@@ -28,7 +28,7 @@ export default function AboutPage() {
               <div className="space-y-4 text-[#3B2A1A]">
                 <p>
                   Founded in 2020 by a group of passionate young indigenous leaders, the Indigenous People Alliance
-                  emerged from a deep understanding of the challenges facing Ghana's indigenous communities.
+                  emerged from a deep understanding of the challenges facing Ghana&apos;s indigenous communities.
                 </p>
                 <p>
                   Our founders witnessed firsthand how climate change, economic marginalization, and cultural erosion
@@ -98,7 +98,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Join Our Mission 🚀</h2>
           <p className="text-xl mb-8">
-            Whether you're an individual, organization, or community leader, there are many ways to support our work and
+            Whether you&apos;re an individual, organization, or community leader, there are many ways to support our work and
             make a difference.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
