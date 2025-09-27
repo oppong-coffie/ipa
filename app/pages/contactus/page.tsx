@@ -14,7 +14,7 @@ export default function ContactPage() {
             Get in Touch 📞
           </h1>
           <p className="text-xl text-brown-800">
-            Ready to make a difference? We'd love to hear from you and explore
+            Ready to make a difference? We&apos;d love to hear from you and explore
             how we can work together!
           </p>
         </div>
