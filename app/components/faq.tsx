@@ -44,15 +44,16 @@ export default function FAQ() {
     <section className="py-24 bg-yellow-50">
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
         <motion.h2
-          className="text-4xl md:text-5xl font-extrabold text-yellow-800 mb-6 text-center"
+          className="text-4xl md:text-5xl font-extrabold text-[#8B7D6B] mb-6 text-center"
           whileHover={{ scale: 1.03 }}
         >
           ❓ Frequently Asked Questions
         </motion.h2>
-        <p className="text-center text-yellow-900 mb-12 max-w-2xl mx-auto">
-          Have questions about our mission, projects, or how to get involved?
-          We’ve got you covered.
-        </p>
+        <p className="text-center text-[#8B7D6B] mb-12 max-w-2xl mx-auto">
+  Have questions about our mission, projects, or how to get involved?{' '}
+  <span className="text-yellow-400 font-semibold">We’ve got you covered.</span>
+</p>
+
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (

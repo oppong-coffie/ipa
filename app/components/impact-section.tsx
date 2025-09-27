@@ -71,63 +71,80 @@ export function ImpactSection() {
   <div className="max-w-6xl mx-auto px-6 lg:px-12 relative grid lg:grid-cols-2 gap-16 items-center">
     {/* --- Left Text & Stats --- */}
     <motion.div
-      initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6 }}
-      data-aos="fade-right"
-    >
-      <motion.h2
-        className="text-4xl md:text-5xl font-extrabold text-yellow-900 mb-6 leading-tight"
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.97 }}
+  initial={{ opacity: 0, x: -50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.6 }}
+  data-aos="fade-right"
+>
+  {/* Heading */}
+  <motion.h2
+    className="text-4xl md:text-5xl font-extrabold text-[#8B7D6B] mb-6 leading-tight drop-shadow-md"
+    whileHover={{ scale: 1.03, color: '#FDDC5C' }}
+    whileTap={{ scale: 0.97 }}
+    transition={{ type: 'spring', stiffness: 250 }}
+  >
+    Creating Lasting Impact Together
+  </motion.h2>
+
+  {/* Description */}
+  <motion.p
+    className="text-lg text-gray-700 mb-10 leading-relaxed max-w-xl"
+    whileHover={{ scale: 1.01 }}
+  >
+    We collaborate with communities and partners to build a future that honors
+    indigenous knowledge while embracing sustainable innovation.
+  </motion.p>
+
+  {/* Stats */}
+  <div className="grid grid-cols-2 gap-6 mb-10">
+    {stats.map((stat, i) => (
+      <motion.div
+        key={stat.label}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ delay: i * 0.1 }}
+        className="text-center rounded-xl bg-yellow-50 hover:bg-yellow-100 px-5 py-6 shadow-md border border-yellow-200"
       >
-        Creating Lasting Impact Together
-      </motion.h2>
-
-      <motion.p
-        className="text-lg text-gray-700 mb-10 leading-relaxed max-w-xl"
-        whileHover={{ scale: 1.01 }}
-      >
-        We collaborate with communities and partners to build a future that honors
-        indigenous knowledge while embracing sustainable innovation.
-      </motion.p>
-
-      <div className="grid grid-cols-2 gap-6 mb-10">
-        {stats.map((stat, i) => (
-          <motion.div
-            key={stat.label}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ delay: i * 0.1 }}
-            className="text-center rounded-xl bg-yellow-50 hover:bg-yellow-100 px-5 py-6 shadow-md border border-yellow-200"
-          >
-            <div className="text-4xl font-extrabold text-yellow-700 mb-2">
-              {startCounting ? (
-                <CountUp
-                  end={stat.number}
-                  duration={15.5}
-                  separator=","
-                  suffix={stat.suffix}
-                />
-              ) : (
-                "0"
-              )}
-            </div>
-            <div className="text-sm uppercase tracking-wide text-gray-700">
-              {stat.label}
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
-      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-        <div className="bg-yellow-800 text-center hover:bg-yellow-700 text-white px-8 py-4 font-semibold rounded-xl shadow-md cursor-pointer">
-          Learn About Our Work
+        <div className="text-4xl font-extrabold text-yellow-700 mb-2">
+          {startCounting ? (
+            <CountUp
+              end={stat.number}
+              duration={15.5}
+              separator=","
+              suffix={stat.suffix}
+            />
+          ) : (
+            "0"
+          )}
+        </div>
+        <div className="text-sm uppercase tracking-wide text-gray-700">
+          {stat.label}
         </div>
       </motion.div>
-    </motion.div>
+    ))}
+  </div>
+
+  {/* Call-to-Action Button */}
+  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+    <div className="
+      bg-[#8B7D6B] 
+      text-center 
+      hover:bg-[#FDDC5C] 
+      text-[#F5EBDD] 
+      px-8 py-4 
+      font-semibold 
+      rounded-xl 
+      shadow-md 
+      cursor-pointer 
+      transition-all duration-300
+    ">
+      Learn About Our Work
+    </div>
+  </motion.div>
+</motion.div>
+
 
     {/* --- Right Image Carousel --- */}
     <div className="relative w-full h-[500px] overflow-hidden rounded-2xl shadow-lg">

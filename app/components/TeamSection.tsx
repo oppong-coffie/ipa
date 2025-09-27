@@ -121,23 +121,24 @@ export default function TeamSection() {
             whileTap={{ scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 250 }}
           >
-            <div
-              className="
-                w-80
-                bg-yellow-800 
-                hover:bg-yellow-700 
-                text-white 
-                rounded-xl 
-                px-8 py-4 
-                text-lg 
-                font-semibold 
-                shadow-[0_4px_20px_rgba(146,64,14,0.5)] 
-                hover:shadow-[0_6px_30px_rgba(202,138,4,0.7)] 
-                transition-all duration-300
-              "
-            >
-              Meet Our Team
-            </div>
+    <div
+  className="
+    w-80
+    bg-[#8B7D6B] 
+    hover:bg-[#A67C52] 
+    text-[#F5EBDD] 
+    rounded-xl 
+    px-8 py-4 
+    text-lg 
+    font-semibold 
+    shadow-[0_4px_20px_rgba(146,64,14,0.5)] 
+    hover:shadow-[0_6px_30px_rgba(202,138,4,0.7)] 
+    transition-all duration-300
+  "
+>
+  Meet Our Team
+</div>
+
           </motion.div>
         </div>
       </div>

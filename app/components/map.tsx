@@ -8,20 +8,21 @@ export default function MapLocation() {
     <section className="py-24 bg-[#FDF8F4] relative"> 
       {/* warm cream/brown background */}
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
-        <motion.h2
-          className="text-4xl md:text-5xl font-extrabold text-yellow-500 mb-6 text-center"
-          whileHover={{ scale: 1.02 }}
-        >
-          Visit Our Office
-        </motion.h2>
+      <motion.h2
+  className="text-4xl md:text-5xl font-extrabold text-[#8B7D6B] mb-6 text-center"
+  whileHover={{ scale: 1.02, color: '#FDDC5C' }}
+>
+  Visit Our Office
+</motion.h2>
 
-        <motion.p
-          className="text-center text-[#5C4033] mb-12 max-w-2xl mx-auto leading-relaxed"
-          whileHover={{ scale: 1.01 }}
-        >
-          Find us at our headquarters in Ghana. Our team is always ready 
-          to welcome visitors and partners.
-        </motion.p>
+<motion.p
+  className="text-center text-[#8B7D6B] mb-12 max-w-2xl mx-auto leading-relaxed"
+  whileHover={{ scale: 1.01 }}
+>
+  Find us at our headquarters in Ghana. Our team is always ready{' '}
+  <span className="text-yellow-400 font-semibold">to welcome visitors and partners.</span>
+</motion.p>
+
 
         <div className="w-full h-[500px] rounded-2xl overflow-hidden shadow-lg border-4 border-yellow-500 relative bg-[#7B4B2A]/10">
           <Image

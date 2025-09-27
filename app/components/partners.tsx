@@ -27,20 +27,23 @@ export default function Partners() {
       <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-[#8B4513]/10 blur-3xl rounded-full"></div>
 
       <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
-        <div className="text-center mb-16" data-aos="fade-up">
-          <motion.h2
-            className="text-4xl md:text-5xl font-extrabold text-[#8B4513] mb-4"
-            whileHover={{ scale: 1.02 }}
-          >
-            Our Partners
-          </motion.h2>
-          <motion.p
-            className="text-lg text-[#5C4033] max-w-2xl mx-auto"
-            whileHover={{ scale: 1.01 }}
-          >
-            We collaborate with local and international organizations to empower communities, preserve indigenous knowledge, and drive sustainable change.
-          </motion.p>
-        </div>
+      <div className="text-center mb-16" data-aos="fade-up">
+  <motion.h2
+    className="text-4xl md:text-5xl font-extrabold text-[#8B7D6B] mb-4 drop-shadow-md"
+    whileHover={{ scale: 1.02, color: '#FDDC5C' }}
+    whileTap={{ scale: 0.97 }}
+    transition={{ type: 'spring', stiffness: 250 }}
+  >
+    Our Partners
+  </motion.h2>
+  <motion.p
+    className="text-lg text-[#5C4033] max-w-2xl mx-auto leading-relaxed"
+    whileHover={{ scale: 1.01 }}
+  >
+    We collaborate with local and international organizations to empower communities, preserve indigenous knowledge, and drive sustainable change.
+  </motion.p>
+</div>
+
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
           {partners.map((partner, i) => (

@@ -46,20 +46,23 @@ export default function Testimonials() {
       <div className="absolute top-0 left-0 w-full h-1/2 bg-yellow-100 -skew-y-6 origin-top-left"></div>
 
       <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
-        <div className="text-center mb-20">
-          <motion.h2
-            className="text-4xl md:text-5xl font-extrabold text-[#8B4513] mb-4"
-            whileHover={{ scale: 1.02 }}
-          >
-            What People Are Saying
-          </motion.h2>
-          <motion.p
-            className="text-lg text-[#5C4033] max-w-2xl mx-auto"
-            whileHover={{ scale: 1.01 }}
-          >
-            Stories from community members, partners, and experts about the impact of Indigenous People Alliance.
-          </motion.p>
-        </div>
+      <div className="text-center mb-20">
+  <motion.h2
+    className="text-4xl md:text-5xl font-extrabold text-[#8B7D6B] mb-4 drop-shadow-md"
+    whileHover={{ scale: 1.02, color: '#FDDC5C' }}
+    whileTap={{ scale: 0.97 }}
+    transition={{ type: 'spring', stiffness: 250 }}
+  >
+    What People Are Saying
+  </motion.h2>
+  <motion.p
+    className="text-lg text-[#5C4033] max-w-2xl mx-auto leading-relaxed"
+    whileHover={{ scale: 1.01 }}
+  >
+    Stories from community members, partners, and experts about the impact of Indigenous People Alliance.
+  </motion.p>
+</div>
+
 
         {/* Continuous sliding carousel */}
         <div className="overflow-hidden relative pb-7">
