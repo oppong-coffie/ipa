@@ -13,22 +13,21 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="relative bg-[#3E2C1C] text-white py-16"> 
+    <footer className="relative bg-[#D9CFC1] text-[#5B4636] py-20 overflow-hidden">
       {/* Decorative yellow circles */}
-      <div className="absolute -top-12 -right- w-48 h-48 bg-yellow-400/20 blur-3xl rounded-full"></div>
-      <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-yellow-400/20 blur-3xl rounded-full"></div>
+      <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#F5C04E]/30 blur-3xl rounded-full animate-pulse-slow"></div>
+      <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-[#F5C04E]/20 blur-3xl rounded-full animate-pulse-slow"></div>
 
       <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
         {/* Top Section */}
         <div
-          className="flex flex-col md:flex-row justify-between items-center md:items-start gap-12 mb-12"
+          className="flex flex-col md:flex-row justify-between items-center md:items-start gap-16 mb-16"
           data-aos="fade-up"
         >
           {/* Logo & tagline */}
           <motion.div whileHover={{ scale: 1.02 }} className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start space-x-3 mb-4">
-              <div className="h-12 w-12 rounded-lg bg-yellow-400 flex items-center justify-center overflow-hidden">
-               
+              <div className="h-14 w-14 rounded-lg bg-yellow-400 flex items-center justify-center overflow-hidden shadow-lg">
                 <Image
                   src="/images/logo.png"
                   alt="IPA Logo"
@@ -37,39 +36,39 @@ export default function Footer() {
                   className="object-contain"
                 />
               </div>
-              <span className="font-bold text-xl text-yellow-400">IPA</span>
+              <span className="font-bold text-2xl text-yellow-500 tracking-wide">IPA</span>
             </div>
-            <p className="text-[#F8EBD7] max-w-xs">
+            <p className="text-whi max-w-xs text-sm md:text-base leading-relaxed">
               Empowering indigenous communities for a sustainable and equitable future.
             </p>
           </motion.div>
 
           {/* Quick Links */}
-          <motion.div whileHover={{ scale: 1.02 }} className="flex flex-col space-y-2 text-center md:text-left">
-            <h3 className="font-semibold text-yellow-400 mb-2">Quick Links</h3>
-            <Link href="/" className="hover:text-yellow-300 transition-colors">Home</Link>
-            <Link href="/about" className="hover:text-yellow-300 transition-colors">About</Link>
-            <Link href="/projects" className="hover:text-yellow-300 transition-colors">Projects</Link>
-            <Link href="/resources" className="hover:text-yellow-300 transition-colors">Resources</Link>
-            <Link href="/contact" className="hover:text-yellow-300 transition-colors">Contact</Link>
+          <motion.div whileHover={{ scale: 1.02 }} className="flex flex-col space-y-3 text-center md:text-left">
+            <h3 className="font-semibold text-yellow-500 mb-2 text-lg">Quick Links</h3>
+            <Link href="/" className="hover:text-[#FFD966] transition-colors">Home</Link>
+            <Link href="/about" className="hover:text-[#FFD966] transition-colors">About</Link>
+            <Link href="/projects" className="hover:text-[#FFD966] transition-colors">Projects</Link>
+            <Link href="/resources" className="hover:text-[#FFD966] transition-colors">Resources</Link>
+            <Link href="/contact" className="hover:text-[#FFD966] transition-colors">Contact</Link>
           </motion.div>
 
           {/* Social / Contact */}
           <motion.div whileHover={{ scale: 1.02 }} className="text-center md:text-left">
-            <h3 className="font-semibold text-yellow-400 mb-2">Connect With Us</h3>
-            <p className="text-[#F8EBD7] mb-4">info@ipa.org | +233 50 846 9840</p>
-            <div className="flex justify-center md:justify-start gap-4">
-              <Link href="#" className="hover:text-yellow-300 transition-colors">🌐</Link>
-              <Link href="#" className="hover:text-yellow-300 transition-colors">🐦</Link>
-              <Link href="#" className="hover:text-yellow-300 transition-colors">📘</Link>
-              <Link href="#" className="hover:text-yellow-300 transition-colors">📸</Link>
+            <h3 className="font-semibold text-[#F5C04E] mb-2 text-lg">Connect With Us</h3>
+            <p className="text-[#5B4636] mb-4 text-sm md:text-base">info@ipa.org | +233 50 846 9840</p>
+            <div className="flex justify-center md:justify-start gap-5 text-xl">
+              <Link href="#" className="hover:text-[#FFD966] transition-colors">🌐</Link>
+              <Link href="#" className="hover:text-[#FFD966] transition-colors">🐦</Link>
+              <Link href="#" className="hover:text-[#FFD966] transition-colors">📘</Link>
+              <Link href="#" className="hover:text-[#FFD966] transition-colors">📸</Link>
             </div>
           </motion.div>
         </div>
 
         {/* Bottom Section */}
         <motion.div
-          className="border-t border-yellow-400/30 pt-6 text-center text-sm text-[#E2D0BA]"
+          className="border-t border-[#F5C04E]/40 pt-6 text-center text-sm md:text-base text-white tracking-wide"
           data-aos="fade-up"
         >
           © {new Date().getFullYear()} Indigenous People Alliance. All Rights Reserved.
