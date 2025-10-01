@@ -24,7 +24,8 @@ interface RegionData {
 function useLeafletIconFix() {
   useEffect(() => {
     if (typeof window !== "undefined") {
-      delete (L.Icon.Default.prototype as any)._getIconUrl;
+      // Now no "any" needed, because `_getIconUrl` is declared above
+      delete L.Icon.Default.prototype._getIconUrl;
       L.Icon.Default.mergeOptions({
         iconRetinaUrl:
           "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png",
