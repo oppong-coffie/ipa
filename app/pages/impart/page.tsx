@@ -3,27 +3,9 @@
 import { useState, useEffect } from "react";
 import { Card, Tabs, Badge } from "antd";
 import type { TabsProps } from "antd";
-import dynamic from "next/dynamic";
+import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-
-// Dynamically import react-leaflet so it doesn’t run on SSR
-const MapContainer = dynamic(
-  () => import("react-leaflet").then((m) => m.MapContainer),
-  { ssr: false }
-);
-const TileLayer = dynamic(
-  () => import("react-leaflet").then((m) => m.TileLayer),
-  { ssr: false }
-);
-const Marker = dynamic(
-  () => import("react-leaflet").then((m) => m.Marker),
-  { ssr: false }
-);
-const Tooltip = dynamic(
-  () => import("react-leaflet").then((m) => m.Tooltip),
-  { ssr: false }
-);
 
 interface RegionData {
   name: string;
@@ -38,26 +20,134 @@ interface RegionData {
   futureGoals: string[];
 }
 
+// Fix leaflet default icon inside useEffect (avoids SSR issues)
+function useLeafletIconFix() {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      delete (L.Icon.Default.prototype as any)._getIconUrl;
+      L.Icon.Default.mergeOptions({
+        iconRetinaUrl:
+          "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png",
+        iconUrl:
+          "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png",
+        shadowUrl:
+          "https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png",
+      });
+    }
+  }, []);
+}
+
+// Regions with coordinates
 const regionsData: RegionData[] = [
-  // ... your region objects unchanged
+  {
+    name: "🌾 Northern Region",
+    lat: 9.4,
+    lng: -1.0,
+    population: "2.7M",
+    projects: 12,
+    beneficiaries: "45,000+",
+    keyImpacts: [
+      "🌾 Sustainable farming for 15,000 farmers",
+      "💧 Clean water access for 25 communities",
+      "🏫 Education support for 8,000 children",
+      "🌳 10,000 trees planted 🌱",
+    ],
+    stories: [
+      {
+        title: "👩🏾‍🌾 Shea Cooperative",
+        description: "Women’s cooperative increased income by 300%",
+        metric: "500 women",
+      },
+      {
+        title: "🔆 Solar Water Pumps",
+        description: "Solar systems providing year-round clean water",
+        metric: "15 communities",
+      },
+    ],
+    challenges: [
+      "🚚 Market access",
+      "🔥 Seasonal water scarcity",
+      "🛠️ Need technical training",
+    ],
+    futureGoals: [
+      "🏭 Establish 5 new centers by 2026",
+      "🚰 Expand water infrastructure",
+      "💻 Launch digital literacy programs",
+    ],
+  },
+  {
+    name: "🌱 Upper East Region",
+    lat: 10.9,
+    lng: -0.85,
+    population: "1.3M",
+    projects: 8,
+    beneficiaries: "20,000+",
+    keyImpacts: [
+      "🌱 New irrigation schemes",
+      "🏥 Rural clinics construction",
+      "🚜 Farmer capacity building",
+    ],
+    stories: [
+      {
+        title: "💧 Irrigation Boost",
+        description: "Better yields & drought resilience",
+        metric: "3,000 farmers",
+      },
+    ],
+    challenges: ["☀️ Drought resilience", "📉 Limited extension officers"],
+    futureGoals: ["🌊 Expand irrigation coverage", "🚚 Develop new market hubs"],
+  },
+  {
+    name: "🏫 Ashanti Region",
+    lat: 6.7,
+    lng: -1.6,
+    population: "5.4M",
+    projects: 20,
+    beneficiaries: "100,000+",
+    keyImpacts: [
+      "🏫 STEM labs for 50 schools",
+      "💊 Health outreach programs",
+      "📈 SME capacity support",
+    ],
+    stories: [
+      {
+        title: "🔬 STEM Labs",
+        description: "Equipped 50 schools with labs",
+        metric: "10,000 students",
+      },
+    ],
+    challenges: ["🌍 Urban-rural divide", "🚧 Inadequate infrastructure"],
+    futureGoals: ["🏫 Expand coverage", "⚡ Increase access to solar power"],
+  },
+  {
+    name: "🏙️ Greater Accra",
+    lat: 5.55,
+    lng: -0.2,
+    population: "6.0M",
+    projects: 25,
+    beneficiaries: "200,000+",
+    keyImpacts: [
+      "🚰 Sanitation upgrades",
+      "🏥 Mobile clinics",
+      "🚦 Urban planning initiatives",
+    ],
+    stories: [
+      {
+        title: "🚰 Sanitation Project",
+        description: "Upgraded 10 markets with modern sanitation",
+        metric: "50,000 people",
+      },
+    ],
+    challenges: ["🏢 Urban density", "♻️ Waste management"],
+    futureGoals: ["🏥 Expand mobile clinics", "🌿 Green city programs"],
+  },
 ];
 
 export default function ImpactPage() {
   const [selectedRegion, setSelectedRegion] = useState<RegionData | null>(null);
 
-  useEffect(() => {
-    // Fix Leaflet icons only in browser
-    // @ts-expect-error internal property
-    delete L.Icon.Default.prototype._getIconUrl;
-    L.Icon.Default.mergeOptions({
-      iconRetinaUrl:
-        "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png",
-      iconUrl:
-        "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png",
-      shadowUrl:
-        "https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png",
-    });
-  }, []);
+  // Run leaflet icon fix
+  useLeafletIconFix();
 
   const tabs: TabsProps["items"] = selectedRegion
     ? [
@@ -67,15 +157,24 @@ export default function ImpactPage() {
           children: (
             <div className="space-y-4">
               {selectedRegion.keyImpacts.map((imp, idx) => (
-                <p key={idx} className="p-2 bg-emerald-50 rounded text-emerald-800">
+                <p
+                  key={idx}
+                  className="p-2 bg-emerald-50 rounded text-emerald-800"
+                >
                   {imp}
                 </p>
               ))}
               {selectedRegion.stories.map((st, idx) => (
-                <div key={idx} className="border-l-4 border-emerald-500 pl-3 bg-emerald-50 rounded">
+                <div
+                  key={idx}
+                  className="border-l-4 border-emerald-500 pl-3 bg-emerald-50 rounded"
+                >
                   <h4 className="font-semibold text-emerald-800">{st.title}</h4>
                   <p className="text-emerald-700 text-sm">{st.description}</p>
-                  <Badge count={st.metric} style={{ backgroundColor: "#065f46" }} />
+                  <Badge
+                    count={st.metric}
+                    style={{ backgroundColor: "#065f46" }}
+                  />
                 </div>
               ))}
             </div>
@@ -100,7 +199,10 @@ export default function ImpactPage() {
           children: (
             <div className="space-y-3">
               {selectedRegion.futureGoals.map((g, idx) => (
-                <p key={idx} className="p-2 bg-indigo-50 rounded text-indigo-800">
+                <p
+                  key={idx}
+                  className="p-2 bg-indigo-50 rounded text-indigo-800"
+                >
                   {g}
                 </p>
               ))}
@@ -119,15 +221,24 @@ export default function ImpactPage() {
             <>
               <Card
                 title={selectedRegion.name}
-                extra={<Badge count={`${selectedRegion.projects} Projects`} style={{ backgroundColor: "#065f46" }} />}
+                extra={
+                  <Badge
+                    count={`${selectedRegion.projects} Projects`}
+                    style={{ backgroundColor: "#065f46" }}
+                  />
+                }
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                   <div className="text-center p-3 bg-emerald-100 rounded">
-                    <div className="text-2xl font-bold text-emerald-700">{selectedRegion.population}</div>
+                    <div className="text-2xl font-bold text-emerald-700">
+                      {selectedRegion.population}
+                    </div>
                     <div className="text-sm text-emerald-800">Population</div>
                   </div>
                   <div className="text-center p-3 bg-emerald-200 rounded">
-                    <div className="text-2xl font-bold text-emerald-900">{selectedRegion.beneficiaries}</div>
+                    <div className="text-2xl font-bold text-emerald-900">
+                      {selectedRegion.beneficiaries}
+                    </div>
                     <div className="text-sm text-emerald-800">Beneficiaries</div>
                   </div>
                 </div>
@@ -166,7 +277,9 @@ export default function ImpactPage() {
                 }}
               >
                 <Tooltip direction="top" offset={[0, -10]} opacity={1} permanent>
-                  <span className="text-sm font-semibold text-[#5B3A1A]">{region.name}</span>
+                  <span className="text-sm font-semibold text-[#5B3A1A]">
+                    {region.name}
+                  </span>
                 </Tooltip>
               </Marker>
             ))}
