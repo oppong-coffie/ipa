@@ -43,7 +43,11 @@ const regionsData: RegionData[] = [
         metric: "15 communities",
       },
     ],
-    challenges: ["🚚 Market access", "🔥 Seasonal water scarcity", "🛠️ Need technical training"],
+    challenges: [
+      "🚚 Market access",
+      "🔥 Seasonal water scarcity",
+      "🛠️ Need technical training",
+    ],
     futureGoals: [
       "🏭 Establish 5 new centers by 2026",
       "🚰 Expand water infrastructure",
@@ -57,10 +61,23 @@ const regionsData: RegionData[] = [
     population: "1.3M",
     projects: 8,
     beneficiaries: "20,000+",
-    keyImpacts: ["🌱 New irrigation schemes", "🏥 Rural clinics construction", "🚜 Farmer capacity building"],
-    stories: [{ title: "💧 Irrigation Boost", description: "Better yields & drought resilience", metric: "3,000 farmers" }],
+    keyImpacts: [
+      "🌱 New irrigation schemes",
+      "🏥 Rural clinics construction",
+      "🚜 Farmer capacity building",
+    ],
+    stories: [
+      {
+        title: "💧 Irrigation Boost",
+        description: "Better yields & drought resilience",
+        metric: "3,000 farmers",
+      },
+    ],
     challenges: ["☀️ Drought resilience", "📉 Limited extension officers"],
-    futureGoals: ["🌊 Expand irrigation coverage", "🚚 Develop new market hubs"],
+    futureGoals: [
+      "🌊 Expand irrigation coverage",
+      "🚚 Develop new market hubs",
+    ],
   },
   {
     name: "🏫 Ashanti Region",
@@ -69,8 +86,18 @@ const regionsData: RegionData[] = [
     population: "5.4M",
     projects: 20,
     beneficiaries: "100,000+",
-    keyImpacts: ["🏫 STEM labs for 50 schools", "💊 Health outreach programs", "📈 SME capacity support"],
-    stories: [{ title: "🔬 STEM Labs", description: "Equipped 50 schools with labs", metric: "10,000 students" }],
+    keyImpacts: [
+      "🏫 STEM labs for 50 schools",
+      "💊 Health outreach programs",
+      "📈 SME capacity support",
+    ],
+    stories: [
+      {
+        title: "🔬 STEM Labs",
+        description: "Equipped 50 schools with labs",
+        metric: "10,000 students",
+      },
+    ],
     challenges: ["🌍 Urban-rural divide", "🚧 Inadequate infrastructure"],
     futureGoals: ["🏫 Expand coverage", "⚡ Increase access to solar power"],
   },
@@ -81,8 +108,18 @@ const regionsData: RegionData[] = [
     population: "6.0M",
     projects: 25,
     beneficiaries: "200,000+",
-    keyImpacts: ["🚰 Sanitation upgrades", "🏥 Mobile clinics", "🚦 Urban planning initiatives"],
-    stories: [{ title: "🚰 Sanitation Project", description: "Upgraded 10 markets with modern sanitation", metric: "50,000 people" }],
+    keyImpacts: [
+      "🚰 Sanitation upgrades",
+      "🏥 Mobile clinics",
+      "🚦 Urban planning initiatives",
+    ],
+    stories: [
+      {
+        title: "🚰 Sanitation Project",
+        description: "Upgraded 10 markets with modern sanitation",
+        metric: "50,000 people",
+      },
+    ],
     challenges: ["🏢 Urban density", "♻️ Waste management"],
     futureGoals: ["🏥 Expand mobile clinics", "🌿 Green city programs"],
   },
@@ -99,15 +136,24 @@ export default function ImpactPage() {
           children: (
             <div className="space-y-4">
               {selectedRegion.keyImpacts.map((imp, idx) => (
-                <p key={idx} className="p-2 bg-emerald-50 rounded text-emerald-800">
+                <p
+                  key={idx}
+                  className="p-2 bg-emerald-50 rounded text-emerald-800"
+                >
                   {imp}
                 </p>
               ))}
               {selectedRegion.stories.map((st, idx) => (
-                <div key={idx} className="border-l-4 border-emerald-500 pl-3 bg-emerald-50 rounded">
+                <div
+                  key={idx}
+                  className="border-l-4 border-emerald-500 pl-3 bg-emerald-50 rounded"
+                >
                   <h4 className="font-semibold text-emerald-800">{st.title}</h4>
                   <p className="text-emerald-700 text-sm">{st.description}</p>
-                  <Badge count={st.metric} style={{ backgroundColor: "#065f46" }} />
+                  <Badge
+                    count={st.metric}
+                    style={{ backgroundColor: "#065f46" }}
+                  />
                 </div>
               ))}
             </div>
@@ -132,7 +178,10 @@ export default function ImpactPage() {
           children: (
             <div className="space-y-3">
               {selectedRegion.futureGoals.map((g, idx) => (
-                <p key={idx} className="p-2 bg-indigo-50 rounded text-indigo-800">
+                <p
+                  key={idx}
+                  className="p-2 bg-indigo-50 rounded text-indigo-800"
+                >
                   {g}
                 </p>
               ))}
@@ -144,6 +193,78 @@ export default function ImpactPage() {
 
   return (
     <div className="bg-emerald-50">
+      
+     {/* 🌍 Hero Section */}
+<section className="bg-gradient-to-br from-[#EDEAE3] to-[#F5F0E5] py-16 lg:py-24">
+  <div className="max-w-4xl mx-auto px-6 sm:px-8 text-center bg-white/80 backdrop-blur-md rounded-3xl shadow-lg py-16">
+    <h1 className="text-4xl md:text-5xl font-extrabold text-[#D1A054] mb-6 drop-shadow-sm">
+      🌍 Our Global Impact
+    </h1>
+    <p className="text-xl text-[#8B7D6B] leading-relaxed">
+      Empowering communities with technology, knowledge, and innovation.
+    </p>
+  </div>
+</section>
+
+      {/* 🌍 Impact Summary Section */}
+      <section className="bg-white py-12">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-emerald-800 text-center mb-10">
+            🌍 Our Global Impact at a Glance
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* 📚 Education */}
+            <div className="bg-emerald-50 rounded-xl shadow p-6 hover:shadow-lg transition">
+              <h3 className="text-xl font-semibold text-emerald-900 mb-3">
+                📚 Education
+              </h3>
+              <ul className="space-y-2 text-emerald-700">
+                <li>🎓 25,000+ students trained</li>
+                <li>👩🏽‍🏫 300 teachers supported</li>
+                <li>💻 25 solar-powered labs</li>
+              </ul>
+            </div>
+
+            {/* 🌱 Sustainability */}
+            <div className="bg-green-50 rounded-xl shadow p-6 hover:shadow-lg transition">
+              <h3 className="text-xl font-semibold text-green-900 mb-3">
+                🌱 Sustainability
+              </h3>
+              <ul className="space-y-2 text-green-700">
+                <li>🌳 50,000 trees planted</li>
+                <li>♻️ 2,000 households recycling</li>
+                <li>💧 10,000L clean water monthly</li>
+              </ul>
+            </div>
+
+            {/* 💼 Business Empowerment */}
+            <div className="bg-indigo-50 rounded-xl shadow p-6 hover:shadow-lg transition">
+              <h3 className="text-xl font-semibold text-indigo-900 mb-3">
+                💼 Business Empowerment
+              </h3>
+              <ul className="space-y-2 text-indigo-700">
+                <li>📈 500 SMEs onboarded</li>
+                <li>👩🏾‍💼 200 women-led startups funded</li>
+                <li>🚜 1,200 farmers connected</li>
+              </ul>
+            </div>
+
+            {/* 🤝 Community Growth */}
+            <div className="bg-yellow-50 rounded-xl shadow p-6 hover:shadow-lg transition">
+              <h3 className="text-xl font-semibold text-yellow-900 mb-3">
+                🤝 Community Growth
+              </h3>
+              <ul className="space-y-2 text-yellow-700">
+                <li>✌️ 5,000+ youth in peacebuilding</li>
+                <li>💵 1,500 women supported</li>
+                <li>🔆 3,200 families with solar power</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Right Panel (Static Image Map with markers) */}
         <div className="relative bg-white rounded-3xl shadow-lg p-4">
@@ -171,9 +292,11 @@ export default function ImpactPage() {
                 fill="red"
                 className="w-72 h-6 drop-shadow-md group-hover:scale-110 transition"
               >
-                <path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 9.5c-1.38 
+                <path
+                  d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 9.5c-1.38 
                 0-2.5-1.12-2.5-2.5s1.12-2.5 
-                2.5-2.5 2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" />
+                2.5-2.5 2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                />
               </svg>
 
               <span className="absolute left-1/2 -translate-x-1/2 mt-1 text-xs font-semibold bg-white px-1 py-0.5 rounded shadow">
@@ -196,15 +319,24 @@ export default function ImpactPage() {
           <>
             <Card
               title={selectedRegion.name}
-              extra={<Badge count={`${selectedRegion.projects} Projects`} style={{ backgroundColor: "#065f46" }} />}
+              extra={
+                <Badge
+                  count={`${selectedRegion.projects} Projects`}
+                  style={{ backgroundColor: "#065f46" }}
+                />
+              }
             >
               <div className="grid grid-cols-2 gap-4 mt-4">
                 <div className="text-center p-3 bg-emerald-100 rounded">
-                  <div className="text-2xl font-bold text-emerald-700">{selectedRegion.population}</div>
+                  <div className="text-2xl font-bold text-emerald-700">
+                    {selectedRegion.population}
+                  </div>
                   <div className="text-sm text-emerald-800">Population</div>
                 </div>
                 <div className="text-center p-3 bg-emerald-200 rounded">
-                  <div className="text-2xl font-bold text-emerald-900">{selectedRegion.beneficiaries}</div>
+                  <div className="text-2xl font-bold text-emerald-900">
+                    {selectedRegion.beneficiaries}
+                  </div>
                   <div className="text-sm text-emerald-800">Beneficiaries</div>
                 </div>
               </div>
@@ -219,4 +351,3 @@ export default function ImpactPage() {
     </div>
   );
 }
-  
