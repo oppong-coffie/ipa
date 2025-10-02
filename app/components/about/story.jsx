@@ -28,10 +28,10 @@ export default function OurStoryPage() {
       </section>
 
       {/* Intro Section */}
-      <section className="px-6 sm:px-8 lg:px-12 space-y-12">
+      <section className="px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-9 items-center">
           <div>
-            <h2 className="text-4xl font-bold text-[#8B7D6B] mb-4">
+            <h2 className="text-4xl font-bold text-[#8B7D6B]">
               How It All Began 🌱
             </h2>
             <p className="text-[#5B3A1A] text-lg mb-4">
@@ -58,17 +58,12 @@ export default function OurStoryPage() {
           </div>
         </div>
         <div className="grid md:grid-cols-2 gap-12 items-center py-20">
-  {/* Image */}
-  <img
-    src="/drive/0.jpeg"
-    alt="Youth collaboration"
-    className="rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
-  />
+
 
   {/* Text */}
   <div className="space-y-6">
-    <h2 className="text-3xl md:text-4xl font-extrabold text-[#5B3A1A] flex items-center gap-2">
-      🌍 Our Theory of Change
+    <h2 className="text-2xl md:text-4xl font-extrabold text-[#5B3A1A] flex items-center gap-2">
+      Our Theory of Change
     </h2>
     <p className="text-lg leading-relaxed text-gray-700">
       IPA-GH’s approach is grounded in a{" "}
@@ -89,6 +84,12 @@ export default function OurStoryPage() {
       inclusive, sustainable, and lasting social change.
     </p>
   </div>
+    {/* Image */}
+    <img
+    src="/drive/0.jpeg"
+    alt="Youth collaboration"
+    className="rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
+  />
 </div>
 
       </section>

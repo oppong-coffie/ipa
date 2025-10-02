@@ -13,28 +13,28 @@ const mediaItems: MediaItem[] = [
   {
     type: "image",
     src: "/drive/d (1).jpg",
-    alt: "Job Creation",
+    alt: "Empowering Ideas into Impact",
   },
   {
     type: "image",
     src: "/drive/d (11).jpg",
-    alt: "Beehive",
+    alt: "From Blossom to Honeycomb",
   },
   {
     type: "image",
     src: "/drive/d (15).jpg",
-    alt: "Smart Farming",
+    alt: "Resilient Farming for a Better Tomorrow",
   },
   {
     type: "image",
     src: "/images/ga.jpg",
-    alt: "Community Gathering",
+    alt: "Every Voice Counts, Every Story Matters",
   },
 
   {
     type: "image",
     src: "/images/wk.jpeg",
-    alt: "Youth Workshop",
+    alt: "Knowledge that Inspires Growth",
   },
 
   {
@@ -50,7 +50,7 @@ const mediaItems: MediaItem[] = [
   {
     type: "image",
     src: "/drive/p.jpg",
-    alt: "Idea Development",
+    alt: "Creating Pathways of Opportunity",
   },
   // {
   //   type: "video",
