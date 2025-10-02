@@ -1,16 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Card, Tabs, Badge } from "antd";
+import { useState } from "react";
+import { Card, Tabs, Badge, Modal } from "antd";
 import type { TabsProps } from "antd";
-import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
 
 interface RegionData {
   name: string;
-  lat: number;
-  lng: number;
+  x: number; // X position on the image map
+  y: number; // Y position on the image map
   population: string;
   projects: number;
   beneficiaries: string;
@@ -20,30 +17,11 @@ interface RegionData {
   futureGoals: string[];
 }
 
-// Fix leaflet default icon inside useEffect (avoids SSR issues)
-function useLeafletIconFix() {
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      // Now no "any" needed, because `_getIconUrl` is declared above
-      delete L.Icon.Default.prototype._getIconUrl;
-      L.Icon.Default.mergeOptions({
-        iconRetinaUrl:
-          "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png",
-        iconUrl:
-          "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png",
-        shadowUrl:
-          "https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png",
-      });
-    }
-  }, []);
-}
-
-// Regions with coordinates
 const regionsData: RegionData[] = [
   {
     name: "🌾 Northern Region",
-    lat: 9.4,
-    lng: -1.0,
+    x: 120,
+    y: 150,
     population: "2.7M",
     projects: 12,
     beneficiaries: "45,000+",
@@ -65,11 +43,7 @@ const regionsData: RegionData[] = [
         metric: "15 communities",
       },
     ],
-    challenges: [
-      "🚚 Market access",
-      "🔥 Seasonal water scarcity",
-      "🛠️ Need technical training",
-    ],
+    challenges: ["🚚 Market access", "🔥 Seasonal water scarcity", "🛠️ Need technical training"],
     futureGoals: [
       "🏭 Establish 5 new centers by 2026",
       "🚰 Expand water infrastructure",
@@ -78,67 +52,37 @@ const regionsData: RegionData[] = [
   },
   {
     name: "🌱 Upper East Region",
-    lat: 10.9,
-    lng: -0.85,
+    x: 240,
+    y: 50,
     population: "1.3M",
     projects: 8,
     beneficiaries: "20,000+",
-    keyImpacts: [
-      "🌱 New irrigation schemes",
-      "🏥 Rural clinics construction",
-      "🚜 Farmer capacity building",
-    ],
-    stories: [
-      {
-        title: "💧 Irrigation Boost",
-        description: "Better yields & drought resilience",
-        metric: "3,000 farmers",
-      },
-    ],
+    keyImpacts: ["🌱 New irrigation schemes", "🏥 Rural clinics construction", "🚜 Farmer capacity building"],
+    stories: [{ title: "💧 Irrigation Boost", description: "Better yields & drought resilience", metric: "3,000 farmers" }],
     challenges: ["☀️ Drought resilience", "📉 Limited extension officers"],
     futureGoals: ["🌊 Expand irrigation coverage", "🚚 Develop new market hubs"],
   },
   {
     name: "🏫 Ashanti Region",
-    lat: 6.7,
-    lng: -1.6,
+    x: 180,
+    y: 320,
     population: "5.4M",
     projects: 20,
     beneficiaries: "100,000+",
-    keyImpacts: [
-      "🏫 STEM labs for 50 schools",
-      "💊 Health outreach programs",
-      "📈 SME capacity support",
-    ],
-    stories: [
-      {
-        title: "🔬 STEM Labs",
-        description: "Equipped 50 schools with labs",
-        metric: "10,000 students",
-      },
-    ],
+    keyImpacts: ["🏫 STEM labs for 50 schools", "💊 Health outreach programs", "📈 SME capacity support"],
+    stories: [{ title: "🔬 STEM Labs", description: "Equipped 50 schools with labs", metric: "10,000 students" }],
     challenges: ["🌍 Urban-rural divide", "🚧 Inadequate infrastructure"],
     futureGoals: ["🏫 Expand coverage", "⚡ Increase access to solar power"],
   },
   {
     name: "🏙️ Greater Accra",
-    lat: 5.55,
-    lng: -0.2,
+    x: 220,
+    y: 420,
     population: "6.0M",
     projects: 25,
     beneficiaries: "200,000+",
-    keyImpacts: [
-      "🚰 Sanitation upgrades",
-      "🏥 Mobile clinics",
-      "🚦 Urban planning initiatives",
-    ],
-    stories: [
-      {
-        title: "🚰 Sanitation Project",
-        description: "Upgraded 10 markets with modern sanitation",
-        metric: "50,000 people",
-      },
-    ],
+    keyImpacts: ["🚰 Sanitation upgrades", "🏥 Mobile clinics", "🚦 Urban planning initiatives"],
+    stories: [{ title: "🚰 Sanitation Project", description: "Upgraded 10 markets with modern sanitation", metric: "50,000 people" }],
     challenges: ["🏢 Urban density", "♻️ Waste management"],
     futureGoals: ["🏥 Expand mobile clinics", "🌿 Green city programs"],
   },
@@ -146,9 +90,6 @@ const regionsData: RegionData[] = [
 
 export default function ImpactPage() {
   const [selectedRegion, setSelectedRegion] = useState<RegionData | null>(null);
-
-  // Run leaflet icon fix
-  useLeafletIconFix();
 
   const tabs: TabsProps["items"] = selectedRegion
     ? [
@@ -158,24 +99,15 @@ export default function ImpactPage() {
           children: (
             <div className="space-y-4">
               {selectedRegion.keyImpacts.map((imp, idx) => (
-                <p
-                  key={idx}
-                  className="p-2 bg-emerald-50 rounded text-emerald-800"
-                >
+                <p key={idx} className="p-2 bg-emerald-50 rounded text-emerald-800">
                   {imp}
                 </p>
               ))}
               {selectedRegion.stories.map((st, idx) => (
-                <div
-                  key={idx}
-                  className="border-l-4 border-emerald-500 pl-3 bg-emerald-50 rounded"
-                >
+                <div key={idx} className="border-l-4 border-emerald-500 pl-3 bg-emerald-50 rounded">
                   <h4 className="font-semibold text-emerald-800">{st.title}</h4>
                   <p className="text-emerald-700 text-sm">{st.description}</p>
-                  <Badge
-                    count={st.metric}
-                    style={{ backgroundColor: "#065f46" }}
-                  />
+                  <Badge count={st.metric} style={{ backgroundColor: "#065f46" }} />
                 </div>
               ))}
             </div>
@@ -200,10 +132,7 @@ export default function ImpactPage() {
           children: (
             <div className="space-y-3">
               {selectedRegion.futureGoals.map((g, idx) => (
-                <p
-                  key={idx}
-                  className="p-2 bg-indigo-50 rounded text-indigo-800"
-                >
+                <p key={idx} className="p-2 bg-indigo-50 rounded text-indigo-800">
                   {g}
                 </p>
               ))}
@@ -214,79 +143,80 @@ export default function ImpactPage() {
     : [];
 
   return (
-    <div className="min-h-screen bg-emerald-50">
-      <div className="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Left Panel */}
-        <div className="space-y-6">
-          {selectedRegion ? (
-            <>
-              <Card
-                title={selectedRegion.name}
-                extra={
-                  <Badge
-                    count={`${selectedRegion.projects} Projects`}
-                    style={{ backgroundColor: "#065f46" }}
-                  />
-                }
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                  <div className="text-center p-3 bg-emerald-100 rounded">
-                    <div className="text-2xl font-bold text-emerald-700">
-                      {selectedRegion.population}
-                    </div>
-                    <div className="text-sm text-emerald-800">Population</div>
-                  </div>
-                  <div className="text-center p-3 bg-emerald-200 rounded">
-                    <div className="text-2xl font-bold text-emerald-900">
-                      {selectedRegion.beneficiaries}
-                    </div>
-                    <div className="text-sm text-emerald-800">Beneficiaries</div>
-                  </div>
-                </div>
-              </Card>
+    <div className="bg-emerald-50">
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        {/* Right Panel (Static Image Map with markers) */}
+        <div className="relative bg-white rounded-3xl shadow-lg p-4">
+          <img
+            src="/images/ghana.jpg"
+            alt="Ghana Map"
+            className="rounded-3xl w-full h-[500px] object-cover"
+          />
 
-              <Card>
-                <Tabs defaultActiveKey="overview" items={tabs} />
-              </Card>
-            </>
-          ) : (
-            <Card>
-              <p className="text-center py-12 text-emerald-800 text-lg">
-                🗺️ Click a region on the map to view details
-              </p>
-            </Card>
-          )}
-        </div>
-
-        {/* Right Panel (Map) */}
-        <div className="bg-white rounded-3xl shadow-lg">
-          <MapContainer
-            center={[7.8, -1.0]}
-            zoom={6.5}
-            className="rounded-3xl w-full h-[500px]"
-          >
-            <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
-            />
-            {regionsData.map((region, idx) => (
-              <Marker
-                key={idx}
-                position={[region.lat, region.lng]}
-                eventHandlers={{
-                  click: () => setSelectedRegion(region),
-                }}
+          {/* Markers */}
+          {regionsData.map((region, idx) => (
+            <div
+              key={idx}
+              onClick={() => setSelectedRegion(region)}
+              className="absolute cursor-pointer group"
+              style={{
+                top: `${region.y}px`,
+                left: `${region.x}px`,
+                transform: "translate(-50%, -100%)",
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="red"
+                className="w-72 h-6 drop-shadow-md group-hover:scale-110 transition"
               >
-                <Tooltip direction="top" offset={[0, -10]} opacity={1} permanent>
-                  <span className="text-sm font-semibold text-[#5B3A1A]">
-                    {region.name}
-                  </span>
-                </Tooltip>
-              </Marker>
-            ))}
-          </MapContainer>
+                <path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 9.5c-1.38 
+                0-2.5-1.12-2.5-2.5s1.12-2.5 
+                2.5-2.5 2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" />
+              </svg>
+
+              <span className="absolute left-1/2 -translate-x-1/2 mt-1 text-xs font-semibold bg-white px-1 py-0.5 rounded shadow">
+                {region.name}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
+
+      {/* Modal for region details */}
+      <Modal
+        open={!!selectedRegion}
+        title={selectedRegion?.name}
+        onCancel={() => setSelectedRegion(null)}
+        footer={null}
+        width={700}
+      >
+        {selectedRegion && (
+          <>
+            <Card
+              title={selectedRegion.name}
+              extra={<Badge count={`${selectedRegion.projects} Projects`} style={{ backgroundColor: "#065f46" }} />}
+            >
+              <div className="grid grid-cols-2 gap-4 mt-4">
+                <div className="text-center p-3 bg-emerald-100 rounded">
+                  <div className="text-2xl font-bold text-emerald-700">{selectedRegion.population}</div>
+                  <div className="text-sm text-emerald-800">Population</div>
+                </div>
+                <div className="text-center p-3 bg-emerald-200 rounded">
+                  <div className="text-2xl font-bold text-emerald-900">{selectedRegion.beneficiaries}</div>
+                  <div className="text-sm text-emerald-800">Beneficiaries</div>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="mt-4">
+              <Tabs defaultActiveKey="overview" items={tabs} />
+            </Card>
+          </>
+        )}
+      </Modal>
     </div>
   );
 }
+  
