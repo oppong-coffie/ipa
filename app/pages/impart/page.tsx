@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import React from "react";
 
-// Dynamically load the MapComponent to avoid SSR errors
+// Dynamically import the MapComponent to avoid SSR error
 const MapComponent = dynamic(() => import("../../components/MapComponent"), {
   ssr: false,
 });
