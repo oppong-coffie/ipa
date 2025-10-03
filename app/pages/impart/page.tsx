@@ -1,13 +1,20 @@
 "use client";
 
-import { useState } from "react";
-import { Card, Tabs, Badge, Modal } from "antd";
-import type { TabsProps } from "antd";
+import React, { useState, useEffect } from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Badge, Card, Modal } from "antd";
+import { Tabs } from "antd";
 
 interface RegionData {
   name: string;
-  x: number; // X position on the image map
-  y: number; // Y position on the image map
+  x: number;
+  y: number;
+  lat: number;
+  lng: number;
   population: string;
   projects: number;
   beneficiaries: string;
@@ -17,11 +24,24 @@ interface RegionData {
   futureGoals: string[];
 }
 
+// ✅ Fix Leaflet default marker issue in Next.js
+const customIcon = new L.Icon({
+  iconUrl: "https://unpkg.com/leaflet@1.7/dist/images/marker-icon.png",
+  iconRetinaUrl: "https://unpkg.com/leaflet@1.7/dist/images/marker-icon-2x.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.7/dist/images/marker-shadow.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+});
+
 const regionsData: RegionData[] = [
   {
     name: "🌾 Northern Region",
     x: 120,
     y: 150,
+    lat: 9.4071,
+    lng: -0.8539,
     population: "2.7M",
     projects: 12,
     beneficiaries: "45,000+",
@@ -43,61 +63,34 @@ const regionsData: RegionData[] = [
         metric: "15 communities",
       },
     ],
-    challenges: [
-      "🚚 Market access",
-      "🔥 Seasonal water scarcity",
-      "🛠️ Need technical training",
-    ],
-    futureGoals: [
-      "🏭 Establish 5 new centers by 2026",
-      "🚰 Expand water infrastructure",
-      "💻 Launch digital literacy programs",
-    ],
+    challenges: ["🚚 Market access", "🔥 Seasonal water scarcity", "🛠️ Need technical training"],
+    futureGoals: ["🏭 Establish 5 new centers by 2026", "🚰 Expand water infrastructure", "💻 Launch digital literacy programs"],
   },
   {
     name: "🌱 Upper East Region",
     x: 240,
     y: 50,
+    lat: 10.7082,
+    lng: -0.9821,
     population: "1.3M",
     projects: 8,
     beneficiaries: "20,000+",
-    keyImpacts: [
-      "🌱 New irrigation schemes",
-      "🏥 Rural clinics construction",
-      "🚜 Farmer capacity building",
-    ],
-    stories: [
-      {
-        title: "💧 Irrigation Boost",
-        description: "Better yields & drought resilience",
-        metric: "3,000 farmers",
-      },
-    ],
+    keyImpacts: ["🌱 New irrigation schemes", "🏥 Rural clinics construction", "🚜 Farmer capacity building"],
+    stories: [{ title: "💧 Irrigation Boost", description: "Better yields & drought resilience", metric: "3,000 farmers" }],
     challenges: ["☀️ Drought resilience", "📉 Limited extension officers"],
-    futureGoals: [
-      "🌊 Expand irrigation coverage",
-      "🚚 Develop new market hubs",
-    ],
+    futureGoals: ["🌊 Expand irrigation coverage", "🚚 Develop new market hubs"],
   },
   {
     name: "🏫 Ashanti Region",
     x: 180,
     y: 320,
+    lat: 6.6931,
+    lng: -1.6169,
     population: "5.4M",
     projects: 20,
     beneficiaries: "100,000+",
-    keyImpacts: [
-      "🏫 STEM labs for 50 schools",
-      "💊 Health outreach programs",
-      "📈 SME capacity support",
-    ],
-    stories: [
-      {
-        title: "🔬 STEM Labs",
-        description: "Equipped 50 schools with labs",
-        metric: "10,000 students",
-      },
-    ],
+    keyImpacts: ["🏫 STEM labs for 50 schools", "💊 Health outreach programs", "📈 SME capacity support"],
+    stories: [{ title: "🔬 STEM Labs", description: "Equipped 50 schools with labs", metric: "10,000 students" }],
     challenges: ["🌍 Urban-rural divide", "🚧 Inadequate infrastructure"],
     futureGoals: ["🏫 Expand coverage", "⚡ Increase access to solar power"],
   },
@@ -105,21 +98,13 @@ const regionsData: RegionData[] = [
     name: "🏙️ Greater Accra",
     x: 220,
     y: 420,
+    lat: 5.5600,
+    lng: -0.2057,
     population: "6.0M",
     projects: 25,
     beneficiaries: "200,000+",
-    keyImpacts: [
-      "🚰 Sanitation upgrades",
-      "🏥 Mobile clinics",
-      "🚦 Urban planning initiatives",
-    ],
-    stories: [
-      {
-        title: "🚰 Sanitation Project",
-        description: "Upgraded 10 markets with modern sanitation",
-        metric: "50,000 people",
-      },
-    ],
+    keyImpacts: ["🚰 Sanitation upgrades", "🏥 Mobile clinics", "🚦 Urban planning initiatives"],
+    stories: [{ title: "🚰 Sanitation Project", description: "Upgraded 10 markets with modern sanitation", metric: "50,000 people" }],
     challenges: ["🏢 Urban density", "♻️ Waste management"],
     futureGoals: ["🏥 Expand mobile clinics", "🌿 Green city programs"],
   },
@@ -128,97 +113,39 @@ const regionsData: RegionData[] = [
 export default function ImpactPage() {
   const [selectedRegion, setSelectedRegion] = useState<RegionData | null>(null);
 
-  const tabs: TabsProps["items"] = selectedRegion
-    ? [
-        {
-          key: "overview",
-          label: "📊 Overview",
-          children: (
-            <div className="space-y-4">
-              {selectedRegion.keyImpacts.map((imp, idx) => (
-                <p
-                  key={idx}
-                  className="p-2 bg-emerald-50 rounded text-emerald-800"
-                >
-                  {imp}
-                </p>
-              ))}
-              {selectedRegion.stories.map((st, idx) => (
-                <div
-                  key={idx}
-                  className="border-l-4 border-emerald-500 pl-3 bg-emerald-50 rounded"
-                >
-                  <h4 className="font-semibold text-emerald-800">{st.title}</h4>
-                  <p className="text-emerald-700 text-sm">{st.description}</p>
-                  <Badge
-                    count={st.metric}
-                    style={{ backgroundColor: "#065f46" }}
-                  />
-                </div>
-              ))}
-            </div>
-          ),
-        },
-        {
-          key: "challenges",
-          label: "⚠️ Challenges",
-          children: (
-            <div className="space-y-3">
-              {selectedRegion.challenges.map((c, idx) => (
-                <p key={idx} className="p-2 bg-red-50 rounded text-red-700">
-                  {c}
-                </p>
-              ))}
-            </div>
-          ),
-        },
-        {
-          key: "future",
-          label: "🎯 Future Goals",
-          children: (
-            <div className="space-y-3">
-              {selectedRegion.futureGoals.map((g, idx) => (
-                <p
-                  key={idx}
-                  className="p-2 bg-indigo-50 rounded text-indigo-800"
-                >
-                  {g}
-                </p>
-              ))}
-            </div>
-          ),
-        },
-      ]
-    : [];
+  // ✅ Initialize AOS animations
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
 
   return (
-    <div className="bg-emerald-50">
-      
-     {/* 🌍 Hero Section */}
-<section className="bg-gradient-to-br from-[#EDEAE3] to-[#F5F0E5] py-16 lg:py-24">
-  <div className="max-w-4xl mx-auto px-6 sm:px-8 text-center bg-white/80 backdrop-blur-md rounded-3xl shadow-lg py-16">
-    <h1 className="text-4xl md:text-5xl font-extrabold text-[#D1A054] mb-6 drop-shadow-sm">
-      🌍 Our Global Impact
-    </h1>
-    <p className="text-xl text-[#8B7D6B] leading-relaxed">
-      Empowering communities with technology, knowledge, and innovation.
-    </p>
-  </div>
-</section>
+    <div>
+      {/* 🌍 Hero Section */}
+      <section className="bg-gradient-to-br from-[#EDEAE3] to-[#F5F0E5] py-16 lg:py-24">
+        <div
+          className="max-w-4xl mx-auto px-6 sm:px-8 text-center bg-white/80 backdrop-blur-md rounded-3xl shadow-lg py-16"
+          data-aos="fade-up"
+        >
+          <h1 className="text-4xl md:text-5xl font-extrabold text-[#D1A054] mb-6 drop-shadow-sm">
+            🌍 Our Global Impact
+          </h1>
+          <p className="text-xl text-[#8B7D6B] leading-relaxed">
+            Empowering communities with technology, knowledge, and innovation.
+          </p>
+        </div>
+      </section>
 
       {/* 🌍 Impact Summary Section */}
       <section className="bg-white py-12">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4" data-aos="fade-up">
           <h2 className="text-3xl font-bold text-emerald-800 text-center mb-10">
             🌍 Our Global Impact at a Glance
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* 📚 Education */}
-            <div className="bg-emerald-50 rounded-xl shadow p-6 hover:shadow-lg transition">
-              <h3 className="text-xl font-semibold text-emerald-900 mb-3">
-                📚 Education
-              </h3>
+            {/* Cards with AOS */}
+            <div className="bg-emerald-50 rounded-xl shadow p-6 hover:shadow-lg transition" data-aos="zoom-in">
+              <h3 className="text-xl font-semibold text-emerald-900 mb-3">📚 Education</h3>
               <ul className="space-y-2 text-emerald-700">
                 <li>🎓 25,000+ students trained</li>
                 <li>👩🏽‍🏫 300 teachers supported</li>
@@ -226,11 +153,8 @@ export default function ImpactPage() {
               </ul>
             </div>
 
-            {/* 🌱 Sustainability */}
-            <div className="bg-green-50 rounded-xl shadow p-6 hover:shadow-lg transition">
-              <h3 className="text-xl font-semibold text-green-900 mb-3">
-                🌱 Sustainability
-              </h3>
+            <div className="bg-green-50 rounded-xl shadow p-6 hover:shadow-lg transition" data-aos="zoom-in" data-aos-delay="100">
+              <h3 className="text-xl font-semibold text-green-900 mb-3">🌱 Sustainability</h3>
               <ul className="space-y-2 text-green-700">
                 <li>🌳 50,000 trees planted</li>
                 <li>♻️ 2,000 households recycling</li>
@@ -238,11 +162,8 @@ export default function ImpactPage() {
               </ul>
             </div>
 
-            {/* 💼 Business Empowerment */}
-            <div className="bg-indigo-50 rounded-xl shadow p-6 hover:shadow-lg transition">
-              <h3 className="text-xl font-semibold text-indigo-900 mb-3">
-                💼 Business Empowerment
-              </h3>
+            <div className="bg-indigo-50 rounded-xl shadow p-6 hover:shadow-lg transition" data-aos="zoom-in" data-aos-delay="200">
+              <h3 className="text-xl font-semibold text-indigo-900 mb-3">💼 Business Empowerment</h3>
               <ul className="space-y-2 text-indigo-700">
                 <li>📈 500 SMEs onboarded</li>
                 <li>👩🏾‍💼 200 women-led startups funded</li>
@@ -250,11 +171,8 @@ export default function ImpactPage() {
               </ul>
             </div>
 
-            {/* 🤝 Community Growth */}
-            <div className="bg-yellow-50 rounded-xl shadow p-6 hover:shadow-lg transition">
-              <h3 className="text-xl font-semibold text-yellow-900 mb-3">
-                🤝 Community Growth
-              </h3>
+            <div className="bg-yellow-50 rounded-xl shadow p-6 hover:shadow-lg transition" data-aos="zoom-in" data-aos-delay="300">
+              <h3 className="text-xl font-semibold text-yellow-900 mb-3">🤝 Community Growth</h3>
               <ul className="space-y-2 text-yellow-700">
                 <li>✌️ 5,000+ youth in peacebuilding</li>
                 <li>💵 1,500 women supported</li>
@@ -265,89 +183,117 @@ export default function ImpactPage() {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        {/* Right Panel (Static Image Map with markers) */}
-        <div className="relative bg-white rounded-3xl shadow-lg p-4">
-          <img
-            src="/images/ghana.jpg"
-            alt="Ghana Map"
-            className="rounded-3xl w-full h-[500px] object-cover"
-          />
+      {/* 🗺️ Country Map with Markers */}
+      <section className="py-12 bg-gradient-to-tr from-gray-50 to-gray-100">
+        <div className="max-w-7xl mx-auto px-4" data-aos="fade-up">
+          <h2 className="text-3xl font-bold text-center text-emerald-900 mb-8">
+            🗺️ Explore Our Impact in Ghana
+          </h2>
 
-          {/* Markers */}
-          {regionsData.map((region, idx) => (
-            <div
-              key={idx}
-              onClick={() => setSelectedRegion(region)}
-              className="absolute cursor-pointer group"
-              style={{
-                top: `${region.y}px`,
-                left: `${region.x}px`,
-                transform: "translate(-50%, -100%)",
-              }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="red"
-                className="w-72 h-6 drop-shadow-md group-hover:scale-110 transition"
+          <MapContainer
+            center={[7.9465, -1.0232]}
+            zoom={6.5}
+            style={{ height: "600px", width: "100%", borderRadius: "1rem" }}
+            className="shadow-lg"
+          >
+            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+            {regionsData.map((region, idx) => (
+              <Marker
+                key={idx}
+                position={[region.lat, region.lng]}
+                icon={customIcon}
+                eventHandlers={{ click: () => setSelectedRegion(region) }}
               >
-                <path
-                  d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 9.5c-1.38 
-                0-2.5-1.12-2.5-2.5s1.12-2.5 
-                2.5-2.5 2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                />
-              </svg>
-
-              <span className="absolute left-1/2 -translate-x-1/2 mt-1 text-xs font-semibold bg-white px-1 py-0.5 rounded shadow">
-                {region.name}
-              </span>
-            </div>
-          ))}
+                <Popup>
+                  <strong>{region.name}</strong> <br />
+                  Projects: {region.projects} <br />
+                  Beneficiaries: {region.beneficiaries}
+                </Popup>
+              </Marker>
+            ))}
+          </MapContainer>
         </div>
-      </div>
+      </section>
 
-      {/* Modal for region details */}
-      <Modal
-        open={!!selectedRegion}
-        title={selectedRegion?.name}
-        onCancel={() => setSelectedRegion(null)}
-        footer={null}
-        width={700}
+{/* Modal for region details */}
+<Modal
+  open={!!selectedRegion}
+  title={selectedRegion?.name}
+  onCancel={() => setSelectedRegion(null)}
+  footer={null}
+  width={700}
+>
+  {selectedRegion && (
+    <>
+      {/* Summary Card */}
+      <Card
+        title={selectedRegion.name}
+        extra={
+          <Badge
+            count={`${selectedRegion.projects} Projects`}
+            style={{ backgroundColor: "#065f46" }}
+          />
+        }
       >
-        {selectedRegion && (
-          <>
-            <Card
-              title={selectedRegion.name}
-              extra={
-                <Badge
-                  count={`${selectedRegion.projects} Projects`}
-                  style={{ backgroundColor: "#065f46" }}
-                />
-              }
-            >
-              <div className="grid grid-cols-2 gap-4 mt-4">
-                <div className="text-center p-3 bg-emerald-100 rounded">
-                  <div className="text-2xl font-bold text-emerald-700">
-                    {selectedRegion.population}
-                  </div>
-                  <div className="text-sm text-emerald-800">Population</div>
-                </div>
-                <div className="text-center p-3 bg-emerald-200 rounded">
-                  <div className="text-2xl font-bold text-emerald-900">
-                    {selectedRegion.beneficiaries}
-                  </div>
-                  <div className="text-sm text-emerald-800">Beneficiaries</div>
-                </div>
-              </div>
-            </Card>
+        <div className="grid grid-cols-2 gap-4 mt-4">
+          <div className="text-center p-3 bg-emerald-100 rounded">
+            <div className="text-2xl font-bold text-emerald-700">
+              {selectedRegion.population}
+            </div>
+            <div className="text-sm text-emerald-800">Population</div>
+          </div>
+          <div className="text-center p-3 bg-emerald-200 rounded">
+            <div className="text-2xl font-bold text-emerald-900">
+              {selectedRegion.beneficiaries}
+            </div>
+            <div className="text-sm text-emerald-800">Beneficiaries</div>
+          </div>
+        </div>
+      </Card>
 
-            <Card className="mt-4">
-              <Tabs defaultActiveKey="overview" items={tabs} />
-            </Card>
-          </>
-        )}
-      </Modal>
+      {/* Tabs Section */}
+      <Card className="mt-4">
+        <Tabs
+          defaultActiveKey="overview"
+          items={[
+            {
+              key: "overview",
+              label: "📖 Overview",
+              children: (
+                <div className="text-gray-700 space-y-3">
+                  <p>{selectedRegion.name}</p>
+                </div>
+              ),
+            },
+            {
+              key: "challenges",
+              label: "⚠️ Challenges",
+              children: (
+                <ul className="list-disc pl-5 text-gray-700 space-y-2">
+                  {selectedRegion.challenges?.map((challenge, i) => (
+                    <li key={i}>{challenge}</li>
+                  ))}
+                </ul>
+              ),
+            },
+            {
+              key: "future",
+              label: "🚀 Future Goals",
+              children: (
+                <ul className="list-disc pl-5 text-gray-700 space-y-2">
+                  {selectedRegion.futureGoals?.map((goal, i) => (
+                    <li key={i}>{goal}</li>
+                  ))}
+                </ul>
+              ),
+            },
+          ]}
+        />
+      </Card>
+    </>
+  )}
+</Modal>
+  
     </div>
   );
 }
