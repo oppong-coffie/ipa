@@ -5,7 +5,7 @@ import { Card, Button } from "antd";
 import { MapPin, MessageSquare, PhoneCall, Mail } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import Link from "next/link";
 export default function ContactPage() {
   useEffect(() => {
     AOS.init({
@@ -48,7 +48,8 @@ export default function ContactPage() {
           data-aos="fade-right"
         >
           <p className="text-brown-700 mb-4">
-            Fill out the form below and we’ll get back to you within 24 hours.
+            Fill out the form below and we&opos;ll get back to you within 24
+            hours.
           </p>
           <form className="space-y-4" data-aos="fade-up">
             <input
@@ -86,10 +87,16 @@ export default function ContactPage() {
             Need immediate assistance? Try these options.
           </p>
           <div className="space-y-3" data-aos="fade-up">
-            <Button className="w-full justify-start text-brown-800 border-brown-700 hover:bg-yellow-100">
-              <MessageSquare className="h-4 w-4 mr-2 text-brown-700" />
-              WhatsApp: +233 24 567 8901
-            </Button>
+            <Link
+              href="https://wa.me/233508469840"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="w-full justify-start text-brown-800 border border-brown-700 hover:bg-yellow-100">
+                <MessageSquare className="h-4 w-4 mr-2 text-brown-700" />
+                WhatsApp: +233 24 567 8901
+              </Button>
+            </Link>
             <Button className="w-full justify-start text-brown-800 border-brown-700 hover:bg-yellow-100">
               <PhoneCall className="h-4 w-4 mr-2 text-brown-700" />
               Phone: +233 50 846 9840

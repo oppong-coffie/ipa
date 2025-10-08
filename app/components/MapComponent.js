@@ -21,91 +21,165 @@ const customIcon = new L.Icon({
 const regionsData = [
   {
     name: "🌾 Northern Region",
-    lat: 9.4071,
-    lng: -0.8539,
+    lat: 10.4124,
+    lng: -0.8393,
     population: "2.7M",
-    projects: 12,
-    beneficiaries: "45,000+",
+    projects: 1,
+    beneficiaries: "150+ community participants",
     keyImpacts: [
-      "🌾 Sustainable farming for 15,000 farmers",
-      "💧 Clean water access for 25 communities",
-      "🏫 Education support for 8,000 children",
-      "🌳 10,000 trees planted 🌱",
+      "🧠 Indigenous Knowledge workshop on climate adaptation",
+      "🌦 Strengthened community-based early warning systems",
+      "🌾 Improved drought-resilient agricultural practices",
+      "🤝 Promoted inclusion of traditional leaders in policy dialogues",
     ],
     stories: [
       {
-        title: "👩🏾‍🌾 Shea Cooperative",
-        description: "Women’s cooperative increased income by 300%",
-        metric: "500 women",
-      },
-      {
-        title: "🔆 Solar Water Pumps",
-        description: "Solar systems providing year-round clean water",
-        metric: "15 communities",
+        title: "🌿 IK Inclusion Workshop — Sankpala",
+        description:
+          "Documented traditional forecasting and water management practices supporting climate resilience",
+        metric: "150 participants",
       },
     ],
-    challenges: ["🚚 Market access", "🔥 Seasonal water scarcity", "🛠️ Need technical training"],
+    challenges: [
+      "🔥 Increased frequency of drought and dry spells",
+      "💧 Depleted water sources and soil fertility loss",
+      "🧩 Limited integration of Indigenous Knowledge in policy",
+    ],
     futureGoals: [
-      "🏭 Establish 5 new centers by 2026",
-      "🚰 Expand water infrastructure",
-      "💻 Launch digital literacy programs",
+      "📘 Establish community climate knowledge hubs",
+      "🏞 Integrate IK into national climate education programs",
+      "🌱 Support intergenerational transfer of traditional knowledge",
     ],
   },
   {
-    name: "🌱 Upper East Region",
-    lat: 10.7082,
-    lng: -0.9821,
-    population: "1.3M",
-    projects: 8,
-    beneficiaries: "20,000+",
-    keyImpacts: ["🌱 New irrigation schemes", "🏥 Rural clinics construction", "🚜 Farmer capacity building"],
+    name: "🌾 Volta Region",
+    lat: 6.5786,
+    lng: 0.4502,
+    population: "2.1M",
+    projects: 1,
+    beneficiaries: "120+ local farmers",
+    keyImpacts: [
+      "🌾 120 farmers trained in climate lobbying and advocacy",
+      "💬 3 community groups formed for policy participation",
+      "📈 Greater awareness of climate adaptation methods",
+      "💧 Improved soil and water-use practices in farmlands",
+    ],
     stories: [
       {
-        title: "💧 Irrigation Boost",
-        description: "Better yields & drought resilience",
-        metric: "3,000 farmers",
+        title: "📢 BLOCAF Advocacy Training",
+        description:
+          "Empowered climate-affected farmers to advocate for fair policy inclusion",
+        metric: "120 farmers",
       },
     ],
-    challenges: ["☀️ Drought resilience", "📉 Limited extension officers"],
-    futureGoals: ["🌊 Expand irrigation coverage", "🚚 Develop new market hubs"],
+    challenges: [
+      "☀️ Erratic rainfall patterns and poor irrigation access",
+      "💸 Limited access to agricultural credit",
+      "📉 Weak representation in decision-making",
+    ],
+    futureGoals: [
+      "🏛 Strengthen farmer participation in district planning",
+      "🌿 Expand advocacy to 3 additional farming districts",
+      "💧 Promote sustainable irrigation innovation",
+    ],
   },
   {
-    name: "🏫 Ashanti Region",
-    lat: 6.6931,
-    lng: -1.6169,
-    population: "5.4M",
-    projects: 20,
-    beneficiaries: "100,000+",
-    keyImpacts: ["🏫 STEM labs for 50 schools", "💊 Health outreach programs", "📈 SME capacity support"],
+    name: "🍯 Eastern Region",
+    lat: 6.2000,
+    lng: -0.2833,
+    population: "3.2M",
+    projects: 1,
+    beneficiaries: "125 (80 youth, 45 women)",
+    keyImpacts: [
+      "🐝 200 beehives distributed to farming families",
+      "💵 25% increase in household income from honey sales",
+      "🌼 Improved pollination and biodiversity recovery",
+      "👩🏾‍🏫 Enhanced gender inclusion and climate education",
+    ],
     stories: [
       {
-        title: "🔬 STEM Labs",
-        description: "Equipped 50 schools with labs",
-        metric: "10,000 students",
+        title: "🍯 Beelieve Smart Project",
+        description:
+          "Provided sustainable beekeeping livelihoods to rural farmers and women",
+        metric: "125 beneficiaries",
       },
     ],
-    challenges: ["🌍 Urban-rural divide", "🚧 Inadequate infrastructure"],
-    futureGoals: ["🏫 Expand coverage", "⚡ Increase access to solar power"],
+    challenges: [
+      "🌧 Overreliance on rain-fed agriculture",
+      "💰 Limited access to honey markets",
+      "🚚 High logistics cost for rural production",
+    ],
+    futureGoals: [
+      "🏭 Establish honey processing hub by 2025",
+      "🧑🏽‍🎓 Train 50 additional beekeepers annually",
+      "🌱 Combine beekeeping with agroforestry systems",
+    ],
   },
   {
-    name: "🏙️ Greater Accra",
-    lat: 5.56,
-    lng: -0.2057,
-    population: "6.0M",
-    projects: 25,
-    beneficiaries: "200,000+",
-    keyImpacts: ["🚰 Sanitation upgrades", "🏥 Mobile clinics", "🚦 Urban planning initiatives"],
+    name: "🏛 National Project",
+    lat: 7.9465,
+    lng: -1.0232,
+    population: "33.1M",
+    projects: 1,
+    beneficiaries: "300+ marginalized participants",
+    keyImpacts: [
+      "🗣 4 regional and national-level climate justice workshops",
+      "📚 2 major publications on youth and indigenous inclusion",
+      "🤝 Strengthened policy dialogue frameworks",
+      "🎥 2 documentary videos amplifying local voices",
+    ],
     stories: [
       {
-        title: "🚰 Sanitation Project",
-        description: "Upgraded 10 markets with modern sanitation",
-        metric: "50,000 people",
+        title: "🌍 MCECJ Initiative",
+        description:
+          "Assessed inclusion of vulnerable populations in Ghana’s national climate policy framework",
+        metric: "300+ participants",
       },
     ],
-    challenges: ["🏢 Urban density", "♻️ Waste management"],
-    futureGoals: ["🏥 Expand mobile clinics", "🌿 Green city programs"],
+    challenges: [
+      "🧩 Policy fragmentation at national and local levels",
+      "💬 Limited indigenous leadership inclusion",
+    ],
+    futureGoals: [
+      "🏛 Embed climate justice into national NDC strategies",
+      "📈 Expand participation to all 16 regions",
+      "🎓 Develop youth climate policy training programs",
+    ],
+  },
+  {
+    name: "🐝 Bono East Region",
+    lat: 7.7000,
+    lng: -2.1167,
+    population: "1.2M",
+    projects: 1,
+    beneficiaries: "60 trained women",
+    keyImpacts: [
+      "🍯 150 active hives managed by women cooperatives",
+      "💵 40% increase in household income for female beekeepers",
+      "🌾 Integration of cashew-bee farming for soil restoration",
+      "👩🏾‍🌾 Strengthened women’s economic leadership",
+    ],
+    stories: [
+      {
+        title: "👩🏾‍🌾 Gendered Beekeeping Enterprise",
+        description:
+          "Empowered women through a social enterprise model promoting resilience and income stability",
+        metric: "60 women trained",
+      },
+    ],
+    challenges: [
+      "🚧 Limited access to modern apiary equipment",
+      "📉 Weak market linkage for processed honey",
+    ],
+    futureGoals: [
+      "🏭 Expand cooperative honey production centers",
+      "🌱 Introduce agroforestry training and seedlings",
+      "💻 Digitize traceability for honey sales",
+    ],
   },
 ];
+
+
 
 export default function MapComponent() {
     const [selectedRegion, setSelectedRegion] = useState(null);
