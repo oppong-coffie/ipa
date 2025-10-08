@@ -30,7 +30,7 @@ export default function PagesLayout({
   const navigationItems = [
     { name: "Home", href: "/" },
     { name: "About", href: "/pages/about" },
-    { name: "Impart", href: "/pages/impart" },
+    { name: "Impact", href: "/pages/impart" },
     { name: "Contact", href: "/pages/contactus" },
     { name: "News&Blog", href: "/pages/news" },
   ];
