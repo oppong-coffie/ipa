@@ -16,7 +16,7 @@ const metrics = [
   { icon: <HeartHandshake className="w-6 h-6 text-teal-700" />, label: "Women Empowered", value: 45 },
   { icon: <Sprout className="w-6 h-6 text-teal-700" />, label: "Hives Installed", value: 200 },
   { icon: <Users className="w-6 h-6 text-teal-700" />, label: "Workshops Held", value: 4 },
-  { icon: <HeartHandshake className="w-6 h-6 text-teal-700" />, label: "Participants Reached", value: 300 },
+  { icon: <HeartHandshake className="w-6 h-6 text-teal-700" />, label: "Participants Reached", value: 400 },
   { icon: <HeartHandshake className="w-6 h-6 text-teal-700" />, label: "Women Trained", value: 60 },
 ];
 export default function Impart2Page() {
