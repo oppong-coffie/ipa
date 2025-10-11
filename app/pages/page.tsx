@@ -15,7 +15,7 @@ export default function HomePage() {
       <MissionSection />
       <TeamSection />
       <ImpactSection />
-      < Testimonials />
+      {/* < Testimonials /> */}
       < Partners />
       < FAQ />
       < MapLocation />
