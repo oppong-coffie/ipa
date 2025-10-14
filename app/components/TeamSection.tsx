@@ -40,7 +40,7 @@ export default function TeamSection() {
     {
       name: "Emmanuel Oppong Oppong",
       position: "Software Engineer",
-      image: "/images/me2.png",
+      image: "/images/jack.jpg",
     },
   ];
 
