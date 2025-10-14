@@ -15,7 +15,7 @@ export function VideoHero() {
         playsInline
         className="absolute inset-0 h-full w-full object-cover"
       >
-        <source src="/videos/poor5.mp4" type="video/mp4" />
+        <source src="/resolve/poor5.mp4" type="video/mp4" />
       </video>
 
       {/* --- Gradient Overlay --- */}
