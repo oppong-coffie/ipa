@@ -67,11 +67,6 @@ const mediaItems: MediaItem[] = [
     src: "/videos/climate.mp4",
     alt: "Workshop of Empowerment video",
   },
-  {
-    type: "video",
-    src: "/videos/update.mp4",
-    alt: "Female Bee Keeper video",
-  },
   // {
   //   type: "video",
   //   src: "https://www.youtube.com/embed/9bZkp7q19f0",
