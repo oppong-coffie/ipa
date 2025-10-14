@@ -140,9 +140,9 @@ const regionsData = [
   `,
     link: "https://www.researchgate.net/profile/Lord-Offei-Darko/publication/386488720_Lobbying_strategies_for_climate-affected_farmers_in_rural_communities_in_Ghana_a_case_study_of_Klotekpo_in_the_Volta_region_of_Ghana/links/6822ebd2026fee1034f7b157/Lobbying-strategies-for-climate-affected-farmers-in-rural-communities-in-Ghana-a-case-study-of-Klotekpo-in-the-Volta-region-of-Ghana.pdf",
     images: [
-      "/drive2/volta1.jpeg",
-      "/drive2/volta2.jpeg",
-      "/drive2/volta3.jpeg",
+      "/drive2/volta11.jpeg",
+      "/drive2/volta21.jpeg",
+      "/drive2/volta31.jpeg",
     ],
   },
   {
@@ -182,9 +182,9 @@ const regionsData = [
   `,
     link: "impart",
     images: [
-      "/drive2/beeleive4.jpg",
-      "/drive2/bee2.jpg",
-      "/drive2/beeleive3.jpg",
+      "/drive2/beeleive41.jpg",
+      "/drive2/bee21.jpg",
+      "/drive2/beeleive31.jpg",
     ],
   },
   {
@@ -232,9 +232,9 @@ const regionsData = [
   
     link: "https://drive.google.com/file/d/1VEWO8NzisAu7PEzqs3nUPSpINHBQ7rQW/view?usp=sharing",
     images: [
-      "/drive2/bono1.jpg",
-      "/drive2/bono3.jpg",
-      "/drive2/bono2.jpg",
+      "/drive2/bono11.jpg",
+      "/drive2/bono31.jpg",
+      "/drive2/bono21.jpg",
     ],
   },
   {
@@ -281,9 +281,9 @@ const regionsData = [
   `,
     link: "https://drive.google.com/file/d/17b2EPNSZd6lR0nC0URCzBZgmjyYjZkt4/view?usp=drive_link",
     images: [
-      "/drive/d (11).jpg",
-      "/drive2/b.jpg",
-      "/drive2/bee1.jpeg"
+      "/drive/d(11).jpg",
+      "/drive2/b1.jpg",
+      "/drive2/bee11.jpeg"
     ],
   },
 ];
