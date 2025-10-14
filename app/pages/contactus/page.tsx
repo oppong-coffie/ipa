@@ -123,7 +123,7 @@ export default function ContactPage() {
             className="border-brown-700 bg-yellow-50 shadow-lg hover:shadow-2xl transition-shadow duration-500 rounded-2xl"
           >
             <p className="text-brown-700 mb-4">
-              Need immediate assistance? Try these options.
+              For immediate Contact? Try these options.
             </p>
 
             <div className="space-y-4" data-aos="fade-up">
