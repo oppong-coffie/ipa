@@ -20,28 +20,28 @@ export function MissionSection() {
       title: "Climate Resilience",
       description:
         "Helping communities adapt to climate change using traditional knowledge and modern solutions.",
-      image: "/images/so.jpg",
+      image: "/resolve/so.jpg",
     },
     {
       number: "02",
       title: "Sustainable Lives",
       description:
         "Creating income opportunities that preserve culture and sustain communities.",
-      image: "/drive/d (15).jpg",
+      image: "/drive/d(15).jpg",
     },
     {
       number: "03",
       title: "Social Equity",
       description:
         "Advocating for indigenous rights and representation in decisions.",
-      image: "/images/mission2.jpg",
+      image: "/images/missio.jpg",
     },
     {
       number: "04",
       title: "Cultural Preservation",
       description:
         "Supporting initiatives celebrating indigenous languages, traditions, and practices for next generations.",
-      image: "/images/mission1.jpg",
+      image: "/images/missi.jpg",
     },
   ];
 
