@@ -35,12 +35,12 @@ export default function TeamSection() {
     {
       name: "Jacqueline Okine",
       position: "knowledge and impact officer",
-      image: "/images/me2.png",
+      image: "/resolve/jack.jpg",
     },
     {
       name: "Emmanuel Oppong Oppong",
       position: "Software Engineer",
-      image: "/images/jack.jpg",
+      image: "/resolve/jack.jpg",
     },
   ];
 
