@@ -1,43 +1,48 @@
-'use client'
-import { Card } from 'antd'
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+"use client";
+import { Card } from "antd";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 const MotionImage = motion(Image);
 
 export default function TeamSection() {
   const team = [
     {
-      name: 'Lord Offei-Darko',
-      position: 'Youth Leader',
-      image: '/images/team7.png'
+      name: "Lord Offei-Darko",
+      position: "Youth Leader",
+      image: "/images/team7.png",
     },
     {
-      name: 'David D. Tawiah',
-      position: 'Team Member',
-      image: '/images/team2.jpg'
+      name: "David D. Tawiah",
+      position: "Team Member",
+      image: "/images/team2.jpg",
     },
     {
-      name: 'Gabriel O. Akyaw',
-      position: 'Team Member',
-      image: '/images/team3.jpg'
+      name: "Gabriel O. Akyaw",
+      position: "Team Member",
+      image: "/images/team3.jpg",
     },
     {
-      name: 'Hilda Darko',
-      position: 'Communications Officer',
-      image: '/images/team6.png'
+      name: "Hilda Darko",
+      position: "Communications Officer",
+      image: "/images/team6.png",
     },
     {
-      name: 'Ekow Freeman',
-      position: 'Media officer',
-      image: '/images/team8.jpg'
+      name: "Ekow Freeman",
+      position: "Media officer",
+      image: "/images/team8.jpg",
     },
     {
-      name: 'Jacqueline Okine',
-      position: 'knowledge and impact officer',
-      image: '/images/team9.jpg'
-    }
-  ]
+      name: "Jacqueline Okine",
+      position: "knowledge and impact officer",
+      image: "/images/team9.jpg",
+    },
+    {
+      name: "Emmanuel Oppong Oppong",
+      position: "Software Engineer",
+      image: "/images/me2.png",
+    },
+  ];
 
   return (
     <section className="bg-amber-50">
@@ -73,7 +78,8 @@ export default function TeamSection() {
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            Passionate professionals driving impact across Ghana’s indigenous communities.
+            Passionate professionals driving impact across Ghana&opos;s
+            indigenous communities.
           </p>
         </div>
 
@@ -103,7 +109,7 @@ export default function TeamSection() {
                     className="h-80 md:h-64 w-full object-cover"
                     whileHover={{ scale: 1.05, y: -5 }}
                     whileTap={{ scale: 0.97 }}
-                    transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 15 }}
                   />
                 }
               >
@@ -120,14 +126,19 @@ export default function TeamSection() {
           ))}
         </div>
 
-        <div className="flex justify-center text-center mt-16" data-aos="fade-up">
+        <div
+          className="flex justify-center text-center mt-16"
+          data-aos="fade-up"
+        >
           <motion.div
             whileHover={{ scale: 1.07 }}
             whileTap={{ scale: 0.95 }}
-            transition={{ type: 'spring', stiffness: 250 }}
+            transition={{ type: "spring", stiffness: 250 }}
           >
-    <div
-  className="
+                        <a href="/pages/about">
+
+            <div
+              className="
     w-80
     bg-[#8B7D6B] 
     hover:bg-[#A67C52] 
@@ -140,13 +151,13 @@ export default function TeamSection() {
     hover:shadow-[0_6px_30px_rgba(202,138,4,0.7)] 
     transition-all duration-300
   "
->
-  Meet Our Team
-</div>
-
+            >
+              Meet Our Team
+            </div>
+            </a>
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }

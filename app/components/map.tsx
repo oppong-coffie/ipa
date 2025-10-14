@@ -26,7 +26,7 @@ export default function MapLocation() {
 
         <div className="w-full h-[500px] rounded-2xl overflow-hidden shadow-lg border-4 border-yellow-500 relative bg-[#7B4B2A]/10">
           <Image
-            src="/images/map3.jpg" // replace with your map image path
+            src="/images/map3.png" // replace with your map image path
             alt="Map showing office location"
             fill
             className="object-cover"

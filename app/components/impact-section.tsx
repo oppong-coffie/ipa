@@ -140,6 +140,8 @@ export function ImpactSection() {
 
   {/* Call-to-Action Button */}
   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+   <a href="/pages/about">
+   
     <div className="
       bg-[#8B7D6B] 
       text-center 
@@ -154,6 +156,7 @@ export function ImpactSection() {
     ">
       Learn About Our Work
     </div>
+   </a>
   </motion.div>
 </motion.div>
 

@@ -13,17 +13,12 @@ const mediaItems: MediaItem[] = [
   {
     type: "image",
     src: "/drive/d (1).jpg",
-    alt: "Empowering Ideas into Impact",
+    alt: "Resilient Farming for a Better Tomorrow",
   },
   {
     type: "image",
     src: "/drive/d (11).jpg",
     alt: "From Blossom to Honeycomb",
-  },
-  {
-    type: "image",
-    src: "/drive/d (15).jpg",
-    alt: "Resilient Farming for a Better Tomorrow",
   },
   {
     type: "image",
@@ -52,11 +47,31 @@ const mediaItems: MediaItem[] = [
     src: "/drive/p.jpg",
     alt: "Creating Pathways of Opportunity",
   },
-  // {
-  //   type: "video",
-  //   src: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-  //   alt: "Community Project Video",
-  // },
+  {
+    type: "image",
+    src: "/images/women.jpg",
+    alt: "Women in Sanpkala",
+  },
+  {
+    type: "image",
+    src: "/images/dce.jpg",
+    alt: "Time with DCE",
+  },
+  {
+    type: "video",
+    src: "/videos/poor5.mp4",
+    alt: "IPAGH - Northen Sector video",
+  },
+  {
+    type: "video",
+    src: "/videos/climate.mp4",
+    alt: "Workshop of Empowerment video",
+  },
+  {
+    type: "video",
+    src: "/videos/update.mp4",
+    alt: "Female Bee Keeper video",
+  },
   // {
   //   type: "video",
   //   src: "https://www.youtube.com/embed/9bZkp7q19f0",
@@ -75,7 +90,7 @@ const closeModal = () => setSelectedItem(null);
     <section className="py-1 bg-[#FFFDF5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
         <h2 className="text-4xl md:text-5xl font-extrabold text-[#8B7D6B] mb-4 drop-shadow-sm">
-          📸 Photo Gallery
+          📸 Photo and Video Gallery
         </h2>
         <p className="text-lg text-[#5B3A1A] max-w-3xl mx-auto leading-relaxed">
           Explore our impactful projects and community moments through photos and videos. Click any item to view in full size.

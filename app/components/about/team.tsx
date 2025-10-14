@@ -124,7 +124,30 @@ const teamMembers: TeamMember[] = [
       experience:
         "She brings a strong background in impact assessment, research methodology, and participatory development. Jacqueline has collaborated with NGOs, academic institutions, and grassroots organizations to design tools that track progress, assess resilience, and measure social change. Her hands-on experience with marginalized communities gives her a practical understanding of the challenges they face and the opportunities knowledge can unlock.",
     },
-
+    {
+      name: "Emmanuel Oppong Coffie",
+      role: "Software Engineer",
+      emoji: "💻",
+      image: "/images/me2.png",
+      bio: "Full-stack software engineer and digital innovator passionate about using technology to build impactful, sustainable, and inclusive solutions.",
+      details: `
+        Emmanuel Oppong Coffie is a software engineer with a strong focus on creating
+        scalable, user-centered applications that empower communities and organizations.
+        His work bridges the intersection of technology, climate innovation, and social impact —
+        using data-driven systems to enhance collaboration, accessibility, and knowledge sharing.
+      `,
+      impact: `
+        Designed and developed robust digital platforms supporting over 10,000 users across
+        community and research networks. His contributions include building visualized
+        softwares, optimizing API integrations, and enhancing UX for knowledge-based systems.
+      `,
+      experience: `
+        3 years of experience in software engineering, with expertise in React, Next.js,
+        TypeScript, and Larave. Skilled in cloud architecture, API design, building
+        modern web applications and Ai Automations with performance and accessibility at the core.
+      `
+    }    
+    
 ];
 
 export default function TeamPage() {
@@ -191,12 +214,12 @@ const closeModal = () => setSelectedMember(null);
         bodyStyle={{
           backgroundColor: "#FFFDF5",
           borderRadius: "20px",
-          padding: "2rem",
+          padding: "0rem",
         }}
       >
         {selectedMember && (
           <div className="text-center">
-            <div className="md:w-36 md:h-36 mx-auto md:rounded-full overflow-hidden mb-4 md:border-4 border-[#8B7D6B]">
+            <div className="md:w-40 md:h-40 mx-auto overflow-hidden mb-1 border-[#8B7D6B]">
               <img
                 src={selectedMember.image}
                 alt={selectedMember.name}
