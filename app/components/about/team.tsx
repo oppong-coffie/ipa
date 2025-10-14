@@ -93,7 +93,7 @@ const teamMembers: TeamMember[] = [
     name: "Ekow Freeman",
     role: "Media & Storytelling Officer",
     emoji: "📸",
-    image: "/images/team8.jpg",
+    image: "/images/team81.jpg",
     bio: "Creative media strategist and storytelling advocate, amplifying indigenous voices through impactful narratives.",
     details: `
       Ekow Freeman is a dynamic Media and Storytelling Officer dedicated to capturing and amplifying the stories of Ghana's indigenous communities. 
@@ -115,7 +115,7 @@ const teamMembers: TeamMember[] = [
       name: "Jacqueline Okine",
       role: "Knowledge and Impact Officer",
       emoji: "📚",
-      image: "/images/jack.jpg",
+      image: "/resolve/jack.jpg",
       bio: "Jacqueline is dedicated to ensuring that knowledge translates into real impact for communities.",
       details:
         "As Knowledge and Impact Officer, Jacqueline leads monitoring, evaluation, and learning (MEL) initiatives, ensuring that every project captures lessons that guide future strategies. She facilitates evidence-based decision-making and champions the documentation of indigenous knowledge systems.",
