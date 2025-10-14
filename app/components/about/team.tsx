@@ -40,7 +40,7 @@ const teamMembers: TeamMember[] = [
     name: "David D. Tawiah",
     role: "Team Member",
     emoji: "🐝",
-    image: "/images/team2.jpg",
+    image: "/images/team21.jpg",
     bio: "Natural resource management expert and African Climate Innovation Challenge winner.",
     details: `
       David Djangmah Tawiah, a natural resource management expert, and 2022 winner of the African Climate Innovation Challenge,
@@ -58,7 +58,7 @@ const teamMembers: TeamMember[] = [
     name: "Gabriel O. Akyaw",
     role: "Team Member",
     emoji: "🧪",
-    image: "/images/team3.jpg",
+    image: "/images/team31.jpg",
     bio: "Environmental scientist and researcher in sustainable agro-waste and textile production.",
     details: `
       Gabriel Owusu-Akyaw is an environmental scientist and researcher. His research work spans from carbon capture via
@@ -115,7 +115,7 @@ const teamMembers: TeamMember[] = [
       name: "Jacqueline Okine",
       role: "Knowledge and Impact Officer",
       emoji: "📚",
-      image: "/images/team9.jpg",
+      image: "/images/jack.jpg",
       bio: "Jacqueline is dedicated to ensuring that knowledge translates into real impact for communities.",
       details:
         "As Knowledge and Impact Officer, Jacqueline leads monitoring, evaluation, and learning (MEL) initiatives, ensuring that every project captures lessons that guide future strategies. She facilitates evidence-based decision-making and champions the documentation of indigenous knowledge systems.",

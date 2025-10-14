@@ -12,12 +12,12 @@ type MediaItem = {
 const mediaItems: MediaItem[] = [
   {
     type: "image",
-    src: "/drive/d (1).jpg",
+    src: "/drive/d(1).jpg",
     alt: "Resilient Farming for a Better Tomorrow",
   },
   {
     type: "image",
-    src: "/drive/d (11).jpg",
+    src: "/drive/d(11).jpg",
     alt: "From Blossom to Honeycomb",
   },
   {
