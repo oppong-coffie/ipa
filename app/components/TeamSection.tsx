@@ -30,7 +30,7 @@ export default function TeamSection() {
     {
       name: "Ekow Freeman",
       position: "Media officer",
-      image: "/images/team8.jpg",
+      image: "/images/team81.jpg",
     },
     {
       name: "Jacqueline Okine",
