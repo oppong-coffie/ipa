@@ -15,12 +15,12 @@ export default function TeamSection() {
     {
       name: "David D. Tawiah",
       position: "Team Member",
-      image: "/images/team2.jpg",
+      image: "/images/team21.jpg",
     },
     {
       name: "Gabriel O. Akyaw",
       position: "Team Member",
-      image: "/images/team3.jpg",
+      image: "/images/team31.jpg",
     },
     {
       name: "Hilda Darko",
@@ -40,7 +40,7 @@ export default function TeamSection() {
     {
       name: "Emmanuel Oppong Oppong",
       position: "Software Engineer",
-      image: "/resolve/jack.jpg",
+      image: "/images/me2.png",
     },
   ];
 
@@ -49,7 +49,7 @@ export default function TeamSection() {
       {/* Hero Section */}
       <div className="relative h-80 md:h-96">
         <Image
-          src="/images/teamwork4.jpg"
+          src="/images/teamwork41.jpg"
           alt="Teamwork"
           fill
           className="object-cover"
