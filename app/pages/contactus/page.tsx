@@ -158,11 +158,11 @@ export default function ContactPage() {
 
             <div className="mt-8" data-aos="zoom-in">
               <Image
-                src="/images/teamwork41.jpg"
+                src="/images/contact3.png"
                 alt="Support representative ready to assist over multiple channels"
                 width={640}
-                height={427}
-                className="w-full rounded-2xl border border-yellow-200 shadow-md object-cover"
+                height={227}
+                className="w-full rounded-full h-28 border border-yellow-200 shadow-md object-cover"
                 priority
               />
               <p className="text-sm text-brown-600 mt-3 text-center">
