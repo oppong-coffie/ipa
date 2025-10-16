@@ -2,11 +2,12 @@
 
 import React, { useEffect } from "react";
 import { Card, Button } from "antd";
-import { MapPin, MessageSquare, PhoneCall, Mail } from "lucide-react";
+import { MessageSquare, PhoneCall, Mail } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function ContactPage() {
   useEffect(() => {
@@ -153,6 +154,21 @@ export default function ContactPage() {
                   Email: info@ipa.org
                 </Button>
               </motion.div>
+            </div>
+
+            <div className="mt-8" data-aos="zoom-in">
+              <Image
+                src="/images/teamwork41.jpg"
+                alt="Support representative ready to assist over multiple channels"
+                width={640}
+                height={427}
+                className="w-full rounded-2xl border border-yellow-200 shadow-md object-cover"
+                priority
+              />
+              <p className="text-sm text-brown-600 mt-3 text-center">
+                Our dedicated team is always on standby to respond swiftly to your
+                calls, messages, and emails.
+              </p>
             </div>
           </Card>
         </motion.div>
