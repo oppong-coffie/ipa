@@ -59,7 +59,7 @@ const BlogCOP30: React.FC = () => {
               </h2>
               <p className="text-justify text-xl leading-relaxed text-neutral-700 pt-4">
                 The upcoming COP30 in Belém, in the Brazilian Amazon, has been
-                dubbed the People&apos;s COP," creating immense expectations for
+                dubbed the People&apos;s COP, creating immense expectations for
                 Indigenous Peoples and other marginalized groups who are on the
                 front lines of the climate crisis. 
               </p>
@@ -137,7 +137,7 @@ const BlogCOP30: React.FC = () => {
   are demanding{" "}
     direct, accessible, and rights-based climate finance
   that bypasses complex institutional requirements and intermediary{" "}
-  <em className="text-neutral-800">“gatekeepers.”</em>  
+  <em className="text-neutral-800">&quot;gatekeepers.&quot;</em>  
   Initiatives like the{" "}
   <strong className="text-emerald-700">
     Tropical Forest Forever Facility (TFFF)
@@ -175,7 +175,7 @@ const BlogCOP30: React.FC = () => {
               co-presidency in decision-making, and securing the right to Free,
               Prior, and Informed Consent (FPIC) for any measure affecting their
               lands or cultures. Brazil has shown positive intent by creating
-              the International Indigenous Commission as part of its 'People's
+              the International Indigenous Commission as part of its &quot;People&apos;s
               Circle' leadership, but the expectation is for this to translate
               into influence on core negotiation outcomes, not just side events.
             </p>
