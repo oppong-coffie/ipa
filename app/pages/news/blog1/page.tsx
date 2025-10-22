@@ -73,20 +73,20 @@ const BlogCOP30: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="text-neutral-700 leading-relaxed space-y-4"
           >
-            <p>
+            <p className="text-justify text-xl leading-relaxed text-neutral-700 pt-4">
             For the first time, this
                 critical global summit is hosted in the Amazon, a biome vital to
                 global climate stability and home to millions of Indigenous
                 Peoples and Local Communities (IPLCs). Drawing on momentum from
-                COP29, where Indigenous leaders launched the Indigenous Peoples'
+                COP29, where Indigenous leaders launched the Indigenous Peoples&apos;
                 Troika to strengthen participation across COPs, the clear demand
                 for COP30 is a decisive shift from pledges to concrete,
                 rights-based, and locally-led action that directly addresses the
                 disproportionate impacts of climate change on vulnerable
                 populations.
             </p>
-
-            <p>
+    
+            <p className="text-justify text-xl leading-relaxed text-neutral-700 pt-4">
               At the IWGIA booth in Baku, Azerbaijan, a discussion featuring the
               Founder of Indigenous People Alliance Ghana emphasized that true
               climate justice requires a structural transformation — recognizing
@@ -155,8 +155,8 @@ const BlogCOP30: React.FC = () => {
   <span className="text-red-600 font-semibold">fossil fuel</span> and{" "}
   <span className="text-red-600 font-semibold">mining projects</span> —
   occurring in or near Indigenous territories, often framed as{" "}
-  <em className="text-neutral-800">“sustainable development”</em> or{" "}
-  <em className="text-neutral-800">“green colonialism.”</em>  
+  <em className="text-neutral-800">`sustainable development`</em> or{" "}
+  <em className="text-neutral-800"> green colonialism.</em>  
   The message is clear:{" "}
     true climate transition cannot be built on the destruction of Indigenous
     livelihoods and cultures.
@@ -184,7 +184,7 @@ const BlogCOP30: React.FC = () => {
               ⚖️ Indigenizing the Rulebook & Just Transition
             </h3>
               <p>
-                Finally, COP30 is expected to "Indigenize the Rulebook," enriching
+                Finally, COP30 is expected to &quot;Indigenize the Rulebook&quot;, enriching
                 the Paris Agreement with Indigenous contributions, particularly in
                 defining global adaptation indicators under the Global Goal on
                 Adaptation (GGA). The Just Transition Work Programme must ensure
