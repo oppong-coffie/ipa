@@ -226,23 +226,6 @@ const BlogCOP30: React.FC = () => {
             ))}
           </div>
 
-          {/* Read More Button */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex justify-center mt-6"
-          >
-            <Link
-              href="https://docs.google.com/document/d/1qxuwD4JyNSarYlT0as4f5iMaHUTIllTLEYvoz24Z7hw/edit?pli=1&tab=t.0#heading=h.7m5j1rz4d1kd"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-yellow-600 text-white rounded-full font-semibold shadow-md hover:bg-yellow-700 transition-all duration-300"
-            >
-              Read Full News
-              <ArrowRight className="ml-2 w-5 h-5 animate-bounce" />
-            </Link>
-          </motion.div>
-
           {/* Author */}
           <motion.div
             data-aos="fade-up"
