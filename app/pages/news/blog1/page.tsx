@@ -34,7 +34,7 @@ const BlogCOP30: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-3xl font-bold text-neutral-900"
           >
-            Belém&apos;s Crucible: Indigenous Demands for the Amazon COP30 🌎
+            Beléms Crucible: Indigenous Demands for the Amazon COP30 🌎
           </motion.h1>
 
           {/* Image + Summary */}
