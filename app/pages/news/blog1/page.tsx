@@ -176,7 +176,7 @@ const BlogCOP30: React.FC = () => {
               Prior, and Informed Consent (FPIC) for any measure affecting their
               lands or cultures. Brazil has shown positive intent by creating
               the International Indigenous Commission as part of its &quot;People&apos;s
-              Circle' leadership, but the expectation is for this to translate
+              Circle&apos;s leadership, but the expectation is for this to translate
               into influence on core negotiation outcomes, not just side events.
             </p>
 
