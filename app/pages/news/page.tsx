@@ -4,11 +4,12 @@ import React from "react";
 import { Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import Blog1 from "./blog1/page";
 
 export default function NewsPage() {
   return (
-<div className="flex justify-center item-center bg-slate-100 p-32 text-slate-400">
-  COMING SOON...
+<div className="flex justify-center item-center bg-slate-100 px-32 text-slate-400">
+  < Blog1 />
 </div>
     // <div className="">
     //   <section className="flex flex-col md:flex-row gap-4 items-center justify-between bg-white rounded-xl p-4 shadow-sm border border-neutral-200">
