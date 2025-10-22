@@ -59,7 +59,7 @@ const BlogCOP30: React.FC = () => {
               </h2>
               <p className="text-justify text-xl leading-relaxed text-neutral-700 pt-4">
                 The upcoming COP30 in Belém, in the Brazilian Amazon, has been
-                dubbed the "People's COP," creating immense expectations for
+                dubbed the People&apos;s COP," creating immense expectations for
                 Indigenous Peoples and other marginalized groups who are on the
                 front lines of the climate crisis. 
               </p>
@@ -85,7 +85,7 @@ const BlogCOP30: React.FC = () => {
                 disproportionate impacts of climate change on vulnerable
                 populations.
             </p>
-    
+
             <p className="text-justify text-xl leading-relaxed text-neutral-700 pt-4">
               At the IWGIA booth in Baku, Azerbaijan, a discussion featuring the
               Founder of Indigenous People Alliance Ghana emphasized that true
@@ -152,14 +152,14 @@ const BlogCOP30: React.FC = () => {
   </span>{" "}
   there&apos;s a strong call to regulate and halt funding for extractive activities —
   such as{" "}
-  <span className="text-red-600 font-semibold">fossil fuel</span> and{" "}
+  <span className="text-red-600 font-semibold">fossil fuel</span> and
   <span className="text-red-600 font-semibold">mining projects</span> —
-  occurring in or near Indigenous territories, often framed as{" "}
-  <em className="text-neutral-800">`sustainable development`</em> or{" "}
+  occurring in or near Indigenous territories, often framed as
+  <em className="text-neutral-800">`sustainable development`</em> or
   <em className="text-neutral-800"> green colonialism.</em>  
-  The message is clear:{" "}
+  The message is clear:<br />
     true climate transition cannot be built on the destruction of Indigenous
-    livelihoods and cultures.
+    livelihoods and cultures.<br />
 </motion.p>
 
 
@@ -238,7 +238,7 @@ const BlogCOP30: React.FC = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center px-6 py-3 bg-yellow-600 text-white rounded-full font-semibold shadow-md hover:bg-yellow-700 transition-all duration-300"
             >
-              Read Full News{" "}
+              Read Full News
               <ArrowRight className="ml-2 w-5 h-5 animate-bounce" />
             </Link>
           </motion.div>
