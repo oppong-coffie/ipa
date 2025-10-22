@@ -11,66 +11,65 @@ export default function NewsPage() {
   return (
     <div>
       {/* START:: Hero Section */}
-      <section className="relative bg-gradient-to-br from-amber-50 via-white to-amber-100 rounded-3xl border border-neutral-200 shadow-md overflow-hidden mb-5">
-        {/* Background subtle pattern or overlay */}
-        <div className="absolute inset-0 bg-[url('/patterns/news-bg.svg')] opacity-5"></div>
+      <section className="relative bg-gradient-to-br from-amber-50 via-white to-amber-100 rounded-3xl border border-neutral-200 shadow-md overflow-hidden mb-8">
+  {/* Subtle background pattern */}
+  <div className="absolute inset-0 bg-[url('/patterns/news-bg.svg')] opacity-5"></div>
 
-        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between px-8 py-14 gap-10">
-          {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-2xl text-center lg:text-left space-y-5"
-          >
-            <h1 className="text-4xl md:text-5xl font-extrabold text-neutral-800 leading-tight">
-              Stay Informed, Stay Empowered 📰
-            </h1>
-            <p className="text-lg md:text-xl text-neutral-600 leading-relaxed">
-              Stay informed and engaged with the latest developments from our
-              growing community. Discover{" "}
-              <span className="text-amber-700 font-semibold">
-                insightful blogs, upcoming opportunities, campaign highlights,
-              </span>{" "}
-              and updates on our newest projects — all in one place.
-            </p>
-          </motion.div>
+  {/* Content */}
+  <div className="relative z-10 px-8 py-16 flex flex-col items-center text-center space-y-6">
+    {/* Animated Heading */}
+    <motion.h1
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="text-4xl md:text-5xl font-extrabold text-neutral-800 leading-tight"
+    >
+      Stay Informed, Stay Empowered 📰
+    </motion.h1>
 
-          {/* Right Visual / Animation */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="relative"
-          >
-            <div className="w-72 h-72 md:w-96 md:h-96 bg-amber-100 rounded-full flex items-center justify-center shadow-inner">
-              <Image
-                src="/drive2/radio3.jpg"
-                alt="Community updates"
-                width={350}
-                height={350}
-                className="object-contain drop-shadow-lg rounded-full"
-              />
-            </div>
+    {/* Supporting Paragraph */}
+    <motion.p
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+      className="max-w-3xl text-lg md:text-xl text-neutral-600 leading-relaxed"
+    >
+      Stay connected with the pulse of our growing community — where stories,
+      opportunities, and innovations come together. Discover{" "}
+      <span className="text-amber-700 font-semibold">
+        insightful blogs, campaign updates, and the latest projects
+      </span>{" "}
+      shaping our collective impact.
+    </motion.p>
 
-            {/* Floating Text Badges */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 4 }}
-              className="absolute top-10 -left-6 bg-white px-3 py-1 rounded-lg shadow text-amber-700 font-medium text-sm"
-            >
-              🌿 Community Growth
-            </motion.div>
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 3 }}
-              className="absolute bottom-8 right-0 bg-white px-3 py-1 rounded-lg shadow text-green-700 font-medium text-sm"
-            >
-              💡 Innovation
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+    {/* Floating Badges */}
+    <div className="flex flex-wrap justify-center gap-4 mt-6">
+      <motion.span
+        animate={{ y: [0, -6, 0] }}
+        transition={{ repeat: Infinity, duration: 4 }}
+        className="bg-white border border-amber-200 px-4 py-2 rounded-full text-amber-700 font-medium shadow-sm"
+      >
+        🌿 Community Growth
+      </motion.span>
+      <motion.span
+        animate={{ y: [0, 6, 0] }}
+        transition={{ repeat: Infinity, duration: 3 }}
+        className="bg-white border border-green-200 px-4 py-2 rounded-full text-green-700 font-medium shadow-sm"
+      >
+        💡 Innovation
+      </motion.span>
+      <motion.span
+        animate={{ y: [0, -8, 0] }}
+        transition={{ repeat: Infinity, duration: 5 }}
+        className="bg-white border border-blue-200 px-4 py-2 rounded-full text-blue-700 font-medium shadow-sm"
+      >
+        🗞 News & Insights
+      </motion.span>
+    </div>
+
+  </div>
+</section>
+
       {/* END:: Hero Section */}
 
       {/* START:: News Section */}
