@@ -35,14 +35,15 @@ export default function OurStoryPage() {
               How It All Began 🌱
             </h2>
             <p className="text-[#5B3A1A] text-lg mb-4">
-              Founded in 2020 by passionate young indigenous leaders, IPA
-              emerged to address climate change, economic marginalization, and
-              cultural erosion threatening communities.
+            Founded in 2024, IPA-GH is an indigenous community-led organization 
+            that exists to end the cycle of perpetual vulnerability and promote social equity of marginalized groups through 
+            <span className="font-semibold text-yellow-500"> co-creation, knowledge diplomacy and sustainable livelihoods</span> 
+            in the face of global challenges such as climate change. 
+
             </p>
             <p className="text-[#5B3A1A] text-lg mb-4">
-              By blending traditional wisdom with modern approaches, IPA creates
-              sustainable solutions that empower communities and inspire the
-              next generation of leaders. 💪
+            Our organization is built on the infrastructure of critical theories on 
+            <span className="font-semibold text-yellow-500">Redistribution Struggles</span>  in Marxist themes. 💪
             </p>
           </div>
 
@@ -66,7 +67,7 @@ export default function OurStoryPage() {
       Our Theory of Change
     </h2>
     <p className="text-lg leading-relaxed text-gray-700">
-      IPA-GH’s approach is grounded in a{" "}
+      IPA-GH&apos;s approach is grounded in a{" "}
       <span className="font-semibold text-[#5B3A1A]">“co-creation” model of change</span>.
       As a <span className="font-semibold">youth-led organization</span>, we harness 
       <span className="font-semibold"> youth innovation</span> and collaborate with 

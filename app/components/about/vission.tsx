@@ -53,7 +53,7 @@ export default function VisionPage() {
       Our Vision 🌟
     </h1>
     <p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-      The vision of <span className="font-semibold text-yellow-500">IPA-GH</span> 
+      The vision of <span className="font-semibold text-yellow-500">IPA-GH </span> 
       is to create a society where marginalized communities can thrive through sustainable development 
       and active participation. We aspire to empower diverse populations to collaborate on local and 
       international challenges, including climate change, while protecting their rights and cultural heritage. 
