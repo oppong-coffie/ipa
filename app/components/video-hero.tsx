@@ -56,27 +56,27 @@ export function VideoHero() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <a href="/pages/contactus">
-               <Button
-              size="large"
-              className="bg-[#FACC15] hover:bg-yellow-300 text-black px-8 py-4 text-lg font-semibold"
-            >
-              Get Involved
-            </Button>
+              <Button
+                size="large"
+                className="bg-[#FACC15] hover:bg-yellow-300 text-black px-8 py-4 text-lg font-semibold"
+              >
+                Get Involved
+              </Button>
             </a>
-           
+
             <a href="/pages/about">
-            <Button
-              size="large"
-              className="bg-[#8B7D6B]/80 border-[#FACC15] text-[#FACC15] hover:bg-[#FACC15] hover:text-black backdrop-blur-sm px-8 py-4 text-lg"
-            >
-              Our Story
-            </Button>
+              <Button
+                size="large"
+                className="bg-[#8B7D6B]/80 border-[#FACC15] text-[#FACC15] hover:bg-[#FACC15] hover:text-black backdrop-blur-sm px-8 py-4 text-lg"
+              >
+                Our Story
+              </Button>
             </a>
           </motion.div>
         </div>
       </div>
 
-   
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

@@ -24,7 +24,7 @@ export function MissionSection() {
     },
     {
       number: "02",
-      title: "Sustainable Lives",
+      title: "Sustainable Livelihoods",
       description:
         "Creating income opportunities that preserve culture and sustain communities.",
       image: "/drive/d(15).jpg",
@@ -123,9 +123,9 @@ export function MissionSection() {
           >
             <a href="/pages/about">
 
-            <div className="bg-[#8B7D6B] hover:bg-[#A67C52] border border-[#FACC15] text-[#3e2723] rounded-xl px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 w-96">
-              Learn More About Our Work
-            </div>
+              <div className="bg-[#8B7D6B] hover:bg-[#A67C52] border border-[#FACC15] text-[#3e2723] rounded-xl px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 w-96">
+                Learn More About Our Work
+              </div>
             </a>
           </motion.div>
         </div>
