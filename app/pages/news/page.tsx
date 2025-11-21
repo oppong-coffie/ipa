@@ -12,63 +12,63 @@ export default function NewsPage() {
     <div>
       {/* START:: Hero Section */}
       <section className="relative bg-gradient-to-br from-amber-50 via-white to-amber-100 rounded-3xl border border-neutral-200 shadow-md overflow-hidden mb-8">
-  {/* Subtle background pattern */}
-  <div className="absolute inset-0 bg-[url('/patterns/news-bg.svg')] opacity-5"></div>
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 bg-[url('/patterns/news-bg.svg')] opacity-5"></div>
 
-  {/* Content */}
-  <div className="relative z-10 px-8 py-16 flex flex-col items-center text-center space-y-6">
-    {/* Animated Heading */}
-    <motion.h1
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="text-4xl md:text-5xl font-extrabold text-neutral-800 leading-tight"
-    >
-      Stay Informed, Stay Empowered 📰
-    </motion.h1>
+        {/* Content */}
+        <div className="relative z-10 px-8 py-16 flex flex-col items-center text-center space-y-6">
+          {/* Animated Heading */}
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl font-extrabold text-neutral-800 leading-tight"
+          >
+            Stay Informed, Stay Empowered 📰
+          </motion.h1>
 
-    {/* Supporting Paragraph */}
-    <motion.p
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.2 }}
-      className="max-w-3xl text-lg md:text-xl text-neutral-600 leading-relaxed"
-    >
-      Stay connected with the pulse of our growing community — where stories,
-      opportunities, and innovations come together. Discover{" "}
-      <span className="text-amber-700 font-semibold">
-        insightful blogs, campaign updates, and the latest projects
-      </span>{" "}
-      shaping our collective impact.
-    </motion.p>
+          {/* Supporting Paragraph */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="max-w-3xl text-lg md:text-xl text-neutral-600 leading-relaxed"
+          >
+            Stay connected with the pulse of our growing community — where stories,
+            opportunities, and innovations come together. Discover{" "}
+            <span className="text-amber-700 font-semibold">
+              insightful blogs, campaign updates, and the latest projects
+            </span>{" "}
+            shaping our collective impact.
+          </motion.p>
 
-    {/* Floating Badges */}
-    <div className="flex flex-wrap justify-center gap-4 mt-6">
-      <motion.span
-        animate={{ y: [0, -6, 0] }}
-        transition={{ repeat: Infinity, duration: 4 }}
-        className="bg-white border border-amber-200 px-4 py-2 rounded-full text-amber-700 font-medium shadow-sm"
-      >
-        🌿 Community Growth
-      </motion.span>
-      <motion.span
-        animate={{ y: [0, 6, 0] }}
-        transition={{ repeat: Infinity, duration: 3 }}
-        className="bg-white border border-green-200 px-4 py-2 rounded-full text-green-700 font-medium shadow-sm"
-      >
-        💡 Innovation
-      </motion.span>
-      <motion.span
-        animate={{ y: [0, -8, 0] }}
-        transition={{ repeat: Infinity, duration: 5 }}
-        className="bg-white border border-blue-200 px-4 py-2 rounded-full text-blue-700 font-medium shadow-sm"
-      >
-        🗞 News & Insights
-      </motion.span>
-    </div>
+          {/* Floating Badges */}
+          <div className="flex flex-wrap justify-center gap-4 mt-6">
+            <motion.span
+              animate={{ y: [0, -6, 0] }}
+              transition={{ repeat: Infinity, duration: 4 }}
+              className="bg-white border border-amber-200 px-4 py-2 rounded-full text-amber-700 font-medium shadow-sm"
+            >
+              🌿 Community Growth
+            </motion.span>
+            <motion.span
+              animate={{ y: [0, 6, 0] }}
+              transition={{ repeat: Infinity, duration: 3 }}
+              className="bg-white border border-green-200 px-4 py-2 rounded-full text-green-700 font-medium shadow-sm"
+            >
+              💡 Innovation
+            </motion.span>
+            <motion.span
+              animate={{ y: [0, -8, 0] }}
+              transition={{ repeat: Infinity, duration: 5 }}
+              className="bg-white border border-blue-200 px-4 py-2 rounded-full text-blue-700 font-medium shadow-sm"
+            >
+              🗞 News & Insights
+            </motion.span>
+          </div>
 
-  </div>
-</section>
+        </div>
+      </section>
 
       {/* END:: Hero Section */}
 
@@ -245,7 +245,8 @@ export default function NewsPage() {
       {/* START:: Blog Section */}
       <section className="flex flex-wrap justify-center gap-6 p-6 bg-gradient-to-br from-amber-50 to-white">
         {/* Card 1 */}
-        {/* <article className="w-full sm:w-[48%] lg:w-[23%] bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
+        {/* Card 1 */}
+        <article className="w-full sm:w-[48%] lg:w-[23%] bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
           <Link href="news/blog7">
             <div className="relative h-48 w-full overflow-hidden">
               <Image
@@ -263,9 +264,9 @@ export default function NewsPage() {
               </p>
             </div>
           </Link>
-        </article> */}
+        </article>
         {/* Card 2 */}
-        {/* <article className="w-full sm:w-[48%] lg:w-[23%] bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
+        <article className="w-full sm:w-[48%] lg:w-[23%] bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
           <Link href="news/blog8">
             <div className="relative h-48 w-full overflow-hidden">
               <Image
@@ -283,9 +284,9 @@ export default function NewsPage() {
               </p>
             </div>
           </Link>
-        </article> */}
+        </article>
         {/* Card 3 */}
-        {/* <article className="w-full sm:w-[48%] lg:w-[23%] bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
+        <article className="w-full sm:w-[48%] lg:w-[23%] bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
           <Link href="news/blog9">
             <div className="relative h-48 w-full overflow-hidden">
               <Image
@@ -303,10 +304,10 @@ export default function NewsPage() {
               </p>
             </div>
           </Link>
-        </article> */}
+        </article>
 
         {/* Card 4 */}
-        {/* <article className="w-full sm:w-[48%] lg:w-[23%] bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
+        <article className="w-full sm:w-[48%] lg:w-[23%] bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
           <Link href="news/blog10">
             <div className="relative h-48 w-full overflow-hidden">
               <Image
@@ -324,7 +325,7 @@ export default function NewsPage() {
               </p>
             </div>
           </Link>
-        </article> */}
+        </article>
       </section>
       {/* END:: Blog Section */}
     </div>

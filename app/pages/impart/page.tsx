@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import React from "react";
 import { motion } from "framer-motion";
 import { Sprout, Users, Building2, HeartHandshake } from "lucide-react";
+import CountUp from "react-countup";
 
 // Dynamically import the MapComponent to avoid SSR error
 const MapComponent = dynamic(() => import("../../components/MapComponent"), {
@@ -48,23 +49,28 @@ export default function Impart2Page() {
 
       {/* 🌍 Impact Summary Section */}
       <section className="py-12 bg-white">
-      <h1 className="text-3xl font-bold text-center text-neutral-900 mb-10">
-        Real Impact in Numbers 📈
-      </h1>
+        <h1 className="text-3xl font-bold text-center text-neutral-900 mb-10">
+          Real Impact in Numbers 📈
+        </h1>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-        {metrics.map((m, i) => (
-          <div
-            key={i}
-            className="flex flex-col items-center justify-center bg-teal-50 p-4 rounded-lg shadow-sm border border-teal-100"
-          >
-            {m.icon}
-            <p className="text-2xl font-bold text-teal-800 mt-2">{m.value}</p>
-            <p className="text-sm text-neutral-700 text-center mt-1">{m.label}</p>
-          </div>
-        ))}
-      </div>
-    </section>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          {metrics.map((m, i) => (
+            <div
+              key={i}
+              className="flex flex-col items-center justify-center bg-teal-50 p-6 rounded-xl shadow-sm border border-teal-100 hover:shadow-md transition-shadow duration-300"
+            >
+              <div className="p-3 bg-teal-100 rounded-full mb-3">
+                {m.icon}
+              </div>
+              <p className="text-3xl font-bold text-teal-800 mt-2" suppressHydrationWarning>
+                <CountUp end={m.value} duration={2.5} separator="," />
+                {m.label.includes("Rate") || m.label.includes("Percentage") ? "%" : "+"}
+              </p>
+              <p className="text-sm text-neutral-600 text-center font-medium">{m.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* 🌍 Map Section */}
       <section className="bg-gradient-to-tr from-[#F5F0E5] to-[#EDEAE3] py-16">

@@ -3,11 +3,11 @@
 import { Card, Button } from "antd";
 import Aboutus from "@/app/components/about/aboutus";
 import MissionPage from "@/app/components/about/mission";
-import VisionPage from "@/app/components/about/vission";
+import VisionPage from "@/app/components/about/vision";
 import ValuesPage from "@/app/components/about/values";
 import TeamPage from "@/app/components/about/team";
 import Story from "@/app/components/about/story";
-import Galery from "@/app/components/about/galary";
+import Galery from "@/app/components/about/gallery";
 
 export default function AboutPage() {
   return (

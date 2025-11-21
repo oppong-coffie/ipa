@@ -111,50 +111,50 @@ const teamMembers: TeamMember[] = [
       6+ years of experience in journalism, multimedia production, social media advocacy, and community storytelling.
     `,
   },
-    {
-      name: "Jacqueline Okine",
-      role: "Knowledge and Impact Officer",
-      emoji: "📚",
-      image: "/resolve/jack.jpg",
-      bio: "Jacqueline is dedicated to ensuring that knowledge translates into real impact for communities.",
-      details:
-        "As Knowledge and Impact Officer, Jacqueline leads monitoring, evaluation, and learning (MEL) initiatives, ensuring that every project captures lessons that guide future strategies. She facilitates evidence-based decision-making and champions the documentation of indigenous knowledge systems.",
-      impact:
-        "Jacqueline has been instrumental in developing community-driven knowledge hubs, where insights are shared between local leaders, youth, and international partners. Her work ensures that indigenous voices are elevated in development dialogues and that cultural heritage informs modern solutions. She emphasizes transparency, accountability, and sustainability in measuring project outcomes.",
-      experience:
-        "She brings a strong background in impact assessment, research methodology, and participatory development. Jacqueline has collaborated with NGOs, academic institutions, and grassroots organizations to design tools that track progress, assess resilience, and measure social change. Her hands-on experience with marginalized communities gives her a practical understanding of the challenges they face and the opportunities knowledge can unlock.",
-    },
-    {
-      name: "Emmanuel Oppong Coffie",
-      role: "Software Engineer",
-      emoji: "💻",
-      image: "/images/me2.png",
-      bio: "Full-stack software engineer and digital innovator passionate about using technology to build impactful, sustainable, and inclusive solutions.",
-      details: `
+  {
+    name: "Jacqueline Okine",
+    role: "Knowledge and Impact Officer",
+    emoji: "📚",
+    image: "/resolve/jack.jpg",
+    bio: "Jacqueline is dedicated to ensuring that knowledge translates into real impact for communities.",
+    details:
+      "As Knowledge and Impact Officer, Jacqueline leads monitoring, evaluation, and learning (MEL) initiatives, ensuring that every project captures lessons that guide future strategies. She facilitates evidence-based decision-making and champions the documentation of indigenous knowledge systems.",
+    impact:
+      "Jacqueline has been instrumental in developing community-driven knowledge hubs, where insights are shared between local leaders, youth, and international partners. Her work ensures that indigenous voices are elevated in development dialogues and that cultural heritage informs modern solutions. She emphasizes transparency, accountability, and sustainability in measuring project outcomes.",
+    experience:
+      "She brings a strong background in impact assessment, research methodology, and participatory development. Jacqueline has collaborated with NGOs, academic institutions, and grassroots organizations to design tools that track progress, assess resilience, and measure social change. Her hands-on experience with marginalized communities gives her a practical understanding of the challenges they face and the opportunities knowledge can unlock.",
+  },
+  {
+    name: "Emmanuel Oppong Coffie",
+    role: "Software Engineer",
+    emoji: "💻",
+    image: "/images/me2.png",
+    bio: "Full-stack software engineer and digital innovator passionate about using technology to build impactful, sustainable, and inclusive solutions.",
+    details: `
         Emmanuel Oppong Coffie is a software engineer with a strong focus on creating
         scalable, user-centered applications that empower communities and organizations.
         His work bridges the intersection of technology, climate innovation, and social impact —
         using data-driven systems to enhance collaboration, accessibility, and knowledge sharing.
       `,
-      impact: `
+    impact: `
         Designed and developed robust digital platforms supporting over 10,000 users across
         community and research networks. His contributions include building visualized
         softwares, optimizing API integrations, and enhancing UX for knowledge-based systems.
       `,
-      experience: `
+    experience: `
         3 years of experience in software engineering, with expertise in React, Next.js,
         TypeScript, and Larave. Skilled in cloud architecture, API design, building
         modern web applications and Ai Automations with performance and accessibility at the core.
       `
-    }    
-    
+  }
+
 ];
 
 export default function TeamPage() {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
 
-const openModal = (member: TeamMember) => setSelectedMember(member);
-const closeModal = () => setSelectedMember(null);
+  const openModal = (member: TeamMember) => setSelectedMember(member);
+  const closeModal = () => setSelectedMember(null);
 
 
   return (
@@ -211,10 +211,12 @@ const closeModal = () => setSelectedMember(null);
         footer={null}
         centered
         width={700}
-        bodyStyle={{
-          backgroundColor: "#FFFDF5",
-          borderRadius: "20px",
-          padding: "0rem",
+        styles={{
+          body: {
+            backgroundColor: "#FFFDF5",
+            borderRadius: "20px",
+            padding: "0rem",
+          },
         }}
       >
         {selectedMember && (

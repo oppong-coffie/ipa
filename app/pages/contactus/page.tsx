@@ -133,26 +133,45 @@ export default function ContactPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <motion.div whileHover={{ scale: 1.03 }}>
-                  <Button className="w-full justify-start text-brown-800 border border-brown-700 hover:bg-yellow-100 transition-colors">
-                    <MessageSquare className="h-4 w-4 mr-2 text-brown-700" />
-                    WhatsApp: +233 50 846 9840
-                  </Button>
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <div className="w-full flex items-center p-4 bg-white border border-brown-200 rounded-xl hover:border-yellow-400 hover:shadow-md transition-all cursor-pointer group">
+                    <div className="bg-green-100 p-3 rounded-full mr-4 group-hover:bg-green-200 transition-colors">
+                      <MessageSquare className="h-6 w-6 text-green-700" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-brown-500 font-medium uppercase tracking-wide">Chat on WhatsApp</p>
+                      <p className="text-lg font-bold text-brown-900">+233 50 846 9840</p>
+                    </div>
+                  </div>
                 </motion.div>
               </Link>
 
-              <motion.div whileHover={{ scale: 1.03 }}>
-                <Button className="w-full justify-start text-brown-800 border border-brown-700 hover:bg-yellow-100 transition-colors">
-                  <PhoneCall className="h-4 w-4 mr-2 text-brown-700" />
-                  Call: +233 24 567 8901
-                </Button>
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <a href="tel:+233245678901">
+                  <div className="w-full flex items-center p-4 bg-white border border-brown-200 rounded-xl hover:border-yellow-400 hover:shadow-md transition-all cursor-pointer group">
+                    <div className="bg-blue-100 p-3 rounded-full mr-4 group-hover:bg-blue-200 transition-colors">
+                      <PhoneCall className="h-6 w-6 text-blue-700" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-brown-500 font-medium uppercase tracking-wide">Call Us Directly</p>
+                      <p className="text-lg font-bold text-brown-900">+233 24 567 8901</p>
+                    </div>
+                  </div>
+                </a>
               </motion.div>
 
-              <motion.div whileHover={{ scale: 1.03 }}>
-                <Button className="w-full justify-start text-brown-800 border border-brown-700 hover:bg-yellow-100 transition-colors">
-                  <Mail className="h-4 w-4 mr-2 text-brown-700" />
-                  Email: info@ipa.org
-                </Button>
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <a href="mailto:info@ipa.org">
+                  <div className="w-full flex items-center p-4 bg-white border border-brown-200 rounded-xl hover:border-yellow-400 hover:shadow-md transition-all cursor-pointer group">
+                    <div className="bg-orange-100 p-3 rounded-full mr-4 group-hover:bg-orange-200 transition-colors">
+                      <Mail className="h-6 w-6 text-orange-700" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-brown-500 font-medium uppercase tracking-wide">Send an Email</p>
+                      <p className="text-lg font-bold text-brown-900">info@ipa.org</p>
+                    </div>
+                  </div>
+                </a>
               </motion.div>
             </div>
 

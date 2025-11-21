@@ -68,9 +68,9 @@ const mediaItems: MediaItem[] = [
 export default function MediaGallery() {
   const [selectedItem, setSelectedItem] = useState<MediaItem | null>(null);
 
-// ✅ Type the parameter:
-const openModal = (item: MediaItem) => setSelectedItem(item);
-const closeModal = () => setSelectedItem(null);
+  // ✅ Type the parameter:
+  const openModal = (item: MediaItem) => setSelectedItem(item);
+  const closeModal = () => setSelectedItem(null);
 
   return (
     <section className="py-1 bg-[#FFFDF5]">
@@ -113,7 +113,7 @@ const closeModal = () => setSelectedItem(null);
         footer={null}
         centered
         width={800}
-        bodyStyle={{ backgroundColor: "#FFFDF5", borderRadius: "12px" }}
+        styles={{ body: { backgroundColor: "#FFFDF5", borderRadius: "12px" } }}
       >
         {selectedItem && (
           <div className="text-center">

@@ -30,7 +30,7 @@ export default function ValuesPage() {
         {values.map((value) => (
           <Card
             key={value.title}
-            bordered={false}
+            variant="borderless"
             className="rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-shadow duration-300 bg-[#FDDC5C]"
           >
             <div className="text-4xl mb-4 text-[#8B7D6B]">{value.emoji}</div>
