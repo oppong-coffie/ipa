@@ -192,7 +192,7 @@ const regionsData = [
     lat: 7.9465,
     lng: -1.0232,
     population: "33.1M",
-    projects: 1,
+    projects: 2,
     beneficiaries: "300+ marginalized participants",
     overview: `
     <p style="color:#065f46; font-weight:600; font-size:1.05rem;">
