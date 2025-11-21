@@ -246,7 +246,7 @@ export default function NewsPage() {
       <section className="flex flex-wrap justify-center gap-6 p-6 bg-gradient-to-br from-amber-50 to-white">
         {/* Card 1 */}
         {/* Card 1 */}
-        <article className="w-full sm:w-[48%] lg:w-[23%] bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
+        {/* <article className="w-full sm:w-[48%] lg:w-[23%] bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
           <Link href="news/blog7">
             <div className="relative h-48 w-full overflow-hidden">
               <Image
@@ -264,9 +264,9 @@ export default function NewsPage() {
               </p>
             </div>
           </Link>
-        </article>
+        </article> */}
         {/* Card 2 */}
-        <article className="w-full sm:w-[48%] lg:w-[23%] bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
+        {/* <article className="w-full sm:w-[48%] lg:w-[23%] bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
           <Link href="news/blog8">
             <div className="relative h-48 w-full overflow-hidden">
               <Image
@@ -284,9 +284,9 @@ export default function NewsPage() {
               </p>
             </div>
           </Link>
-        </article>
+        </article> */}
         {/* Card 3 */}
-        <article className="w-full sm:w-[48%] lg:w-[23%] bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
+        {/* <article className="w-full sm:w-[48%] lg:w-[23%] bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
           <Link href="news/blog9">
             <div className="relative h-48 w-full overflow-hidden">
               <Image
@@ -304,10 +304,10 @@ export default function NewsPage() {
               </p>
             </div>
           </Link>
-        </article>
+        </article> */}
 
         {/* Card 4 */}
-        <article className="w-full sm:w-[48%] lg:w-[23%] bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
+        {/* <article className="w-full sm:w-[48%] lg:w-[23%] bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
           <Link href="news/blog10">
             <div className="relative h-48 w-full overflow-hidden">
               <Image
@@ -325,7 +325,8 @@ export default function NewsPage() {
               </p>
             </div>
           </Link>
-        </article>
+        </article> */}
+
       </section>
       {/* END:: Blog Section */}
     </div>

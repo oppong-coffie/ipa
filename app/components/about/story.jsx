@@ -35,21 +35,21 @@ export default function OurStoryPage() {
               How It All Began 🌱
             </h2>
             <p className="text-[#5B3A1A] text-lg mb-4">
-            Founded in 2024, IPA-GH is an indigenous community-led organization 
-            that exists to end the cycle of perpetual vulnerability and promote social equity of marginalized groups through 
-            <span className="font-semibold text-yellow-500"> co-creation, knowledge diplomacy and sustainable livelihoods</span> 
-            in the face of global challenges such as climate change. 
+              Founded in 2024, IPA-GH is an indigenous community-led organization
+              that exists to end the cycle of perpetual vulnerability and promote social equity of marginalized groups through
+              <span className="font-semibold text-yellow-500"> co-creation, knowledge diplomacy and sustainable livelihoods</span>
+              in the face of global challenges such as climate change.
 
             </p>
             <p className="text-[#5B3A1A] text-lg mb-4">
-            Our organization is built on the infrastructure of critical theories on 
-            <span className="font-semibold text-yellow-500">Redistribution Struggles</span>  in Marxist themes. 💪
+              Our organization is built on the infrastructure of critical theories on
+              <span className="font-semibold text-yellow-500">Redistribution Struggles</span>  in Marxist themes. 💪
             </p>
           </div>
 
           <div className="w-full relative">
             <Image
-              src="/drive/d (6).jpg"
+              src="/drive/d(6).jpg"
               alt="Community Engagement"
               width={800}
               height={400}
@@ -61,37 +61,37 @@ export default function OurStoryPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center py-20">
 
 
-  {/* Text */}
-  <div className="space-y-6">
-    <h2 className="text-2xl md:text-4xl font-extrabold text-[#5B3A1A] flex items-center gap-2">
-      Our Theory of Change
-    </h2>
-    <p className="text-lg leading-relaxed text-gray-700">
-      IPA-GH&apos;s approach is grounded in a{" "}
-      <span className="font-semibold text-[#5B3A1A]">“co-creation” model of change</span>.
-      As a <span className="font-semibold">youth-led organization</span>, we harness 
-      <span className="font-semibold"> youth innovation</span> and collaborate with 
-      affected groups — especially <span className="font-semibold">women in indigenous communities</span>.
-    </p>
-    <p className="text-lg leading-relaxed text-gray-700">
-      We believe that the people who face challenges hold the strongest power to 
-      solve them. By <span className="font-semibold">building capacity</span> and 
-      <span className="font-semibold"> creating platforms for participation</span>, 
-      communities transform into agents of their own change.
-    </p>
-    <p className="text-lg leading-relaxed text-gray-700">
-      This unique model <span className="text-yellow-500 font-semibold">leverages local knowledge</span> 
-      and <span className="text-yellow-500 font-semibold">personal empowerment</span> to achieve 
-      inclusive, sustainable, and lasting social change.
-    </p>
-  </div>
-    {/* Image */}
-    <img
-    src="/drive/0.jpeg"
-    alt="Youth collaboration"
-    className="rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
-  />
-</div>
+          {/* Text */}
+          <div className="space-y-6">
+            <h2 className="text-2xl md:text-4xl font-extrabold text-[#5B3A1A] flex items-center gap-2">
+              Our Theory of Change
+            </h2>
+            <p className="text-lg leading-relaxed text-gray-700">
+              IPA-GH&apos;s approach is grounded in a{" "}
+              <span className="font-semibold text-[#5B3A1A]">“co-creation” model of change</span>.
+              As a <span className="font-semibold">youth-led organization</span>, we harness
+              <span className="font-semibold"> youth innovation</span> and collaborate with
+              affected groups — especially <span className="font-semibold">women in indigenous communities</span>.
+            </p>
+            <p className="text-lg leading-relaxed text-gray-700">
+              We believe that the people who face challenges hold the strongest power to
+              solve them. By <span className="font-semibold">building capacity</span> and
+              <span className="font-semibold"> creating platforms for participation</span>,
+              communities transform into agents of their own change.
+            </p>
+            <p className="text-lg leading-relaxed text-gray-700">
+              This unique model <span className="text-yellow-500 font-semibold">leverages local knowledge</span>
+              and <span className="text-yellow-500 font-semibold">personal empowerment</span> to achieve
+              inclusive, sustainable, and lasting social change.
+            </p>
+          </div>
+          {/* Image */}
+          <img
+            src="/drive/0.jpeg"
+            alt="Youth collaboration"
+            className="rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
+          />
+        </div>
 
       </section>
 
