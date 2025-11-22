@@ -1,9 +1,6 @@
 "use client";
-import { Card } from "antd";
 import Image from "next/image";
 import { motion } from "framer-motion";
-
-const MotionImage = motion(Image);
 
 export default function TeamSection() {
   const team = [
@@ -34,7 +31,7 @@ export default function TeamSection() {
     },
     {
       name: "Jacqueline Okine",
-      position: "knowledge and impact officer",
+      position: "Knowledge & Impact Officer",
       image: "/resolve/jack.jpg",
     },
     {
@@ -44,118 +41,136 @@ export default function TeamSection() {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
-    <section className="bg-amber-50">
+    <section className="bg-[#fdfaf5] relative overflow-hidden">
       {/* Hero Section */}
-      <div className="relative h-80 md:h-96">
+      <div className="relative h-[50vh] min-h-[400px] w-full overflow-hidden">
         <Image
           src="/images/teamwork41.jpg"
           alt="Teamwork"
           fill
           className="object-cover"
+          priority
         />
-        <div className="absolute inset-0 bg-yellow-900/40 flex items-center justify-center">
-          <motion.h1
-            className="text-white text-4xl md:text-5xl font-bold text-center"
-            data-aos="fade-down"
+        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center px-4"
           >
-            Meet the People Behind Our Mission
-          </motion.h1>
+            <h1 className="text-white text-4xl md:text-6xl font-bold mb-4 tracking-tight">
+              Meet the Change Makers
+            </h1>
+            <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto font-light">
+              The dedicated individuals behind our mission to empower communities.
+            </p>
+          </motion.div>
         </div>
       </div>
 
-      {/* Team Section */}
-      <div className="py-20 max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="text-center mb-14">
-          <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-yellow-900 mb-4"
-            data-aos="fade-up"
+      {/* Team Grid */}
+      <div className="py-24 max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="text-center mb-20">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-bold text-[#2D241E] mb-6"
           >
             Our Dedicated Team
-          </h2>
-          <p
-            className="text-lg text-yellow-800 max-w-2xl mx-auto"
-            data-aos="fade-up"
-            data-aos-delay="100"
+          </motion.h2>
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: "100px" }}
+            viewport={{ once: true }}
+            className="h-1 bg-yellow-500 mx-auto mb-6"
+          />
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-[#5C4033] max-w-2xl mx-auto"
           >
-            Passionate professionals driving impact across Ghana&opos;s
-            indigenous communities.
-          </p>
+            Passionate professionals driving impact across Ghana&apos;s indigenous communities.
+          </motion.p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
-          {team.map((member, index) => (
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+        >
+          {team.map((member) => (
             <motion.div
               key={member.name}
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
+              variants={itemVariants}
+              className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100"
             >
-              <Card
-                hoverable
-                className="
-                  rounded-xl 
-                  overflow-hidden 
-                  border-none 
-                  shadow-md 
-                  hover:shadow-xl 
-                  transition-shadow
-                "
-                cover={
-                  <MotionImage
-                    alt={member.name}
-                    src={member.image}
-                    width={400}
-                    height={320}
-                    className="h-80 md:h-64 w-full object-cover"
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    whileTap={{ scale: 0.97 }}
-                    transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                  />
-                }
-              >
-                <div className="text-center">
-                  <h3 className="text-xl font-semibold text-yellow-900 hover:text-yellow-600 transition-colors">
+              <div className="relative h-80 w-full overflow-hidden">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+
+                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-xl font-bold text-white mb-1">
                     {member.name}
                   </h3>
-                  <p className="text-yellow-800 hover:text-yellow-600 transition-colors">
+                  <p className="text-yellow-400 font-medium text-sm tracking-wide uppercase">
                     {member.position}
                   </p>
                 </div>
-              </Card>
+              </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div
-          className="flex justify-center text-center mt-16"
-          data-aos="fade-up"
-        >
-          <motion.div
-            whileHover={{ scale: 1.07 }}
+        <div className="flex justify-center mt-20">
+          <motion.a
+            href="/pages/about"
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 250 }}
+            className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-[#8B7D6B] rounded-full shadow-lg hover:bg-[#7A6B5A] hover:shadow-xl transition-all duration-300 group"
           >
-                        <a href="/pages/about">
-
-            <div
-              className="
-    w-80
-    bg-[#8B7D6B] 
-    hover:bg-[#A67C52] 
-    text-[#F5EBDD] 
-    rounded-xl 
-    px-8 py-4 
-    text-lg 
-    font-semibold 
-    shadow-[0_4px_20px_rgba(146,64,14,0.5)] 
-    hover:shadow-[0_6px_30px_rgba(202,138,4,0.7)] 
-    transition-all duration-300
-  "
+            <span>View Full Team</span>
+            <svg
+              className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              Meet Our Team
-            </div>
-            </a>
-          </motion.div>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </motion.a>
         </div>
       </div>
     </section>

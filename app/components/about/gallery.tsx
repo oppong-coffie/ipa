@@ -22,7 +22,7 @@ const mediaItems: MediaItem[] = [
   },
   {
     type: "image",
-    src: "/images/ga.jpg",
+    src: "/images/voice.jpg",
     alt: "Every Voice Counts, Every Story Matters",
   },
 
@@ -34,7 +34,7 @@ const mediaItems: MediaItem[] = [
 
   {
     type: "image",
-    src: "/images/agric.jpg",
+    src: "/images/65.jpg",
     alt: "Sustainable Agriculture",
   },
   {
@@ -44,18 +44,23 @@ const mediaItems: MediaItem[] = [
   },
   {
     type: "image",
-    src: "/drive/p.jpg",
+    src: "/images/pathway.jpg",
     alt: "Creating Pathways of Opportunity",
   },
   {
     type: "image",
-    src: "/images/women.jpg",
+    src: "/images/womens.jpg",
     alt: "Women in Sanpkala",
   },
   {
     type: "image",
-    src: "/images/dce.jpg",
+    src: "/images/282.jpg",
     alt: "Time with DCE",
+  },
+  {
+    type: "image",
+    src: "/images/271.jpg",
+    alt: "YEA",
   },
 
   // {
