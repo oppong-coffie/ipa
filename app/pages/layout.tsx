@@ -38,9 +38,7 @@ export default function PagesLayout({
   return (
     <div className="flex flex-col min-h-screen">
       {/* --- Header / Navbar --- */}
-      <div className="flex justify-center">
-              <Image src="/due.jpg" alt="Logo" width={500} height={500} className="" />
-      </div>
+      
 
       <motion.header
         initial={{ y: -120 }}
@@ -54,9 +52,9 @@ export default function PagesLayout({
       >
 
 
-        {/* <nav className="flex items-center justify-between px-4 py-3 sm:px-6 md:px-8 lg:px-12"> */}
+        <nav className="flex items-center justify-between px-4 py-3 sm:px-6 md:px-8 lg:px-12">
           {/* Logo */}
-          {/* <div className="flex items-center space-x-2 sm:space-x-3">
+          <div className="flex items-center space-x-2 sm:space-x-3">
             <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-lg bg-gradient-to-br from-yellow-400 to-yellow-300 flex items-center justify-center overflow-hidden shadow-lg">
               <Image
                 src="/images/logo.png"
@@ -72,10 +70,10 @@ export default function PagesLayout({
               </div>
               <div className="text-[10px] sm:text-xs opacity-70">EST. 2024</div>
             </div>
-          </div> */}
+          </div>
 
           {/* Desktop Links */}
-          {/* <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {navigationItems.map((item, i) => (
               <motion.a
                 key={item.name}
@@ -88,18 +86,18 @@ export default function PagesLayout({
                 {item.name}
               </motion.a>
             ))}
-          </div> */}
+          </div>
 
           {/* Mobile Menu Toggle */}
-          {/* <div className="flex items-center space-x-3 sm:space-x-4">
+          <div className="flex items-center space-x-3 sm:space-x-4">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="lg:hidden text-white p-2 hover:text-yellow-400 transition-colors duration-200"
             >
               {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
             </button>
-          </div> */}
-        {/* </nav> */}
+          </div>
+        </nav>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
@@ -110,7 +108,7 @@ export default function PagesLayout({
             transition={{ duration: 0.4 }}
             className="lg:hidden bg-[#8B7D6B]/95 backdrop-blur-md shadow-lg"
           >
-            {/* <div className="px-4 sm:px-6 py-6 space-y-4">
+            <div className="px-4 sm:px-6 py-6 space-y-4">
               {navigationItems.map((item) => (
                 <a
                   key={item.name}
@@ -121,16 +119,16 @@ export default function PagesLayout({
                   {item.name}
                 </a>
               ))}
-            </div> */}
+            </div>
           </motion.div>
         )}
       </motion.header>
 
       {/* --- Dynamic Page Body --- */}
-      {/* <main className="flex-1 pt-20">{children}</main> */}
+      <main className="flex-1 pt-20">{children}</main>
 
       {/* --- Footer --- */}
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
