@@ -1,12 +1,12 @@
-import { VideoHero } from "../components/video-hero"
-import { MissionSection } from "../components/mission-section"
-import { ImpactSection } from "../components/impact-section"
-import TeamSection from "../components/TeamSection"
-import Testimonials from "../components/Testimonials"
-import Partners from "../components/partners"
-import MapLocation from "../components/map"
-import FAQ from "../components/faq"
-
+import { VideoHero } from "../components/video-hero";
+import { MissionSection } from "../components/mission-section";
+import { ImpactSection } from "../components/impact-section";
+import { AnnualReportSection } from "../components/annual-report";
+import TeamSection from "../components/TeamSection";
+import Testimonials from "../components/Testimonials";
+import Partners from "../components/partners";
+import MapLocation from "../components/map";
+import FAQ from "../components/faq";
 
 export default function HomePage() {
   return (
@@ -15,11 +15,11 @@ export default function HomePage() {
       <MissionSection />
       <TeamSection />
       <ImpactSection />
+      <AnnualReportSection />
       {/* < Testimonials /> */}
-      < Partners />
-      < FAQ />
-      < MapLocation />
-
-    </main> 
-  )
+      <Partners />
+      <FAQ />
+      <MapLocation />
+    </main>
+  );
 }
