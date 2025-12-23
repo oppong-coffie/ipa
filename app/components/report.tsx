@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { FileText, Download, Calendar } from "lucide-react";
 
-export function AnnualReportSection() {
+export default function AnnualReportSection() {
   const reports = [
     {
       year: "2025",
@@ -20,7 +20,10 @@ export function AnnualReportSection() {
   ];
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-[#F5EBDD] via-amber-50 to-[#F5EBDD] overflow-hidden">
+    <section
+      id="report"
+      className="relative py-24 bg-gradient-to-br from-[#F5EBDD] via-amber-50 to-[#F5EBDD] overflow-hidden"
+    >
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-yellow-300/20 blur-3xl rounded-full"></div>
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#8B7D6B]/10 blur-3xl rounded-full"></div>
@@ -33,8 +36,6 @@ export function AnnualReportSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          
-
           <h2 className="text-4xl md:text-5xl font-extrabold text-[#8B7D6B] mb-6 leading-tight drop-shadow-md">
             Our Annual Reports
           </h2>

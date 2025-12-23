@@ -31,6 +31,7 @@ export default function PagesLayout({
     { name: "Home", href: "/" },
     { name: "About", href: "/pages/about" },
     { name: "Impact", href: "/pages/impart" },
+    { name: "Report", href: "/#report" },
     { name: "Contact", href: "/pages/contactus" },
     { name: "News&Blog", href: "/pages/news" },
   ];
@@ -38,7 +39,6 @@ export default function PagesLayout({
   return (
     <div className="flex flex-col min-h-screen">
       {/* --- Header / Navbar --- */}
-      
 
       <motion.header
         initial={{ y: -120 }}
@@ -50,8 +50,6 @@ export default function PagesLayout({
             : "bg-[#A78B60]"
         }`}
       >
-
-
         <nav className="flex items-center justify-between px-4 py-3 sm:px-6 md:px-8 lg:px-12">
           {/* Logo */}
           <div className="flex items-center space-x-2 sm:space-x-3">
