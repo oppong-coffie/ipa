@@ -63,7 +63,7 @@ export default function TeamSection() {
   };
 
   return (
-    <section className="bg-[#fdfaf5] dark:bg-zinc-950 relative overflow-hidden transition-colors duration-300">
+    <section className="dark:bg-zinc-950 relative overflow-hidden transition-colors duration-300">
       {/* Hero Section */}
       <div className="relative h-[50vh] min-h-[400px] w-full overflow-hidden">
         <Image

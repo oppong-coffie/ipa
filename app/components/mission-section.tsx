@@ -46,7 +46,7 @@ export function MissionSection() {
   ];
 
   return (
-    <section className="py-20 bg-[#E2D0BA] dark:bg-zinc-950 text-[#3e2723] dark:text-zinc-300 transition-colors duration-300">
+    <section className="py-20 dark:bg-zinc-950 text-[#3e2723] dark:text-zinc-300 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
         {/* Heading */}
         <div className="text-center mb-16" data-aos="fade-up">

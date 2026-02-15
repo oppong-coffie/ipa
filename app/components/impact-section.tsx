@@ -73,7 +73,7 @@ export function ImpactSection() {
   return (
     <section
       id="impact-section"
-      className="relative py-24 bg-amber-50 dark:bg-zinc-950 text-gray-900 dark:text-zinc-300 transition-colors duration-300 overflow-hidden"
+      className="relative py-24 dark:bg-zinc-950 text-gray-900 dark:text-zinc-300 transition-colors duration-300 overflow-hidden"
     >
       {/* Soft glowing accents */}
       <div className="absolute -top-24 -right-24 w-72 h-72 bg-yellow-300/30 dark:bg-yellow-500/10 blur-3xl rounded-full"></div>
