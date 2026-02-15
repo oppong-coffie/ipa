@@ -11,7 +11,7 @@ export default function NewsPage() {
   return (
     <div>
       {/* START:: Hero Section */}
-      <section className="relative bg-gradient-to-br from-amber-50 via-white to-amber-100 rounded-3xl border border-neutral-200 shadow-md overflow-hidden mb-8">
+      <section className="relative bg-gradient-to-br from-amber-50 via-white to-amber-100 dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900 rounded-3xl border border-neutral-200 dark:border-zinc-800 shadow-md overflow-hidden mb-8 transition-colors duration-300">
         {/* Subtle background pattern */}
         <div className="absolute inset-0 bg-[url('/patterns/news-bg.svg')] opacity-5"></div>
 
@@ -22,7 +22,7 @@ export default function NewsPage() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-extrabold text-neutral-800 leading-tight"
+            className="text-4xl md:text-5xl font-extrabold text-neutral-800 dark:text-yellow-500 leading-tight"
           >
             Stay Informed, Stay Empowered 📰
           </motion.h1>
@@ -32,11 +32,11 @@ export default function NewsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-3xl text-lg md:text-xl text-neutral-600 leading-relaxed"
+            className="max-w-3xl text-lg md:text-xl text-neutral-600 dark:text-zinc-400 leading-relaxed"
           >
-            Stay connected with the pulse of our growing community — where stories,
-            opportunities, and innovations come together. Discover{" "}
-            <span className="text-amber-700 font-semibold">
+            Stay connected with the pulse of our growing community — where
+            stories, opportunities, and innovations come together. Discover{" "}
+            <span className="text-amber-700 dark:text-yellow-400 font-semibold">
               insightful blogs, campaign updates, and the latest projects
             </span>{" "}
             shaping our collective impact.
@@ -47,26 +47,25 @@ export default function NewsPage() {
             <motion.span
               animate={{ y: [0, -6, 0] }}
               transition={{ repeat: Infinity, duration: 4 }}
-              className="bg-white border border-amber-200 px-4 py-2 rounded-full text-amber-700 font-medium shadow-sm"
+              className="bg-white dark:bg-zinc-800 border border-amber-200 dark:border-zinc-700 px-4 py-2 rounded-full text-amber-700 dark:text-yellow-400 font-medium shadow-sm"
             >
               🌿 Community Growth
             </motion.span>
             <motion.span
               animate={{ y: [0, 6, 0] }}
               transition={{ repeat: Infinity, duration: 3 }}
-              className="bg-white border border-green-200 px-4 py-2 rounded-full text-green-700 font-medium shadow-sm"
+              className="bg-white dark:bg-zinc-800 border border-green-200 dark:border-zinc-700 px-4 py-2 rounded-full text-green-700 dark:text-green-400 font-medium shadow-sm"
             >
               💡 Innovation
             </motion.span>
             <motion.span
               animate={{ y: [0, -8, 0] }}
               transition={{ repeat: Infinity, duration: 5 }}
-              className="bg-white border border-blue-200 px-4 py-2 rounded-full text-blue-700 font-medium shadow-sm"
+              className="bg-white dark:bg-zinc-800 border border-blue-200 dark:border-zinc-700 px-4 py-2 rounded-full text-blue-700 dark:text-blue-400 font-medium shadow-sm"
             >
               🗞 News & Insights
             </motion.span>
           </div>
-
         </div>
       </section>
 
@@ -111,7 +110,7 @@ export default function NewsPage() {
                 <motion.article
                   whileHover={{ scale: 1.03 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl overflow-hidden relative group cursor-pointer"
+                  className="bg-white dark:bg-zinc-900 border border-neutral-200 dark:border-zinc-800 rounded-2xl shadow-md hover:shadow-xl overflow-hidden relative group cursor-pointer transition-all duration-300"
                 >
                   {/* Image Section */}
                   <div className="relative w-full h-56 md:h-64 overflow-hidden">
@@ -137,9 +136,10 @@ export default function NewsPage() {
 
                   {/* Body Text */}
                   <div className="p-4">
-                    <p className="text-sm text-neutral-600 leading-relaxed">
+                    <p className="text-sm text-neutral-600 dark:text-zinc-400 leading-relaxed">
                       For the first time, this critical global summit is hosted
-                      in the Amazon, a biome vital to global climate stability{" "}
+                      in the Amazon, a biome vital to global climate
+                      stability{" "}
                     </p>
 
                     {/* Animated Button */}
@@ -147,7 +147,7 @@ export default function NewsPage() {
                       whileHover={{ scale: 1.05 }}
                       className="mt-4 flex justify-start"
                     >
-                      <span className="inline-flex items-center gap-2 text-amber-700 font-medium text-sm hover:text-amber-800 transition-colors">
+                      <span className="inline-flex items-center gap-2 text-amber-700 dark:text-yellow-500 font-medium text-sm hover:text-amber-800 dark:hover:text-yellow-400 transition-colors">
                         Read Full News →
                       </span>
                     </motion.div>
@@ -243,7 +243,7 @@ export default function NewsPage() {
       {/* END:: News Section */}
 
       {/* START:: Blog Section */}
-      <section className="flex flex-wrap justify-center gap-6 p-6 bg-gradient-to-br from-amber-50 to-white">
+      <section className="flex flex-wrap justify-center gap-6 p-6 bg-gradient-to-br from-amber-50 to-white dark:from-zinc-950 dark:to-zinc-900 transition-colors duration-300">
         {/* Card 1 */}
         {/* Card 1 */}
         {/* <article className="w-full sm:w-[48%] lg:w-[23%] bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
@@ -326,7 +326,6 @@ export default function NewsPage() {
             </div>
           </Link>
         </article> */}
-
       </section>
       {/* END:: Blog Section */}
     </div>

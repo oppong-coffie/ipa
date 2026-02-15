@@ -15,7 +15,6 @@ interface TeamMember {
   experience: string;
 }
 
-
 const teamMembers: TeamMember[] = [
   {
     name: "Lord Offei-Darko",
@@ -145,9 +144,8 @@ const teamMembers: TeamMember[] = [
         3 years of experience in software engineering, with expertise in React, Next.js,
         TypeScript, and Larave. Skilled in cloud architecture, API design, building
         modern web applications and Ai Automations with performance and accessibility at the core.
-      `
-  }
-
+      `,
+  },
 ];
 
 export default function TeamPage() {
@@ -156,18 +154,17 @@ export default function TeamPage() {
   const openModal = (member: TeamMember) => setSelectedMember(member);
   const closeModal = () => setSelectedMember(null);
 
-
   return (
-    <div className="bg-white py-16 lg:py-0">
+    <div className="bg-white dark:bg-zinc-950 py-16 lg:py-0 transition-colors duration-300">
       {/* Header */}
       <section className="text-center mb-16 px-4">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-[#8B7D6B] drop-shadow-md mb-4">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-[#8B7D6B] dark:text-yellow-500 drop-shadow-md mb-4">
           Meet Our Team 🌟
         </h1>
-        <p className="text-lg md:text-xl text-[#5B3A1A] max-w-3xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl text-[#5B3A1A] dark:text-zinc-400 max-w-3xl mx-auto leading-relaxed">
           Our passionate leaders and experts empower indigenous communities in
-          Ghana. Click &ldquo;Read More&ldquo; to explore their profiles, backgrounds, and
-          impact.
+          Ghana. Click &ldquo;Read More&ldquo; to explore their profiles,
+          backgrounds, and impact.
         </p>
       </section>
 
@@ -176,9 +173,9 @@ export default function TeamPage() {
         {teamMembers.map((member) => (
           <div
             key={member.name}
-            className="relative bg-white/30 backdrop-blur-md rounded-3xl p-6 flex flex-col items-center hover:scale-105 transform transition-all duration-300 shadow-lg border-gradient-to-r from-[#FDDC5C] via-[#FEEBC3] to-[#FDDC5C]"
+            className="relative bg-white/30 dark:bg-zinc-900/30 backdrop-blur-md rounded-3xl p-6 flex flex-col items-center hover:scale-105 transform transition-all duration-300 shadow-lg border border-yellow-101 dark:border-zinc-800"
           >
-            <div className="w-28 h-28 rounded-full overflow-hidden mb-4 flex items-center justify-center text-4xl bg-white/40 border-4 border-[#8B7D6B]">
+            <div className="w-28 h-28 rounded-full overflow-hidden mb-4 flex items-center justify-center text-4xl bg-white/40 dark:bg-zinc-800/40 border-4 border-[#8B7D6B] dark:border-zinc-700">
               <Image
                 src={member.image}
                 alt={member.name}
@@ -187,16 +184,18 @@ export default function TeamPage() {
                 className="rounded-full"
               />
             </div>
-            <h3 className="text-xl font-bold text-[#8B7D6B] mb-1 text-center">
+            <h3 className="text-xl font-bold text-[#8B7D6B] dark:text-yellow-500 mb-1 text-center">
               {member.name}
             </h3>
-            <p className="text-sm font-semibold text-[#A67C52] text-center mb-2">
+            <p className="text-sm font-semibold text-[#A67C52] dark:text-yellow-600 text-center mb-2">
               {member.role}
             </p>
-            <p className="text-[#5B3A1A] text-center mb-4">{member.bio}</p>
+            <p className="text-[#5B3A1A] dark:text-zinc-400 text-center mb-4">
+              {member.bio}
+            </p>
             <button
               onClick={() => openModal(member)}
-              className="bg-[#8B7D6B] text-[#FDDC5C] px-5 py-2 rounded-full shadow hover:bg-[#A67C52] transition-all duration-300 font-semibold"
+              className="bg-[#8B7D6B] dark:bg-zinc-800 text-[#FDDC5C] dark:text-yellow-500 px-5 py-2 rounded-full shadow hover:bg-[#A67C52] dark:hover:bg-zinc-700 transition-all duration-300 font-semibold"
             >
               Read More
             </button>
@@ -213,7 +212,7 @@ export default function TeamPage() {
         width={700}
         styles={{
           body: {
-            backgroundColor: "#FFFDF5",
+            backgroundColor: "var(--panel-bg)",
             borderRadius: "20px",
             padding: "0rem",
           },
@@ -228,28 +227,28 @@ export default function TeamPage() {
                 className="object-cover w-full h-full"
               />
             </div>
-            <h2 className="text-3xl font-bold text-[#8B7D6B] mb-1">
+            <h2 className="text-3xl font-bold text-[#8B7D6B] dark:text-yellow-500 mb-1">
               {selectedMember.name}
             </h2>
-            <p className="text-sm font-semibold text-[#A67C52] mb-4">
+            <p className="text-sm font-semibold text-[#A67C52] dark:text-yellow-600 mb-4">
               {selectedMember.role}
             </p>
 
             <Tabs defaultActiveKey="1" centered className="text-left">
               <Tabs.TabPane tab="Bio" key="1">
-                <p className="text-[#5B3A1A] leading-relaxed">
+                <p className="text-[#5B3A1A] dark:text-zinc-300 leading-relaxed px-4 text-center">
                   {selectedMember.details}
                 </p>
               </Tabs.TabPane>
               <Tabs.TabPane tab="Experience" key="2">
-                <p className="text-[#5B3A1A] leading-relaxed">
+                <p className="text-[#5B3A1A] dark:text-zinc-300 leading-relaxed px-4 text-center">
                   {/* Add detailed experience info here */}
                   {selectedMember.experience ||
                     "Experience details coming soon."}
                 </p>
               </Tabs.TabPane>
               <Tabs.TabPane tab="Impact" key="3">
-                <p className="text-[#5B3A1A] leading-relaxed">
+                <p className="text-[#5B3A1A] dark:text-zinc-300 leading-relaxed px-4 text-center">
                   {/* Add detailed impact info here */}
                   {selectedMember.impact || "Impact details coming soon."}
                 </p>
@@ -258,7 +257,7 @@ export default function TeamPage() {
 
             <Button
               onClick={closeModal}
-              className="mt-6 bg-[#8B7D6B] text-[#FDDC5C] px-6 py-2 rounded-full hover:bg-[#A67C52] font-semibold"
+              className="mt-6 mb-4 bg-[#8B7D6B] dark:bg-zinc-800 text-[#FDDC5C] dark:text-yellow-500 px-6 py-2 rounded-full hover:bg-[#A67C52] dark:hover:bg-zinc-700 font-semibold border-none"
             >
               Close
             </Button>

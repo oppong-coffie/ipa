@@ -19,7 +19,7 @@ export default function ContactPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-yellow-100">
+    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-yellow-100 dark:from-zinc-950 dark:to-zinc-900 transition-colors duration-300">
       {/* 🌟 Hero Section */}
       <motion.section
         className="py-16 lg:py-24 text-center relative overflow-hidden"
@@ -28,14 +28,14 @@ export default function ContactPage() {
         transition={{ duration: 0.8 }}
       >
         {/* Background gradient blob */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-yellow-200/30 blur-3xl rounded-full opacity-40"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-yellow-200/30 dark:bg-yellow-500/10 blur-3xl rounded-full opacity-40"></div>
 
         <div
-          className="relative z-10 max-w-4xl mx-auto px-6 sm:px-8 bg-white/70 backdrop-blur-md rounded-3xl shadow-xl py-16"
+          className="relative z-10 max-w-4xl mx-auto px-6 sm:px-8 bg-white/70 dark:bg-zinc-900/80 backdrop-blur-md rounded-3xl shadow-xl py-16 transition-colors duration-300"
           data-aos="zoom-in"
         >
           <motion.h1
-            className="text-4xl md:text-5xl font-extrabold text-[#B68239] mb-6 drop-shadow-sm"
+            className="text-4xl md:text-5xl font-extrabold text-[#B68239] dark:text-yellow-500 mb-6 drop-shadow-sm"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -43,7 +43,7 @@ export default function ContactPage() {
             Get in Touch 📞
           </motion.h1>
           <motion.p
-            className="text-xl text-[#8B7D6B] leading-relaxed"
+            className="text-xl text-[#8B7D6B] dark:text-zinc-400 leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -64,14 +64,14 @@ export default function ContactPage() {
         >
           <Card
             title={
-              <span className="text-brown-900 text-2xl font-bold flex items-center gap-2">
-                <MessageSquare className="h-6 w-6 text-yellow-700" />
+              <span className="text-brown-900 dark:text-yellow-500 text-2xl font-bold flex items-center gap-2">
+                <MessageSquare className="h-6 w-6 text-yellow-700 dark:text-yellow-500" />
                 Send us a Message
               </span>
             }
-            className="border-brown-700 bg-yellow-50 shadow-lg hover:shadow-2xl transition-shadow duration-500 rounded-2xl"
+            className="border-brown-700 dark:border-zinc-800 bg-yellow-50 dark:bg-zinc-900 shadow-lg hover:shadow-2xl transition-all duration-300 rounded-2xl"
           >
-            <p className="text-brown-700 mb-4">
+            <p className="text-brown-700 dark:text-zinc-400 mb-4">
               Fill out the form below and we&apos;ll get back to you within 24
               hours.
             </p>
@@ -80,23 +80,26 @@ export default function ContactPage() {
               <motion.input
                 type="text"
                 placeholder="Your Name"
-                className="w-full px-4 py-3 rounded-lg border border-brown-700 bg-white text-brown-900 placeholder-brown-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-sm"
+                className="w-full px-4 py-3 rounded-lg border border-brown-700 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-brown-900 dark:text-zinc-100 placeholder-brown-600 dark:placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-sm"
                 whileFocus={{ scale: 1.02 }}
               />
               <motion.input
                 type="email"
                 placeholder="Your Email"
-                className="w-full px-4 py-3 rounded-lg border border-brown-700 bg-white text-brown-900 placeholder-brown-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-sm"
+                className="w-full px-4 py-3 rounded-lg border border-brown-700 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-brown-900 dark:text-zinc-100 placeholder-brown-600 dark:placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-sm"
                 whileFocus={{ scale: 1.02 }}
               />
               <motion.textarea
                 placeholder="Your Message"
                 rows={5}
-                className="w-full px-4 py-3 rounded-lg border border-brown-700 bg-white text-brown-900 placeholder-brown-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-sm"
+                className="w-full px-4 py-3 rounded-lg border border-brown-700 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-brown-900 dark:text-zinc-100 placeholder-brown-600 dark:placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-sm"
                 whileFocus={{ scale: 1.02 }}
               />
 
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <Button
                   type="primary"
                   className="bg-yellow-700 hover:bg-yellow-800 text-white px-6 py-3 rounded-lg font-semibold w-full transition-transform duration-300"
@@ -116,14 +119,14 @@ export default function ContactPage() {
         >
           <Card
             title={
-              <span className="text-brown-900 text-2xl font-bold flex items-center gap-2">
-                <PhoneCall className="h-6 w-6 text-yellow-700" />
+              <span className="text-brown-900 dark:text-yellow-500 text-2xl font-bold flex items-center gap-2">
+                <PhoneCall className="h-6 w-6 text-yellow-700 dark:text-yellow-500" />
                 Quick Contact
               </span>
             }
-            className="border-brown-700 bg-yellow-50 shadow-lg hover:shadow-2xl transition-shadow duration-500 rounded-2xl"
+            className="border-brown-700 dark:border-zinc-800 bg-yellow-50 dark:bg-zinc-900 shadow-lg hover:shadow-2xl transition-all duration-300 rounded-2xl"
           >
-            <p className="text-brown-700 mb-4">
+            <p className="text-brown-700 dark:text-zinc-400 mb-4">
               For immediate Contact? Try these options.
             </p>
 
@@ -133,42 +136,63 @@ export default function ContactPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <div className="w-full flex items-center p-4 bg-white border border-brown-200 rounded-xl hover:border-yellow-400 hover:shadow-md transition-all cursor-pointer group">
-                    <div className="bg-green-100 p-3 rounded-full mr-4 group-hover:bg-green-200 transition-colors">
-                      <MessageSquare className="h-6 w-6 text-green-700" />
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <div className="w-full flex items-center p-4 bg-white dark:bg-zinc-800 border border-brown-200 dark:border-zinc-700 rounded-xl hover:border-yellow-400 hover:shadow-md transition-all cursor-pointer group">
+                    <div className="bg-green-100 dark:bg-green-900/30 p-3 rounded-full mr-4 group-hover:bg-green-200 dark:group-hover:bg-green-800/50 transition-colors">
+                      <MessageSquare className="h-6 w-6 text-green-700 dark:text-green-400" />
                     </div>
                     <div>
-                      <p className="text-xs text-brown-500 font-medium uppercase tracking-wide">Chat on WhatsApp</p>
-                      <p className="text-lg font-bold text-brown-900">+233 50 846 9840</p>
+                      <p className="text-xs text-brown-500 dark:text-zinc-500 font-medium uppercase tracking-wide">
+                        Chat on WhatsApp
+                      </p>
+                      <p className="text-lg font-bold text-brown-900 dark:text-zinc-100">
+                        +233 50 846 9840
+                      </p>
                     </div>
                   </div>
                 </motion.div>
               </Link>
 
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
                 <a href="tel:+233245678901">
-                  <div className="w-full flex items-center p-4 bg-white border border-brown-200 rounded-xl hover:border-yellow-400 hover:shadow-md transition-all cursor-pointer group">
-                    <div className="bg-blue-100 p-3 rounded-full mr-4 group-hover:bg-blue-200 transition-colors">
-                      <PhoneCall className="h-6 w-6 text-blue-700" />
+                  <div className="w-full flex items-center p-4 bg-white dark:bg-zinc-800 border border-brown-200 dark:border-zinc-700 rounded-xl hover:border-yellow-400 hover:shadow-md transition-all cursor-pointer group">
+                    <div className="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-full mr-4 group-hover:bg-blue-200 dark:group-hover:bg-blue-800/50 transition-colors">
+                      <PhoneCall className="h-6 w-6 text-blue-700 dark:text-blue-400" />
                     </div>
                     <div>
-                      <p className="text-xs text-brown-500 font-medium uppercase tracking-wide">Call Us Directly</p>
-                      <p className="text-lg font-bold text-brown-900">+233 24 567 8901</p>
+                      <p className="text-xs text-brown-500 dark:text-zinc-500 font-medium uppercase tracking-wide">
+                        Call Us Directly
+                      </p>
+                      <p className="text-lg font-bold text-brown-900 dark:text-zinc-100">
+                        +233 24 567 8901
+                      </p>
                     </div>
                   </div>
                 </a>
               </motion.div>
 
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
                 <a href="mailto:info@ipa.org">
-                  <div className="w-full flex items-center p-4 bg-white border border-brown-200 rounded-xl hover:border-yellow-400 hover:shadow-md transition-all cursor-pointer group">
-                    <div className="bg-orange-100 p-3 rounded-full mr-4 group-hover:bg-orange-200 transition-colors">
-                      <Mail className="h-6 w-6 text-orange-700" />
+                  <div className="w-full flex items-center p-4 bg-white dark:bg-zinc-800 border border-brown-200 dark:border-zinc-700 rounded-xl hover:border-yellow-400 hover:shadow-md transition-all cursor-pointer group">
+                    <div className="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-full mr-4 group-hover:bg-orange-200 dark:group-hover:bg-orange-800/50 transition-colors">
+                      <Mail className="h-6 w-6 text-orange-700 dark:text-orange-400" />
                     </div>
                     <div>
-                      <p className="text-xs text-brown-500 font-medium uppercase tracking-wide">Send an Email</p>
-                      <p className="text-lg font-bold text-brown-900">info@ipa.org</p>
+                      <p className="text-xs text-brown-500 dark:text-zinc-500 font-medium uppercase tracking-wide">
+                        Send an Email
+                      </p>
+                      <p className="text-lg font-bold text-brown-900 dark:text-zinc-100">
+                        info@ipa.org
+                      </p>
                     </div>
                   </div>
                 </a>
@@ -176,10 +200,9 @@ export default function ContactPage() {
             </div>
 
             <div className="mt-8" data-aos="zoom-in">
-           
-              <p className="text-sm text-brown-600 mt-3 text-center">
-                Our dedicated team is always on standby to respond swiftly to your
-                calls, messages, and emails.
+              <p className="text-sm text-brown-600 dark:text-zinc-500 mt-3 text-center">
+                Our dedicated team is always on standby to respond swiftly to
+                your calls, messages, and emails.
               </p>
             </div>
           </Card>

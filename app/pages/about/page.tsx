@@ -11,14 +11,14 @@ import Galery from "@/app/components/about/gallery";
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[#FFFDF5]">
+    <div className="min-h-screen bg-[#FFFDF5] dark:bg-zinc-950 transition-colors duration-300">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#EDEAE3] to-[#F5F0E5] py-20 lg:py-28">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 bg-white/80 backdrop-blur-md rounded-3xl shadow-lg text-center py-16">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-[#D1A054] drop-shadow-sm">
+      <section className="bg-gradient-to-br from-[#EDEAE3] to-[#F5F0E5] dark:from-zinc-900 dark:to-zinc-950 py-20 lg:py-28 transition-colors duration-300">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md rounded-3xl shadow-lg text-center py-16">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-[#D1A054] dark:text-yellow-500 drop-shadow-sm">
             About Indigenous People Alliance 🌍
           </h1>
-          <p className="text-lg md:text-xl text-[#8B7D6B] max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-[#8B7D6B] dark:text-zinc-400 max-w-3xl mx-auto leading-relaxed">
             Discover our story, mission, and the passionate team working to
             empower Ghana&apos;s indigenous communities.
             <span className="text-yellow-400 font-semibold">
@@ -29,15 +29,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      < Aboutus />
-      < MissionPage />
-      < VisionPage />
-      < ValuesPage />
+      <Aboutus />
+      <MissionPage />
+      <VisionPage />
+      <ValuesPage />
       <TeamPage />
       <Story />
-      < Galery />
-
-
+      <Galery />
     </div>
   );
 }

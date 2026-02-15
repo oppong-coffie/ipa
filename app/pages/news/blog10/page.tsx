@@ -7,7 +7,7 @@ import Link from "next/link";
 const Blog1: React.FC = () => {
   return (
     <div>
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 p-6">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 p-6 dark:bg-zinc-950 transition-colors duration-300">
         {/* START:: Main content area */}
         <div className="col-span-3 space-y-8">
           {/* Back Button */}
@@ -21,8 +21,8 @@ const Blog1: React.FC = () => {
 
           {/* Header */}
           <div className="flex items-center gap-3">
-            <Sprout className="w-7 h-7 text-teal-700" />
-            <h1 className="text-3xl font-bold text-neutral-900">
+            <Sprout className="w-7 h-7 text-teal-700 dark:text-teal-500" />
+            <h1 className="text-3xl font-bold text-neutral-900 dark:text-yellow-500">
               Beelieve Smart Project — Teacher Mante 🐝
             </h1>
           </div>
@@ -39,8 +39,8 @@ const Blog1: React.FC = () => {
               />
             </div>
 
-            <div className="md:w-1/2 p-5 rounded-lg text-neutral-700">
-              <h2 className="text-xl font-semibold mb-1">
+            <div className="md:w-1/2 p-5 rounded-lg text-neutral-700 dark:text-zinc-400">
+              <h2 className="text-xl font-semibold mb-1 dark:text-zinc-200">
                 Eastern Region, Ghana — 2023
               </h2>
               <p>
@@ -53,7 +53,8 @@ const Blog1: React.FC = () => {
           </div>
 
           {/* Overview */}
-          <div className="text-neutral-700 leading-relaxed space-y-4">
+          <div className="text-neutral-700 dark:text-zinc-400 leading-relaxed space-y-4">
+            Broadway{" "}
             <p>
               Located near Nsawam, Teacher Mante benefits from fertile land and
               proximity to Accra. The local economy thrives on both farming and
@@ -61,7 +62,6 @@ const Blog1: React.FC = () => {
               However, the community still faces challenges related to access to
               potable water, sanitation, and youth employment.
             </p>
-
             <p>
               The <strong>Beelieve Smart project</strong> introduces beekeeping
               and honey production as a sustainable alternative livelihood.
@@ -70,12 +70,10 @@ const Blog1: React.FC = () => {
               emphasizes gender equity and youth inclusion, empowering locals to
               become both environmental stewards and entrepreneurs.
             </p>
-
-            <blockquote className="italic border-l-4 border-teal-600 pl-4">
+            <blockquote className="italic border-l-4 border-teal-600 pl-4 dark:text-zinc-500">
               “Every hive built in Teacher Mante is more than a box for bees —
               it’s a promise of resilience and independence.” — Project Mentor
             </blockquote>
-
             <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mt-4">
               {[
                 "beeleive2.jpg",
@@ -93,7 +91,6 @@ const Blog1: React.FC = () => {
                 />
               ))}
             </div>
-
             <p>
               Through collaboration with local leaders, the initiative aims to
               build a circular, self-sustaining beekeeping enterprise that
@@ -103,8 +100,8 @@ const Blog1: React.FC = () => {
           </div>
 
           {/* Footer */}
-          <div className="mt-6 border-t pt-4 text-sm text-neutral-700 flex items-start gap-2">
-            <Users className="w-5 h-5 text-teal-700 mt-0.5" />
+          <div className="mt-6 border-t dark:border-zinc-800 pt-4 text-sm text-neutral-700 dark:text-zinc-400 flex items-start gap-2">
+            <Users className="w-5 h-5 text-teal-700 dark:text-teal-500 mt-0.5" />
             <p>
               Publication: <em>(under review)</em> — A project by the Beelieve
               Smart Initiative, fostering inclusive and sustainable development
@@ -116,7 +113,7 @@ const Blog1: React.FC = () => {
         {/* END:: Main content area */}
 
         {/* START:: Right Side */}
-        <div className="col-span-1 bg-neutral-200 rounded-xl shadow-inner p-4">
+        <div className="col-span-1 bg-neutral-200 dark:bg-zinc-900 rounded-xl shadow-inner p-4 transition-colors duration-300">
           <article className="bg-white border border-neutral-200 mb-7 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
             <Link href="blog8">
               <div className="relative h-32 w-full overflow-hidden">

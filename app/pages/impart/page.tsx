@@ -11,26 +11,58 @@ const MapComponent = dynamic(() => import("../../components/MapComponent"), {
   ssr: false,
 });
 const metrics = [
-  { icon: <Users className="w-6 h-6 text-teal-700" />, label: "Farmers Trained", value: 120 },
-  { icon: <Building2 className="w-6 h-6 text-teal-700" />, label: "Policy Engagements", value: 5 },
-  { icon: <HeartHandshake className="w-6 h-6 text-teal-700" />, label: "Advocacy Groups Formed", value: 3 },
-  { icon: <HeartHandshake className="w-6 h-6 text-teal-700" />, label: "Women Empowered", value: 45 },
-  { icon: <Sprout className="w-6 h-6 text-teal-700" />, label: "Hives Installed", value: 200 },
-  { icon: <Users className="w-6 h-6 text-teal-700" />, label: "Workshops Held", value: 4 },
-  { icon: <HeartHandshake className="w-6 h-6 text-teal-700" />, label: "Participants Reached", value: 400 },
-  { icon: <HeartHandshake className="w-6 h-6 text-teal-700" />, label: "Women Trained", value: 60 },
+  {
+    icon: <Users className="w-6 h-6 text-teal-700" />,
+    label: "Farmers Trained",
+    value: 120,
+  },
+  {
+    icon: <Building2 className="w-6 h-6 text-teal-700" />,
+    label: "Policy Engagements",
+    value: 5,
+  },
+  {
+    icon: <HeartHandshake className="w-6 h-6 text-teal-700" />,
+    label: "Advocacy Groups Formed",
+    value: 3,
+  },
+  {
+    icon: <HeartHandshake className="w-6 h-6 text-teal-700" />,
+    label: "Women Empowered",
+    value: 45,
+  },
+  {
+    icon: <Sprout className="w-6 h-6 text-teal-700" />,
+    label: "Hives Installed",
+    value: 200,
+  },
+  {
+    icon: <Users className="w-6 h-6 text-teal-700" />,
+    label: "Workshops Held",
+    value: 4,
+  },
+  {
+    icon: <HeartHandshake className="w-6 h-6 text-teal-700" />,
+    label: "Participants Reached",
+    value: 400,
+  },
+  {
+    icon: <HeartHandshake className="w-6 h-6 text-teal-700" />,
+    label: "Women Trained",
+    value: 60,
+  },
 ];
 export default function Impart2Page() {
   return (
-    <div className="w-full bg-[#FAFAF7]">
+    <div className="w-full bg-[#FAFAF7] dark:bg-zinc-950 transition-colors duration-300">
       {/* 🌍 Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#EDEAE3] to-[#F5F0E5] py-20 lg:py-28 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-[#EDEAE3] to-[#F5F0E5] dark:from-zinc-900 dark:to-zinc-950 py-20 lg:py-28 overflow-hidden transition-colors duration-300">
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="text-4xl md:text-6xl font-extrabold text-[#D1A054] drop-shadow-sm"
+            className="text-4xl md:text-6xl font-extrabold text-[#D1A054] dark:text-yellow-500 drop-shadow-sm"
           >
             🌍 Our Global Impact
           </motion.h1>
@@ -38,7 +70,7 @@ export default function Impart2Page() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="mt-6 text-lg md:text-xl text-[#6B5E4A] leading-relaxed"
+            className="mt-6 text-lg md:text-xl text-[#6B5E4A] dark:text-zinc-400 leading-relaxed"
           >
             Empowering communities with technology, knowledge, and innovation.
           </motion.p>
@@ -48,8 +80,8 @@ export default function Impart2Page() {
       </section>
 
       {/* 🌍 Impact Summary Section */}
-      <section className="py-12 bg-white">
-        <h1 className="text-3xl font-bold text-center text-neutral-900 mb-10">
+      <section className="py-12 bg-white dark:bg-zinc-900 transition-colors duration-300">
+        <h1 className="text-3xl font-bold text-center text-neutral-900 dark:text-zinc-100 mb-10">
           Real Impact in Numbers 📈
         </h1>
 
@@ -57,28 +89,35 @@ export default function Impart2Page() {
           {metrics.map((m, i) => (
             <div
               key={i}
-              className="flex flex-col items-center justify-center bg-teal-50 p-6 rounded-xl shadow-sm border border-teal-100 hover:shadow-md transition-shadow duration-300"
+              className="flex flex-col items-center justify-center bg-teal-50 dark:bg-zinc-800 p-6 rounded-xl shadow-sm border border-teal-100 dark:border-zinc-700 hover:shadow-md transition-all duration-300"
             >
-              <div className="p-3 bg-teal-100 rounded-full mb-3">
+              <div className="p-3 bg-teal-100 dark:bg-teal-900/30 rounded-full mb-3">
                 {m.icon}
               </div>
-              <p className="text-3xl font-bold text-teal-800 mt-2" suppressHydrationWarning>
+              <p
+                className="text-3xl font-bold text-teal-800 dark:text-teal-400 mt-2"
+                suppressHydrationWarning
+              >
                 <CountUp end={m.value} duration={2.5} separator="," />
-                {m.label.includes("Rate") || m.label.includes("Percentage") ? "%" : "+"}
+                {m.label.includes("Rate") || m.label.includes("Percentage")
+                  ? "%"
+                  : "+"}
               </p>
-              <p className="text-sm text-neutral-600 text-center font-medium">{m.label}</p>
+              <p className="text-sm text-neutral-600 dark:text-zinc-400 text-center font-medium">
+                {m.label}
+              </p>
             </div>
           ))}
         </div>
       </section>
 
       {/* 🌍 Map Section */}
-      <section className="bg-gradient-to-tr from-[#F5F0E5] to-[#EDEAE3] py-16">
+      <section className="bg-gradient-to-tr from-[#F5F0E5] to-[#EDEAE3] dark:from-zinc-900 dark:to-zinc-950 py-16 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-[#4B4B4B] mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-[#4B4B4B] dark:text-yellow-500 mb-10">
             🗺️ Explore Our Impact Across Regions
           </h2>
-          <div className="h-[70vh] w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
+          <div className="h-[70vh] w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-zinc-800">
             <MapComponent />
           </div>
         </div>

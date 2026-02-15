@@ -10,17 +10,13 @@ export default function OurStoryPage() {
     AOS.init();
   }, []);
   return (
-    <div className="bg-[#FFFDF5] py-6 lg:py-24">
+    <div className="bg-[#FFFDF5] dark:bg-zinc-950 py-6 lg:py-24 transition-colors duration-300">
       {/* Hero */}
       <section className="text-center mb-16 px-4">
-        <h1
-          className="text-5xl md:text-6xl font-extrabold text-[#8B7D6B] drop-shadow-md mb-6"
-        >
+        <h1 className="text-5xl md:text-6xl font-extrabold text-[#8B7D6B] dark:text-yellow-500 drop-shadow-md mb-6">
           Our Story 📖
         </h1>
-        <p
-          className="text-lg md:text-xl text-[#5B3A1A] max-w-3xl"
-        >
+        <p className="text-lg md:text-xl text-[#5B3A1A] dark:text-zinc-400 max-w-3xl">
           Discover how the Indigenous People Alliance empowers indigenous
           communities in Ghana through grassroots initiatives, sustainable
           development, and climate resilience. 🌍
@@ -31,19 +27,27 @@ export default function OurStoryPage() {
       <section className="px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-9 items-center">
           <div>
-            <h2 className="text-4xl font-bold text-[#8B7D6B]">
+            <h2 className="text-4xl font-bold text-[#8B7D6B] dark:text-yellow-500">
               How It All Began 🌱
             </h2>
             <p className="text-[#5B3A1A] text-lg mb-4">
-              Founded in 2024, IPA-GH is an indigenous community-led organization
-              that exists to end the cycle of perpetual vulnerability and promote social equity of marginalized groups through
-              <span className="font-semibold text-yellow-500"> co-creation, knowledge diplomacy and sustainable livelihoods</span>
+              Founded in 2024, IPA-GH is an indigenous community-led
+              organization that exists to end the cycle of perpetual
+              vulnerability and promote social equity of marginalized groups
+              through
+              <span className="font-semibold text-yellow-500">
+                {" "}
+                co-creation, knowledge diplomacy and sustainable livelihoods
+              </span>
               in the face of global challenges such as climate change.
-
             </p>
-            <p className="text-[#5B3A1A] text-lg mb-4">
-              Our organization is built on the infrastructure of critical theories on
-              <span className="font-semibold text-yellow-500">Redistribution Struggles</span>  in Marxist themes. 💪
+            <p className="text-[#5B3A1A] dark:text-zinc-400 text-lg mb-4">
+              Our organization is built on the infrastructure of critical
+              theories on
+              <span className="font-semibold text-yellow-500 dark:text-yellow-400">
+                Redistribution Struggles
+              </span>{" "}
+              in Marxist themes. 💪
             </p>
           </div>
 
@@ -59,30 +63,46 @@ export default function OurStoryPage() {
           </div>
         </div>
         <div className="grid md:grid-cols-2 gap-12 items-center py-20">
-
-
           {/* Text */}
           <div className="space-y-6">
-            <h2 className="text-2xl md:text-4xl font-extrabold text-[#5B3A1A] flex items-center gap-2">
+            <h2 className="text-2xl md:text-4xl font-extrabold text-[#5B3A1A] dark:text-yellow-500 flex items-center gap-2">
               Our Theory of Change
             </h2>
-            <p className="text-lg leading-relaxed text-gray-700">
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-zinc-400">
               IPA-GH&apos;s approach is grounded in a{" "}
-              <span className="font-semibold text-[#5B3A1A]">“co-creation” model of change</span>.
-              As a <span className="font-semibold">youth-led organization</span>, we harness
-              <span className="font-semibold"> youth innovation</span> and collaborate with
-              affected groups — especially <span className="font-semibold">women in indigenous communities</span>.
+              <span className="font-semibold text-[#5B3A1A] dark:text-yellow-400">
+                “co-creation” model of change
+              </span>
+              . As a{" "}
+              <span className="font-semibold">youth-led organization</span>, we
+              harness
+              <span className="font-semibold"> youth innovation</span> and
+              collaborate with affected groups — especially{" "}
+              <span className="font-semibold">
+                women in indigenous communities
+              </span>
+              .
             </p>
-            <p className="text-lg leading-relaxed text-gray-700">
-              We believe that the people who face challenges hold the strongest power to
-              solve them. By <span className="font-semibold">building capacity</span> and
-              <span className="font-semibold"> creating platforms for participation</span>,
-              communities transform into agents of their own change.
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-zinc-400">
+              We believe that the people who face challenges hold the strongest
+              power to solve them. By{" "}
+              <span className="font-semibold">building capacity</span> and
+              <span className="font-semibold">
+                {" "}
+                creating platforms for participation
+              </span>
+              , communities transform into agents of their own change.
             </p>
-            <p className="text-lg leading-relaxed text-gray-700">
-              This unique model <span className="text-yellow-500 font-semibold">leverages local knowledge</span>
-              and <span className="text-yellow-500 font-semibold">personal empowerment</span> to achieve
-              inclusive, sustainable, and lasting social change.
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-zinc-400">
+              This unique model{" "}
+              <span className="text-yellow-500 dark:text-yellow-400 font-semibold">
+                leverages local knowledge
+              </span>
+              and{" "}
+              <span className="text-yellow-500 dark:text-yellow-400 font-semibold">
+                personal empowerment
+              </span>{" "}
+              to achieve inclusive, sustainable, and lasting social change.
             </p>
           </div>
           {/* Image */}
@@ -92,10 +112,7 @@ export default function OurStoryPage() {
             className="rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
           />
         </div>
-
       </section>
-
-
     </div>
   );
 }

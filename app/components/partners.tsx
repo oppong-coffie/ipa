@@ -10,7 +10,7 @@ const partners = [
   { name: "UNI", logo: "/partners/p (1).png" },
   { name: "UNIC", logo: "/partners/p (2).png" },
   { name: "UNICE", logo: "/partners/p (3).png" },
-  { name: "UNICEF", logo: "/partners/p (4).png" }
+  { name: "UNICEF", logo: "/partners/p (4).png" },
 ];
 
 export default function Partners() {
@@ -18,14 +18,14 @@ export default function Partners() {
     { name: "UNI", logo: "/partners/p (1).png" },
     { name: "UNIC", logo: "/partners/p (2).png" },
     { name: "UNICE", logo: "/partners/p (3).png" },
-    { name: "UNICEF", logo: "/partners/p (4).png" }
+    { name: "UNICEF", logo: "/partners/p (4).png" },
   ];
 
   return (
-    <section className="py-24 bg-[#fdfaf5] relative overflow-hidden">
+    <section className="py-24 dark:bg-zinc-950 relative overflow-hidden transition-colors duration-300">
       {/* Decorative Background Elements */}
-      <div className="absolute -top-20 right-0 w-96 h-96 bg-yellow-200/30 blur-[100px] rounded-full pointer-events-none"></div>
-      <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-[#8B4513]/5 blur-[100px] rounded-full pointer-events-none"></div>
+      <div className="absolute -top-20 right-0 w-96 h-96 bg-yellow-200/30 dark:bg-yellow-500/10 blur-[100px] rounded-full pointer-events-none"></div>
+      <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-[#8B4513]/5 dark:bg-zinc-800/10 blur-[100px] rounded-full pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
@@ -34,7 +34,7 @@ export default function Partners() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-[#2D241E] mb-6 tracking-tight"
+            className="text-4xl md:text-5xl font-bold text-[#2D241E] dark:text-[#A78B60] mb-6 tracking-tight"
           >
             Our Trusted Partners
           </motion.h2>
@@ -43,9 +43,10 @@ export default function Partners() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg text-[#5C4033] max-w-2xl mx-auto leading-relaxed"
+            className="text-lg text-[#5C4033] dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed"
           >
-            Collaborating with leading organizations to drive sustainable change and empower communities worldwide.
+            Collaborating with leading organizations to drive sustainable change
+            and empower communities worldwide.
           </motion.p>
         </div>
 
@@ -58,7 +59,7 @@ export default function Partners() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               whileHover={{ y: -5 }}
-              className="group relative flex items-center justify-center p-8 bg-white rounded-2xl shadow-sm hover:shadow-xl border border-stone-100 hover:border-yellow-200 transition-all duration-300 w-40 h-32 sm:w-48 sm:h-36"
+              className="group relative flex items-center justify-center p-8 bg-white dark:bg-zinc-900 rounded-2xl shadow-sm hover:shadow-xl border border-stone-100 dark:border-zinc-800 hover:border-yellow-200 dark:hover:border-yellow-600 transition-all duration-300 w-40 h-32 sm:w-48 sm:h-36"
             >
               <div className="relative w-full h-full flex items-center justify-center">
                 <Image

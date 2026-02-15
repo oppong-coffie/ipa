@@ -41,28 +41,28 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="relative py-32 bg-[#fdfaf5] overflow-hidden">
+    <section className="relative py-32 bg-[#fdfaf5] dark:bg-zinc-950 transition-colors duration-300 overflow-hidden">
       {/* Diagonal background */}
-      <div className="absolute top-0 left-0 w-full h-1/2 bg-yellow-100 -skew-y-6 origin-top-left"></div>
+      <div className="absolute top-0 left-0 w-full h-1/2 bg-yellow-100 dark:bg-zinc-900 -skew-y-6 origin-top-left transition-colors duration-300"></div>
 
       <div className="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
-      <div className="text-center mb-20">
-  <motion.h2
-    className="text-4xl md:text-5xl font-extrabold text-[#8B7D6B] mb-4 drop-shadow-md"
-    whileHover={{ scale: 1.02, color: '#FDDC5C' }}
-    whileTap={{ scale: 0.97 }}
-    transition={{ type: 'spring', stiffness: 250 }}
-  >
-    What People Are Saying
-  </motion.h2>
-  <motion.p
-    className="text-lg text-[#5C4033] max-w-2xl mx-auto leading-relaxed"
-    whileHover={{ scale: 1.01 }}
-  >
-    Stories from community members, partners, and experts about the impact of Indigenous People Alliance.
-  </motion.p>
-</div>
-
+        <div className="text-center mb-20">
+          <motion.h2
+            className="text-4xl md:text-5xl font-extrabold text-[#8B7D6B] dark:text-[#A78B60] mb-4 drop-shadow-md"
+            whileHover={{ scale: 1.02, color: "#FDDC5C" }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 250 }}
+          >
+            What People Are Saying
+          </motion.h2>
+          <motion.p
+            className="text-lg text-[#5C4033] dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed"
+            whileHover={{ scale: 1.01 }}
+          >
+            Stories from community members, partners, and experts about the
+            impact of Indigenous People Alliance.
+          </motion.p>
+        </div>
 
         {/* Continuous sliding carousel */}
         <div className="overflow-hidden relative pb-7">
@@ -78,7 +78,7 @@ export default function Testimonials() {
             {[...testimonials, ...testimonials].map((testimonial, i) => (
               <motion.div
                 key={i}
-                className="group bg-[#fffaf5] rounded-3xl shadow-xl p-6 min-w-[280px] max-w-[280px] relative border border-yellow-200 hover:border-[#8B4513] transition-colors duration-300"
+                className="group bg-[#fffaf5] dark:bg-zinc-900 rounded-3xl shadow-xl p-6 min-w-[280px] max-w-[280px] relative border border-yellow-200 dark:border-zinc-800 hover:border-[#8B4513] dark:hover:border-yellow-600 transition-colors duration-300"
               >
                 <div className="absolute -top-0 left-1/2 transform -translate-x-1/2">
                   <MotionImage
@@ -92,11 +92,11 @@ export default function Testimonials() {
                   />
                 </div>
 
-                <p className="text-[#5C4033] group-hover:text-[#8B4513] mt-16 text-center mb-4 transition-colors duration-300">
+                <p className="text-[#5C4033] dark:text-zinc-400 group-hover:text-[#8B4513] dark:group-hover:text-zinc-200 mt-16 text-center mb-4 transition-colors duration-300">
                   {testimonial.text}
                 </p>
                 <div className="text-center">
-                  <div className="font-semibold text-yellow-600 group-hover:text-[#8B4513] transition-colors duration-300">
+                  <div className="font-semibold text-yellow-600 dark:text-yellow-500 group-hover:text-[#8B4513] dark:group-hover:text-yellow-400 transition-colors duration-300">
                     {testimonial.name}
                   </div>
                 </div>

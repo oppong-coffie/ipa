@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { Button } from "antd";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
@@ -17,8 +17,23 @@ export default function PagesLayout({
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
+    // Check local storage or system preference
+    const savedTheme = localStorage.getItem("theme");
+    const systemPrefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+
+    if (savedTheme === "dark" || (!savedTheme && systemPrefersDark)) {
+      setIsDarkMode(true);
+      document.documentElement.classList.add("dark");
+    } else {
+      setIsDarkMode(false);
+      document.documentElement.classList.remove("dark");
+    }
+
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
 
@@ -26,6 +41,18 @@ export default function PagesLayout({
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const toggleDarkMode = () => {
+    const newDarkMode = !isDarkMode;
+    setIsDarkMode(newDarkMode);
+    if (newDarkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  };
 
   const navigationItems = [
     { name: "Home", href: "/" },
@@ -36,8 +63,32 @@ export default function PagesLayout({
     { name: "News&Blog", href: "/pages/news" },
   ];
 
+  const DarkModeToggle = () => (
+    <button
+      onClick={toggleDarkMode}
+      className="relative w-14 h-7 rounded-full bg-white/10 dark:bg-zinc-800 border border-white/20 dark:border-zinc-700 p-1 flex items-center cursor-pointer transition-all duration-300 hover:bg-white/20"
+      aria-label="Toggle Dark Mode"
+    >
+      <motion.div
+        animate={{ x: isDarkMode ? 28 : 0 }}
+        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+        className="relative z-10 w-5 h-5 rounded-full bg-white shadow-md flex items-center justify-center"
+      >
+        {isDarkMode ? (
+          <Moon size={12} className="text-zinc-900" />
+        ) : (
+          <Sun size={12} className="text-yellow-500" />
+        )}
+      </motion.div>
+      <div className="absolute inset-0 flex justify-between items-center px-2 opacity-30">
+        <Sun size={10} className="text-white" />
+        <Moon size={10} className="text-white" />
+      </div>
+    </button>
+  );
+
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen transition-colors duration-300 dark:bg-zinc-950">
       {/* --- Header / Navbar --- */}
 
       <motion.header
@@ -46,8 +97,8 @@ export default function PagesLayout({
         transition={{ duration: 0.6 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-[#8B7D6B]/90 backdrop-blur-md shadow-lg"
-            : "bg-[#A78B60]"
+            ? "bg-[#8B7D6B]/90 dark:bg-zinc-900/90 backdrop-blur-md shadow-lg"
+            : "bg-[#A78B60] dark:bg-zinc-900"
         }`}
       >
         <nav className="flex items-center justify-between px-4 py-3 sm:px-6 md:px-8 lg:px-12">
@@ -66,12 +117,14 @@ export default function PagesLayout({
               <div className="font-bold text-base sm:text-lg text-yellow-400 tracking-wide">
                 IPA
               </div>
-              <div className="text-[10px] sm:text-xs opacity-70">EST. 2024</div>
+              <div className="text-[10px] sm:text-xs opacity-70 text-white">
+                EST. 2024
+              </div>
             </div>
           </div>
 
           {/* Desktop Links */}
-          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+          <div className="hidden lg:flex items-center space-x-4 xl:space-x-6">
             {navigationItems.map((item, i) => (
               <motion.a
                 key={item.name}
@@ -84,42 +137,47 @@ export default function PagesLayout({
                 {item.name}
               </motion.a>
             ))}
+
           </div>
 
           {/* Mobile Menu Toggle */}
-          <div className="flex items-center space-x-3 sm:space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-3">
+            {/* Dark Mode Toggle Mobile */}
+            <DarkModeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="lg:hidden text-white p-2 hover:text-yellow-400 transition-colors duration-200"
             >
-              {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
+              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </nav>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ duration: 0.4 }}
-            className="lg:hidden bg-[#8B7D6B]/95 backdrop-blur-md shadow-lg"
-          >
-            <div className="px-4 sm:px-6 py-6 space-y-4">
-              {navigationItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block text-white hover:text-yellow-400 transition-colors duration-200 text-base sm:text-lg font-medium"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-          </motion.div>
-        )}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="lg:hidden bg-[#8B7D6B]/95 dark:bg-zinc-900/95 backdrop-blur-md shadow-lg overflow-hidden"
+            >
+              <div className="px-4 sm:px-6 py-6 space-y-4">
+                {navigationItems.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="block text-white hover:text-yellow-400 transition-colors duration-200 text-base sm:text-lg font-medium"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.header>
 
       {/* --- Dynamic Page Body --- */}

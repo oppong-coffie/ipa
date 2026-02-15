@@ -46,14 +46,14 @@ export function MissionSection() {
   ];
 
   return (
-    <section className="py-20 bg-[#E2D0BA] text-[#3e2723]">
+    <section className="py-20 bg-[#E2D0BA] dark:bg-zinc-950 text-[#3e2723] dark:text-zinc-300 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
         {/* Heading */}
         <div className="text-center mb-16" data-aos="fade-up">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#3e2723]">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#3e2723] dark:text-yellow-500">
             Our Core Mission
           </h2>
-          <p className="text-lg max-w-3xl mx-auto text-[#5d4037]">
+          <p className="text-lg max-w-3xl mx-auto text-[#5d4037] dark:text-zinc-400">
             We work at the intersection of traditional wisdom and innovative
             solutions to create lasting change in Ghana&apos;s indigenous
             communities.
@@ -74,7 +74,7 @@ export function MissionSection() {
             >
               <Card
                 hoverable
-                className="border-border rounded-xl shadow-md hover:shadow-xl transition-all duration-300 bg-[#F5EBDD] overflow-hidden"
+                className="border-border dark:border-zinc-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 bg-[#F5EBDD] dark:bg-zinc-900 overflow-hidden"
                 cover={
                   <div className="relative">
                     <MotionImage
@@ -95,17 +95,17 @@ export function MissionSection() {
                     />
 
                     {/* Number badge */}
-                    <div className="absolute top-3 left-3 bg-[#FACC15] text-[#3e2723] font-bold px-3 py-1 rounded-lg shadow-md text-sm">
+                    <div className="absolute top-3 left-3 bg-[#FACC15] dark:bg-yellow-600 text-[#3e2723] dark:text-zinc-950 font-bold px-3 py-1 rounded-lg shadow-md text-sm">
                       {mission.number}
                     </div>
                   </div>
                 }
               >
                 <div className="text-center px-2">
-                  <h3 className="text-xl font-semibold text-[#8B7D6B] group-hover:text-[#A67C52] mb-3 transition-colors duration-300">
+                  <h3 className="text-xl font-semibold text-[#8B7D6B] dark:text-yellow-500/80 group-hover:text-[#A67C52] dark:group-hover:text-yellow-500 mb-3 transition-colors duration-300">
                     {mission.title}
                   </h3>
-                  <p className="text-base text-[#5d4037] group-hover:text-[#8B5E3C] leading-relaxed transition-colors duration-300">
+                  <p className="text-base text-[#5d4037] dark:text-zinc-400 group-hover:text-[#8B5E3C] dark:group-hover:text-zinc-200 leading-relaxed transition-colors duration-300">
                     {mission.description}
                   </p>
                 </div>
@@ -115,15 +115,17 @@ export function MissionSection() {
         </div>
 
         {/* Button */}
-        <div className="text-center flex justify-center mt-16" data-aos="fade-up">
+        <div
+          className="text-center flex justify-center mt-16"
+          data-aos="fade-up"
+        >
           <motion.div
             whileHover={{ scale: 1.05, rotate: 1 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
             <a href="/pages/about">
-
-              <div className="bg-[#8B7D6B] hover:bg-[#A67C52] border border-[#FACC15] text-[#3e2723] rounded-xl px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 w-96">
+              <div className="bg-[#8B7D6B] dark:bg-zinc-800 hover:bg-[#A67C52] dark:hover:bg-zinc-700 border border-[#FACC15] dark:border-yellow-600 text-[#3e2723] dark:text-yellow-500 rounded-xl px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 w-96">
                 Learn More About Our Work
               </div>
             </a>

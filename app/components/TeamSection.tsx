@@ -63,7 +63,7 @@ export default function TeamSection() {
   };
 
   return (
-    <section className="bg-[#fdfaf5] relative overflow-hidden">
+    <section className="bg-[#fdfaf5] dark:bg-zinc-950 relative overflow-hidden transition-colors duration-300">
       {/* Hero Section */}
       <div className="relative h-[50vh] min-h-[400px] w-full overflow-hidden">
         <Image
@@ -85,7 +85,8 @@ export default function TeamSection() {
               Meet the Change Makers
             </h1>
             <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto font-light">
-              The dedicated individuals behind our mission to empower communities.
+              The dedicated individuals behind our mission to empower
+              communities.
             </p>
           </motion.div>
         </div>
@@ -98,7 +99,7 @@ export default function TeamSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold text-[#2D241E] mb-6"
+            className="text-3xl md:text-5xl font-bold text-[#2D241E] dark:text-[#A78B60] mb-6"
           >
             Our Dedicated Team
           </motion.h2>
@@ -113,9 +114,10 @@ export default function TeamSection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-[#5C4033] max-w-2xl mx-auto"
+            className="text-lg text-[#5C4033] dark:text-zinc-400 max-w-2xl mx-auto"
           >
-            Passionate professionals driving impact across Ghana&apos;s indigenous communities.
+            Passionate professionals driving impact across Ghana&apos;s
+            indigenous communities.
           </motion.p>
         </div>
 
@@ -130,7 +132,7 @@ export default function TeamSection() {
             <motion.div
               key={member.name}
               variants={itemVariants}
-              className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100"
+              className="group relative bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100 dark:border-zinc-800"
             >
               <div className="relative h-80 w-full overflow-hidden">
                 <Image
@@ -159,7 +161,7 @@ export default function TeamSection() {
             href="/pages/about"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-[#8B7D6B] rounded-full shadow-lg hover:bg-[#7A6B5A] hover:shadow-xl transition-all duration-300 group"
+            className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-[#8B7D6B] dark:bg-zinc-800 rounded-full shadow-lg hover:bg-[#7A6B5A] dark:hover:bg-zinc-700 hover:shadow-xl transition-all duration-300 group"
           >
             <span>View Full Team</span>
             <svg
@@ -168,7 +170,12 @@ export default function TeamSection() {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
             </svg>
           </motion.a>
         </div>
