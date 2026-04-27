@@ -6,7 +6,7 @@ export default function TeamSection() {
   const team = [
     {
       name: "Lord Offei-Darko",
-      position: "Youth Leader",
+      position: "Youth Officer",
       image: "/images/team7.png",
     },
     {
