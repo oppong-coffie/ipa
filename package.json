@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "node .next/standalone/server.js",
-    "lint": "eslint"
+    "build": "nest build",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:prod": "node dist/main"
   },
   "dependencies": {
     "@react-google-maps/api": "^2.20.7",
