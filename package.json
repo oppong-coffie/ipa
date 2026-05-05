@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "node .next/standalone/server.js",
-    "start:prod": "node .next/standalone/server.js",
+    "start": "node server.js",
+    "start:prod": "node server.js",
     "lint": "eslint"
   },
   "dependencies": {
