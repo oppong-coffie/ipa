@@ -36,7 +36,7 @@ export default function TeamSection() {
     },
     {
       name: "Emmanuel Oppong Oppong",
-      position: "Software Engineer",
+      position: "Lead - Information Technology",
       image: "/images/me2.png",
     },
   ];
