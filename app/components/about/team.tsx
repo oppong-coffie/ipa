@@ -125,7 +125,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Emmanuel Oppong Coffie",
-    role: "Software Engineer",
+    role: "Lead-Information Technology",
     emoji: "💻",
     image: "/images/me2.png",
     bio: "Full-stack software engineer and digital innovator passionate about using technology to build impactful, sustainable, and inclusive solutions.",
