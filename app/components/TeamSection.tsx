@@ -6,32 +6,32 @@ export default function TeamSection() {
   const team = [
     {
       name: "Lord Offei-Darko",
-      position: "Youth Officer",
+      position: "Founder",
       image: "/images/team7.png",
     },
     {
       name: "David D. Tawiah",
-      position: "Team Member",
+      position: "Co-Founder & Project Lead",
       image: "/images/team21.jpg",
     },
     {
       name: "Gabriel O. Akyaw",
-      position: "Team Member",
+      position: "Member-Research",
       image: "/images/team31.jpg",
     },
     {
       name: "Hilda Darko",
-      position: "Communications Officer",
+      position: "Member-Communications",
       image: "/images/team6.png",
     },
     {
       name: "Ekow Freeman",
-      position: "Media officer",
+      position: "Lead-Media",
       image: "/images/team81.jpg",
     },
     {
       name: "Jacqueline Okine",
-      position: "Knowledge & Impact Officer",
+      position: "Lead-Knowledge & Impact",
       image: "/resolve/jack.jpg",
     },
     {
