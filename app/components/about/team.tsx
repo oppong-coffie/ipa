@@ -18,7 +18,7 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     name: "Lord Offei-Darko",
-    role: "Youth Leader",
+    role: "Founder",
     emoji: "🧑‍🔬",
     image: "/images/team7.png",
     bio: "Environmental scientist and passionate fundraiser for rural community development.",
@@ -37,7 +37,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "David D. Tawiah",
-    role: "Team Member",
+    role: "Co-Founder & Project Lead",
     emoji: "🐝",
     image: "/images/team21.jpg",
     bio: "Natural resource management expert and African Climate Innovation Challenge winner.",
@@ -55,7 +55,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Gabriel O. Akyaw",
-    role: "Team Member",
+    role: "Member - Research",
     emoji: "🧪",
     image: "/images/team31.jpg",
     bio: "Environmental scientist and researcher in sustainable agro-waste and textile production.",
@@ -73,7 +73,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Hilda Darko",
-    role: "Team Member",
+    role: "Communications Lead",
     emoji: "👩‍💼",
     image: "/images/team6.png",
     bio: "Women, youth, and children advocate.",
@@ -90,7 +90,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Ekow Freeman",
-    role: "Media & Storytelling Officer",
+    role: "Lead - Media",
     emoji: "📸",
     image: "/images/team81.jpg",
     bio: "Creative media strategist and storytelling advocate, amplifying indigenous voices through impactful narratives.",
@@ -112,7 +112,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Jacqueline Okine",
-    role: "Knowledge and Impact Officer",
+    role: "Lead-Knowledge & Impact",
     emoji: "📚",
     image: "/resolve/jack.jpg",
     bio: "Jacqueline is dedicated to ensuring that knowledge translates into real impact for communities.",

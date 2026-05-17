@@ -16,22 +16,22 @@ export default function TeamSection() {
     },
     {
       name: "Gabriel O. Akyaw",
-      position: "Member-Research",
+      position: "Member - Research",
       image: "/images/team31.jpg",
     },
     {
       name: "Hilda Darko",
-      position: "Member-Communications",
+      position: "Member - Communications",
       image: "/images/team6.png",
     },
     {
       name: "Ekow Freeman",
-      position: "Lead-Media",
+      position: "Lead - Media",
       image: "/images/team81.jpg",
     },
     {
       name: "Jacqueline Okine",
-      position: "Lead-Knowledge & Impact",
+      position: "Lead - Knowledge & Impact",
       image: "/resolve/jack.jpg",
     },
     {
