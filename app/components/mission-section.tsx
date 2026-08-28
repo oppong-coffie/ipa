@@ -20,7 +20,7 @@ export function MissionSection() {
       title: "Climate Resilience",
       description:
         "Helping communities adapt to climate change using traditional knowledge and modern solutions.",
-      image: "/resolve/so.jpg",
+      image: "/climate.jpg",
     },
     {
       number: "02",

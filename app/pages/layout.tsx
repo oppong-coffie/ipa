@@ -160,7 +160,6 @@ export default function PagesLayout({
           {/* Mobile Menu Toggle */}
           <div className="flex items-center space-x-2 sm:space-x-3">
             {/* Dark Mode Toggle Mobile */}
-            🐝
             <DarkModeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}

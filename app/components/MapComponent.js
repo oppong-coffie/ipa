@@ -319,6 +319,7 @@ export default function MapComponent() {
       {/* 📍 Modal for Region Details */}
       <Modal
         open={!!selectedRegion}
+        destroyOnHidden
         title={
           <motion.div
             initial={{ opacity: 0, y: -10 }}
