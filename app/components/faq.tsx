@@ -15,7 +15,7 @@ export default function FAQ() {
     {
       question: "📍 Where is your office located?",
       answer:
-        "Our headquarters is located in Accra, Ghana. You can find our exact location on the map section above.",
+        "Our headquarters is located in Accra, Ghana. You can find our exact location on the map section.",
     },
     {
       question: "🤝 How can I support your work?",

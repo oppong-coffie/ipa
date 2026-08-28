@@ -64,28 +64,28 @@ export default function Footer() {
               Home
             </Link>
             <Link
-              href="/about"
-              className="hover:text-[#FFD966] transition-colors"
+              href="/pages/about"
+              className="hover:text-[#FFD966] dark:hover:text-yellow-500 transition-colors"
             >
               About
             </Link>
             <Link
-              href="/projects"
-              className="hover:text-[#FFD966] transition-colors"
+              href="/pages/impart"
+              className="hover:text-[#FFD966] dark:hover:text-yellow-500 transition-colors"
             >
-              Projects
+              Impact
             </Link>
             <Link
-              href="/resources"
-              className="hover:text-[#FFD966] transition-colors"
+              href="/pages/news"
+              className="hover:text-[#FFD966] dark:hover:text-yellow-500 transition-colors"
             >
-              Resources
+              News &amp; Blog
             </Link>
             <Link
-              href="/contact"
-              className="hover:text-[#FFD966] transition-colors"
+              href="/pages/contactus"
+              className="hover:text-[#FFD966] dark:hover:text-yellow-500 transition-colors"
             >
-              Contact
+              Contact Us
             </Link>
           </motion.div>
 
@@ -119,13 +119,13 @@ export default function Footer() {
                   className="w-6 h-6 rounded hover:scale-110 transition-transform duration-300"
                 />
               </Link> */}
-              {/* <Link href="#" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.linkedin.com/company/indigenous-people-alliance-ghana" target="_blank" rel="noopener noreferrer">
                 <img
-                  src="/icons/fb.webp"
-                  alt="Facebook"
+                  src="/icons/linkedin.png"
+                  alt="LinkedIn"
                   className="w-6 h-6 hover:scale-110 transition-transform duration-300"
                 />
-              </Link> */}
+              </Link>
               <Link
                 href="https://www.instagram.com/ipa.gh?igsh=MTZkOHR2Ym9qMGR3eQ%3D%3D&utm_source=qr"
                 target="_blank"
@@ -143,6 +143,7 @@ export default function Footer() {
 
         {/* Bottom Section */}
         <motion.div
+          suppressHydrationWarning
           className="border-t border-[#F5C04E]/40 dark:border-zinc-800 pt-6 text-center text-sm md:text-base text-[#5B4636] dark:text-zinc-500 tracking-wide transition-colors duration-300"
           data-aos="fade-up"
         >

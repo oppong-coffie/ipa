@@ -9,6 +9,7 @@ import "aos/dist/aos.css";
 import Image from "next/image";
 
 import Footer from "../components/footer";
+import SplashScreen from "../components/SplashScreen";
 
 export default function PagesLayout({
   children,
@@ -18,8 +19,14 @@ export default function PagesLayout({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [showSplash, setShowSplash] = useState(false);
 
   useEffect(() => {
+    // Check if user has already seen splash screen this session
+    const hasSeenSplash = sessionStorage.getItem("hasSeenSplash");
+    if (!hasSeenSplash) {
+      setShowSplash(true);
+    }
     // Check local storage or system preference
     const savedTheme = localStorage.getItem("theme");
     const systemPrefersDark = window.matchMedia(
@@ -52,6 +59,11 @@ export default function PagesLayout({
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
     }
+  };
+
+  const handleCloseSplash = () => {
+    setShowSplash(false);
+    sessionStorage.setItem("hasSeenSplash", "true");
   };
 
   const navigationItems = [
@@ -89,6 +101,11 @@ export default function PagesLayout({
 
   return (
     <div className="flex flex-col min-h-screen transition-colors duration-300 dark:bg-zinc-950">
+      {/* Splash Screen Overlay */}
+      <AnimatePresence>
+        {showSplash && <SplashScreen onComplete={handleCloseSplash} />}
+      </AnimatePresence>
+
       {/* --- Header / Navbar --- */}
 
       <motion.header
@@ -143,6 +160,7 @@ export default function PagesLayout({
           {/* Mobile Menu Toggle */}
           <div className="flex items-center space-x-2 sm:space-x-3">
             {/* Dark Mode Toggle Mobile */}
+            🐝
             <DarkModeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
