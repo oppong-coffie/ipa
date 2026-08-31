@@ -1,119 +1,132 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
-import { FileText, Download, Calendar } from "lucide-react";
+import { FileText, Download, Calendar, ShieldCheck, Sparkles, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function AnnualReportSection() {
   const reports = [
-    // {
-    //   year: "2025",
-    //   label: "This Year's Report",
-    //   description: "Our latest achievements and milestones",
-    //   downloadUrl: "/reports/report-2025.pdf",
-    // },
     {
       year: "2024",
-      label: "Last Year's Report",
-      description: "A year of growth and community impact",
+      label: "2024 Annual Impact & Financial Report",
+      description:
+        "Comprehensive breakdown of project outcomes, voluntary drives in Amanokrom & Teacher Mante, and financial accountability.",
       downloadUrl: "/reports/report-2024.pdf",
+      size: "PDF • 4.2 MB",
+      highlights: ["500+ Beneficiaries", "GARF Api-Fund Rollout", "100% Grassroots Audited"],
     },
   ];
 
   return (
     <section
       id="report"
-      className="relative py-24 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 overflow-hidden transition-colors duration-300"
+      className="w-full py-20 lg:py-28 bg-[#FAF6EE] dark:bg-zinc-900/60 text-[#2D241E] dark:text-zinc-100 transition-colors duration-300 relative overflow-hidden px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20"
     >
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-yellow-300/20 dark:bg-yellow-500/10 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#8B7D6B]/10 dark:bg-zinc-800/20 blur-3xl rounded-full"></div>
+      {/* Background Subtle Highlights */}
+      <div className="absolute top-0 left-1/3 w-80 h-80 bg-yellow-300/15 dark:bg-yellow-500/5 blur-3xl rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-10 w-80 h-80 bg-[#8B7D6B]/15 dark:bg-zinc-800/20 blur-3xl rounded-full pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-6 lg:px-12 relative">
+      <div className="w-full relative z-10">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#8B7D6B] dark:text-[#A78B60] mb-6 leading-tight drop-shadow-md">
-            Our Annual Reports
+        <div className="text-center max-w-4xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-yellow-100 dark:bg-yellow-950/60 border border-yellow-300/60 dark:border-yellow-700/50 text-[#8B7D6B] dark:text-yellow-400 text-xs font-bold uppercase tracking-wider mb-4">
+            <ShieldCheck className="w-3.5 h-3.5" />
+            <span>Integrity &amp; Open Governance</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#2D241E] dark:text-white tracking-tight mb-4">
+            Transparent, Accountable &amp;{" "}
+            <span className="text-[#D1A054] dark:text-yellow-400">Community-First</span>
           </h2>
 
-          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Download our comprehensive annual reports to learn about our impact,
-            achievements, and the communities we serve.
+          <p className="text-base sm:text-lg lg:text-xl text-stone-600 dark:text-zinc-400 leading-relaxed">
+            Every donation, grant, and volunteer hour entrusted to IPA Ghana is tracked and documented.
+            Explore our verified annual reports to see how resources drive real impact on the ground.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Report Cards */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {reports.map((report, index) => (
+        {/* Report Cards Grid */}
+        <div className="max-w-4xl mx-auto w-full">
+          {reports.map((report) => (
             <motion.div
               key={report.year}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              whileHover={{
-                y: -8,
-                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.3)",
-              }}
-              className="relative bg-white dark:bg-zinc-900 rounded-2xl shadow-lg border border-yellow-100 dark:border-zinc-800 overflow-hidden group transition-colors duration-300"
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-white dark:bg-zinc-900 border border-yellow-200/80 dark:border-zinc-800 rounded-3xl p-6 sm:p-10 shadow-xl hover:shadow-2xl transition-all duration-300 relative overflow-hidden group"
             >
-              {/* Card Header with Year */}
-              <div className="bg-gradient-to-r from-[#8B7D6B] to-[#6B5D4B] dark:from-zinc-800 dark:to-zinc-950 px-6 py-4">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-stone-100 dark:border-zinc-800">
                 <div className="flex items-center gap-3">
-                  <Calendar className="w-5 h-5 text-yellow-300 dark:text-yellow-500" />
-                  <span className="text-yellow-100 dark:text-yellow-500/80 font-semibold text-lg">
-                    {report.year}
-                  </span>
+                  <div className="w-14 h-14 rounded-2xl bg-yellow-100 dark:bg-zinc-800 text-[#D1A054] dark:text-yellow-400 flex items-center justify-center font-bold">
+                    <FileText className="w-7 h-7" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-yellow-600 dark:text-yellow-400 flex items-center gap-1.5">
+                      <Calendar className="w-3.5 h-3.5" />
+                      Annual Release • {report.year}
+                    </span>
+                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#2D241E] dark:text-white mt-0.5">
+                      {report.label}
+                    </h3>
+                  </div>
                 </div>
+
+                <span className="text-xs font-semibold px-3.5 py-1.5 rounded-full bg-stone-100 dark:bg-zinc-800 text-stone-600 dark:text-zinc-400">
+                  {report.size}
+                </span>
               </div>
 
-              {/* Card Body */}
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#8B7D6B] dark:text-[#A78B60] mb-2">
-                  {report.label}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                  {report.description}
-                </p>
+              <p className="text-sm sm:text-base lg:text-lg text-stone-600 dark:text-zinc-300 py-6 leading-relaxed">
+                {report.description}
+              </p>
 
-                {/* Download Button */}
-                <motion.a
+              {/* Key Highlights Tags */}
+              <div className="flex flex-wrap gap-2.5 mb-8">
+                {report.highlights.map((h, i) => (
+                  <span
+                    key={i}
+                    className="text-xs sm:text-sm px-4 py-1.5 rounded-xl bg-yellow-50 dark:bg-zinc-800/80 text-[#8B7D6B] dark:text-yellow-300 border border-yellow-200/50 dark:border-zinc-700/50 font-medium"
+                  >
+                    ✓ {h}
+                  </span>
+                ))}
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-between pt-2">
+                <a
                   href={report.downloadUrl}
                   download
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="inline-flex items-center gap-3 bg-gradient-to-r from-[#8B7D6B] to-[#6B5D4B] dark:from-zinc-800 dark:to-zinc-950 hover:from-[#FDDC5C] dark:hover:from-yellow-600 hover:to-yellow-400 dark:hover:to-yellow-500 text-white dark:text-zinc-200 hover:text-[#8B7D6B] dark:hover:text-zinc-950 px-6 py-3 rounded-xl font-semibold shadow-md transition-all duration-300 w-full justify-center"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-[#D1A054] hover:bg-yellow-400 text-zinc-950 font-extrabold text-sm sm:text-base shadow-md hover:shadow-yellow-400/20 hover:scale-102 active:scale-98 transition-all"
                 >
                   <Download className="w-5 h-5" />
-                  Download PDF
-                </motion.a>
-              </div>
+                  <span>Download Annual Report (PDF)</span>
+                </a>
 
-              {/* Decorative corner accent */}
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-yellow-200/30 dark:bg-yellow-900/10 rounded-full blur-2xl group-hover:bg-yellow-300/40 dark:group-hover:bg-yellow-700/20 transition-colors duration-300"></div>
+                <Link
+                  href="/pages/contactus"
+                  className="text-xs sm:text-sm font-semibold text-[#8B7D6B] dark:text-yellow-400 hover:underline flex items-center gap-1"
+                >
+                  <span>Request detailed audit schedule</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Additional Note */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center text-gray-500 dark:text-gray-400 text-sm mt-12"
-        >
-          For older reports or additional documentation, please{" "}
-          <a
+        {/* Conversational Bottom Note */}
+        <div className="mt-12 text-center text-xs sm:text-sm text-stone-500 dark:text-zinc-400">
+          <span>Looking for specific data or prior archival material? </span>
+          <Link
             href="/pages/contactus"
-            className="text-[#8B7D6B] dark:text-[#A78B60] hover:text-[#FDDC5C] dark:hover:text-yellow-500 font-medium underline transition-colors"
+            className="text-[#8B7D6B] dark:text-yellow-400 font-bold hover:underline"
           >
-            contact us
-          </a>
-          .
-        </motion.p>
+            Chat with our Knowledge &amp; Impact team &rarr;
+          </Link>
+        </div>
       </div>
     </section>
   );

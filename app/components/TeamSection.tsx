@@ -1,6 +1,10 @@
 "use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { Sparkles, ArrowRight, Quote, MessageSquare } from "lucide-react";
 
 export default function TeamSection() {
   const team = [
@@ -8,176 +12,145 @@ export default function TeamSection() {
       name: "Lord Offei-Darko",
       position: "Founder",
       image: "/images/team7.png",
+      quote: "True grassroots transformation begins when we listen before we act.",
+      focus: "Strategy & Community Co-Creation",
     },
     {
       name: "David D. Tawiah",
       position: "Co-Founder & Project Lead",
       image: "/images/team21.jpg",
+      quote: "Youth-led innovation is the bridge between traditional wisdom and sustainable growth.",
+      focus: "Field Execution & Api-Resilience",
     },
     {
       name: "Gabriel O. Akyaw",
       position: "Member - Research",
       image: "/images/team31.jpg",
+      quote: "Rigorous data backed by indigenous insight yields real community impact.",
+      focus: "Ecological Studies & Metrics",
     },
     {
       name: "Hilda Darko",
       position: "Member - Communications",
       image: "/images/team6.png",
+      quote: "Amplifying the stories of women and youth gives power to their advocacy.",
+      focus: "Public Relations & Stories",
     },
     {
       name: "Ekow Freeman",
       position: "Lead - Media",
       image: "/images/team81.jpg",
+      quote: "Capturing the authentic spirit and resilience of our indigenous regions.",
+      focus: "Visual Storytelling & Documentaries",
     },
     {
       name: "Jacqueline Okine",
       position: "Lead - Knowledge & Impact",
       image: "/resolve/jack.jpg",
+      quote: "Every hive installed and every child mentored must generate lasting knowledge.",
+      focus: "Impact Assessment & Gender Inclusion",
     },
     {
       name: "Emmanuel Oppong Oppong",
       position: "Lead - Information Technology",
       image: "/images/me2.png",
+      quote: "Deploying tech that connects remote communities with global opportunities.",
+      focus: "Digital Infrastructure & Systems",
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
   return (
-    <section className="dark:bg-zinc-950 relative overflow-hidden transition-colors duration-300">
-      {/* Hero Section */}
-      <div className="relative h-[50vh] min-h-[400px] w-full overflow-hidden">
-        <Image
-          src="/images/teamwork41.jpg"
-          alt="Teamwork"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center px-4"
-          >
-            <h1 className="text-white text-4xl md:text-6xl font-bold mb-4 tracking-tight">
-              Meet the Change Makers
-            </h1>
-            <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto font-light">
-              The dedicated individuals behind our mission to empower
-              communities.
-            </p>
-          </motion.div>
-        </div>
-      </div>
+    <section className="w-full py-20 lg:py-28 bg-[#FAF6EE] dark:bg-zinc-900/60 text-[#2D241E] dark:text-zinc-100 transition-colors duration-300 relative overflow-hidden px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20">
+      {/* Background Decorative Blobs */}
+      <div className="absolute top-0 right-0 w-80 h-80 bg-yellow-300/20 dark:bg-yellow-500/5 blur-3xl rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#8B7D6B]/15 dark:bg-zinc-800/20 blur-3xl rounded-full pointer-events-none" />
 
-      {/* Team Grid */}
-      <div className="py-24 max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-20">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold text-[#2D241E] dark:text-[#A78B60] mb-6"
-          >
-            Our Dedicated Team
-          </motion.h2>
-          <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: "100px" }}
-            viewport={{ once: true }}
-            className="h-1 bg-yellow-500 mx-auto mb-6"
-          />
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-lg text-[#5C4033] dark:text-zinc-400 max-w-2xl mx-auto"
-          >
-            Passionate professionals driving impact across Ghana&apos;s
-            indigenous communities.
-          </motion.p>
+      <div className="w-full relative z-10">
+        {/* Section Heading */}
+        <div className="text-center max-w-4xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-yellow-100 dark:bg-yellow-950/60 border border-yellow-300/60 dark:border-yellow-700/50 text-[#8B7D6B] dark:text-yellow-400 text-xs font-bold uppercase tracking-wider mb-4">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>People Behind the Mission</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#2D241E] dark:text-white tracking-tight mb-4">
+            Meet the Voices Leading the{" "}
+            <span className="text-[#D1A054] dark:text-yellow-400">Movement</span>
+          </h2>
+
+          <p className="text-base sm:text-lg lg:text-xl text-stone-600 dark:text-zinc-400 leading-relaxed">
+            Our multidisciplinary team of grassroots researchers, technologists, and community advocates
+            works side-by-side with Ghana&apos;s indigenous leaders and volunteer networks.
+          </p>
         </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
-        >
-          {team.map((member) => (
+        {/* Team Grid (Full Width, up to 4 columns on large screens) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 w-full">
+          {team.map((member, idx) => (
             <motion.div
               key={member.name}
-              variants={itemVariants}
-              className="group relative bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100 dark:border-zinc-800"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
+              className="group bg-white dark:bg-zinc-900 border border-yellow-200/50 dark:border-zinc-800 rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col"
             >
-              <div className="relative h-80 w-full overflow-hidden">
+              {/* Image Container */}
+              <div className="relative h-76 sm:h-80 w-full overflow-hidden bg-stone-100 dark:bg-zinc-800">
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/85 via-zinc-950/20 to-transparent" />
 
-                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-xl font-bold text-white mb-1">
+                {/* Badge on Image */}
+                <div className="absolute bottom-3 left-4 right-4">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-yellow-300 bg-black/40 backdrop-blur-md px-2 py-0.5 rounded-md border border-white/10">
+                    {member.position}
+                  </span>
+                  <h3 className="text-lg sm:text-xl font-bold text-white mt-1 leading-tight">
                     {member.name}
                   </h3>
-                  <p className="text-yellow-400 font-medium text-sm tracking-wide uppercase">
-                    {member.position}
+                </div>
+              </div>
+
+              {/* Conversational Quote Body */}
+              <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+                <div className="relative pl-3 border-l-2 border-yellow-400">
+                  <p className="text-xs sm:text-sm text-stone-700 dark:text-zinc-300 italic leading-relaxed">
+                    &ldquo;{member.quote}&rdquo;
                   </p>
+                </div>
+
+                <div className="pt-3 border-t border-stone-100 dark:border-zinc-800 flex items-center justify-between text-xs">
+                  <span className="text-stone-500 dark:text-zinc-400 font-medium">
+                    {member.focus}
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-yellow-400" />
                 </div>
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
-        <div className="flex justify-center mt-20">
-          <motion.a
-            href="/pages/about"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-[#8B7D6B] dark:bg-zinc-800 rounded-full shadow-lg hover:bg-[#7A6B5A] dark:hover:bg-zinc-700 hover:shadow-xl transition-all duration-300 group"
-          >
-            <span>View Full Team</span>
-            <svg
-              className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+        {/* Conversational Join/Explore Callout */}
+        <div className="mt-16 text-center">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-4 sm:px-10 sm:py-5 rounded-3xl bg-white dark:bg-zinc-900 border border-yellow-300/50 dark:border-zinc-800 shadow-lg">
+            <div className="flex items-center gap-2 text-xs sm:text-sm lg:text-base font-semibold text-stone-700 dark:text-zinc-300">
+              <span className="text-xl">🤝</span>
+              <span>Want to work with our passionate team on voluntary field drives?</span>
+            </div>
+
+            <Link
+              href="/pages/about"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#8B7D6B] hover:bg-[#7A6B5A] text-white text-xs sm:text-sm font-bold shadow-md transition-all group"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </motion.a>
+              <span>Explore Full Team &amp; Story</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>

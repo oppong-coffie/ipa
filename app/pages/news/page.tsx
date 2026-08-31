@@ -1,333 +1,316 @@
 "use client";
 
-import React from "react";
-import { Search } from "lucide-react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Blog1 from "./blog1/page";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { Search, Sparkles, Clock, BookOpen, ArrowRight, Tag, Compass } from "lucide-react";
+
+interface Story {
+  id: string;
+  slug: string;
+  title: string;
+  category: string;
+  readTime: string;
+  date: string;
+  image: string;
+  excerpt: string;
+  conversationalNote: string;
+}
+
+const stories: Story[] = [
+  {
+    id: "1",
+    slug: "blog1",
+    title: "Belém's Crucible: Indigenous Demands for the Amazon COP30",
+    category: "Climate Justice",
+    readTime: "6 min read",
+    date: "August 2025",
+    image: "/drive2/cop3.png",
+    excerpt:
+      "Global climate summits must center frontline indigenous voices. Here are the core demands being championed for Amazonian and African indigenous regions.",
+    conversationalNote: "Reflecting on how international climate negotiations directly affect Ghanaian rural land tenure.",
+  },
+  {
+    id: "2",
+    slug: "blog2",
+    title: "Impacts of Beekeeping in Indigenous Communities & Gender Equity",
+    category: "Beekeeping & Livelihoods",
+    readTime: "5 min read",
+    date: "July 2025",
+    image: "/drive2/bee11.jpeg",
+    excerpt:
+      "How gender roles shape access to apiary resources, and the transformative economic freedom earned by women beekeepers in Teacher Mante.",
+    conversationalNote: "Women in rural beekeeping have seen household incomes increase by over 40%.",
+  },
+  {
+    id: "3",
+    slug: "blog3",
+    title: "Methodologies for Uncovering & Documenting Indigenous Knowledge",
+    category: "Indigenous Knowledge",
+    readTime: "7 min read",
+    date: "June 2025",
+    image: "/drive2/m1.png",
+    excerpt:
+      "Grassroots research frameworks for recording oral environmental wisdom without extractive colonial biases.",
+    conversationalNote: "How we work alongside community elders in Amanokrom to record indigenous climate indicators.",
+  },
+  {
+    id: "4",
+    slug: "blog4",
+    title: "Promoting Indigenous Knowledge in Policy Decision-Making",
+    category: "Policy & Advocacy",
+    readTime: "4 min read",
+    date: "May 2025",
+    image: "/images/comp.jpg",
+    excerpt:
+      "Bridging the gap between scientific climate models and generational wisdom practiced by Ghanaian smallholders.",
+    conversationalNote: "Local chiefs and council elders must have direct seats on district development committees.",
+  },
+  {
+    id: "5",
+    slug: "blog5",
+    title: "The Future of Integrating Indigenous Ecological Systems",
+    category: "Indigenous Knowledge",
+    readTime: "5 min read",
+    date: "April 2025",
+    image: "/drive2/f3.webp",
+    excerpt:
+      "Integrating native agroforestry techniques into Ghana's national biodiversity conservation strategy.",
+    conversationalNote: "Why preserving native tree species alongside beehives guarantees long-term nectar flow.",
+  },
+  {
+    id: "6",
+    slug: "blog6",
+    title: "Traditional Knowledge in Climate Justice: Lessons from Southern Ghana",
+    category: "Climate Justice",
+    readTime: "6 min read",
+    date: "March 2025",
+    image: "/drive2/intro1.png",
+    excerpt:
+      "Historical resilience strategies deployed by coastal and forest communities in Southern Ghana across decades of climate variation.",
+    conversationalNote: "Lessons from community-led sacred grove conservation.",
+  },
+  {
+    id: "7",
+    slug: "blog7",
+    title: "Disaster Risk Reduction and Community Response",
+    category: "Climate Justice",
+    readTime: "4 min read",
+    date: "February 2025",
+    image: "/drive/d(1).jpg",
+    excerpt:
+      "Community early-warning systems and grassroots flood preparedness across vulnerable agrarian basins.",
+    conversationalNote: "How localized contingency plans save rural crop yields.",
+  },
+  {
+    id: "8",
+    slug: "blog8",
+    title: "Advancing Climate Justice through Grassroots Youth Action",
+    category: "Climate Justice",
+    readTime: "5 min read",
+    date: "January 2025",
+    image: "/drive2/climate1.jpeg",
+    excerpt:
+      "Youth activists in Ghana are redefining what climate advocacy looks like on the ground through tech and voluntary field drives.",
+    conversationalNote: "Youth are not just leaders of tomorrow—they are leading today's field actions.",
+  },
+  {
+    id: "9",
+    slug: "blog9",
+    title: "Lobbying Strategies for Climate-Affected Smallholder Farmers",
+    category: "Policy & Advocacy",
+    readTime: "6 min read",
+    date: "December 2024",
+    image: "/drive2/lop2.jpg",
+    excerpt:
+      "Empowering farmer associations with legislative tools and coalition-building tactics for agricultural subsidies.",
+    conversationalNote: "Helping smallholders negotiate fair pricing and fertilizer access.",
+  },
+  {
+    id: "10",
+    slug: "blog10",
+    title: "Beelieve Smart Project — Field Report from Teacher Mante",
+    category: "Beekeeping & Livelihoods",
+    readTime: "5 min read",
+    date: "November 2024",
+    image: "/drive2/beeleive1.jpeg",
+    excerpt:
+      "A deep dive into our inaugural beekeeping cohort, hive colonization rates, and youth training milestones.",
+    conversationalNote: "Over 200 hives actively colonized and managed by youth fellows.",
+  },
+];
 
 export default function NewsPage() {
-  return (
-    <div>
-      {/* START:: Hero Section */}
-      <section className="relative bg-gradient-to-br from-amber-50 via-white to-amber-100 dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900 rounded-3xl border border-neutral-200 dark:border-zinc-800 shadow-md overflow-hidden mb-8 transition-colors duration-300">
-        {/* Subtle background pattern */}
-        <div className="absolute inset-0 bg-[url('/patterns/news-bg.svg')] opacity-5"></div>
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
-        {/* Content */}
-        <div className="relative z-10 px-8 py-16 flex flex-col items-center text-center space-y-6">
-          {/* Animated Heading */}
+  const categories = [
+    "All",
+    "Climate Justice",
+    "Beekeeping & Livelihoods",
+    "Indigenous Knowledge",
+    "Policy & Advocacy",
+  ];
+
+  const filteredStories = stories.filter((s) => {
+    const matchesCategory = selectedCategory === "All" || s.category === selectedCategory;
+    const matchesSearch =
+      s.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      s.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      s.conversationalNote.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
+  return (
+    <div className="w-full min-h-screen bg-[#FFFDF5] dark:bg-zinc-950 text-[#2D241E] dark:text-zinc-100 transition-colors duration-300">
+      {/* Hero Header (Full Width) */}
+      <section className="relative w-full py-20 lg:py-28 bg-gradient-to-b from-[#FAF6EE] to-[#FFFDF5] dark:from-zinc-900 dark:to-zinc-950 overflow-hidden px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-yellow-300/20 dark:bg-yellow-500/5 blur-3xl rounded-full pointer-events-none" />
+
+        <div className="w-full text-center relative z-10 max-w-5xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-yellow-100 dark:bg-yellow-950/60 border border-yellow-300/60 dark:border-yellow-700/50 text-[#8B7D6B] dark:text-yellow-400 text-xs font-bold uppercase tracking-wider mb-4">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Field Dispatches &amp; Knowledge Hub</span>
+          </div>
+
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-extrabold text-neutral-800 dark:text-yellow-500 leading-tight"
+            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-[#2D241E] dark:text-white tracking-tight mb-4"
           >
-            Stay Informed, Stay Empowered 📰
+            Stories, Insights &amp;{" "}
+            <span className="text-[#D1A054] dark:text-yellow-400">Field Updates</span>
           </motion.h1>
 
-          {/* Supporting Paragraph */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-3xl text-lg md:text-xl text-neutral-600 dark:text-zinc-400 leading-relaxed"
-          >
-            Stay connected with the pulse of our growing community — where
-            stories, opportunities, and innovations come together. Discover{" "}
-            <span className="text-amber-700 dark:text-yellow-400 font-semibold">
-              insightful blogs, campaign updates, and the latest projects
-            </span>{" "}
-            shaping our collective impact.
-          </motion.p>
+          <p className="text-base sm:text-lg lg:text-xl text-stone-600 dark:text-zinc-400 max-w-3xl mx-auto leading-relaxed">
+            Read first-hand accounts, research findings, and community perspectives directly from Ghana&apos;s
+            indigenous and rural landscapes.
+          </p>
 
-          {/* Floating Badges */}
-          <div className="flex flex-wrap justify-center gap-4 mt-6">
-            <motion.span
-              animate={{ y: [0, -6, 0] }}
-              transition={{ repeat: Infinity, duration: 4 }}
-              className="bg-white dark:bg-zinc-800 border border-amber-200 dark:border-zinc-700 px-4 py-2 rounded-full text-amber-700 dark:text-yellow-400 font-medium shadow-sm"
-            >
-              🌿 Community Growth
-            </motion.span>
-            <motion.span
-              animate={{ y: [0, 6, 0] }}
-              transition={{ repeat: Infinity, duration: 3 }}
-              className="bg-white dark:bg-zinc-800 border border-green-200 dark:border-zinc-700 px-4 py-2 rounded-full text-green-700 dark:text-green-400 font-medium shadow-sm"
-            >
-              💡 Innovation
-            </motion.span>
-            <motion.span
-              animate={{ y: [0, -8, 0] }}
-              transition={{ repeat: Infinity, duration: 5 }}
-              className="bg-white dark:bg-zinc-800 border border-blue-200 dark:border-zinc-700 px-4 py-2 rounded-full text-blue-700 dark:text-blue-400 font-medium shadow-sm"
-            >
-              🗞 News & Insights
-            </motion.span>
+          {/* Search & Filter */}
+          <div className="mt-8 space-y-4 max-w-2xl mx-auto">
+            <div className="relative">
+              <Search className="w-5 h-5 text-stone-400 absolute left-4 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search articles by keyword or topic..."
+                className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white dark:bg-zinc-900 border border-yellow-200/80 dark:border-zinc-800 text-stone-900 dark:text-zinc-100 placeholder-stone-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm sm:text-base"
+              />
+            </div>
+
+            {/* Category Chips */}
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                    selectedCategory === cat
+                      ? "bg-[#D1A054] text-zinc-950 shadow-sm"
+                      : "bg-white dark:bg-zinc-900 text-stone-600 dark:text-zinc-400 hover:bg-yellow-50 dark:hover:bg-zinc-800 border border-yellow-200/60 dark:border-zinc-800"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* END:: Hero Section */}
-
-      {/* START:: News Section */}
-      <section className="grid grid-cols-1 md:grid-cols-4 gap-8 p-6">
-        {/* Left major content area (3 columns) */}
-        <div className="col-span-3 rounded-2xl shado">
-          <div>
-            {/* Top section */}
-            <div className="grid grid-cols-3 gap-4 mb-6">
-              {/* Main large card */}
-              {/* <div className="col-span-2">
-                <Link href="news/blog1">
-                  <article className="border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
-                    <div className="relative h-60 w-full overflow-hidden">
+      {/* Stories Grid (Full Width) */}
+      <section className="w-full px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pb-24">
+        {filteredStories.length === 0 ? (
+          <div className="text-center py-16 bg-white dark:bg-zinc-900 rounded-3xl border border-yellow-200/60 dark:border-zinc-800 max-w-xl mx-auto">
+            <p className="text-stone-600 dark:text-zinc-400 text-sm sm:text-base">
+              No articles matched your search query &ldquo;{searchQuery}&rdquo;.
+            </p>
+            <button
+              onClick={() => {
+                setSearchQuery("");
+                setSelectedCategory("All");
+              }}
+              className="mt-3 text-xs sm:text-sm font-bold text-[#8B7D6B] dark:text-yellow-400 hover:underline cursor-pointer"
+            >
+              Clear filters and view all
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+            <AnimatePresence>
+              {filteredStories.map((story, idx) => (
+                <motion.article
+                  key={story.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ delay: idx * 0.05, duration: 0.4 }}
+                  className="bg-white dark:bg-zinc-900 border border-yellow-200/60 dark:border-zinc-800 rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group"
+                >
+                  <Link href={`/pages/news/${story.slug}`} className="block">
+                    {/* Image */}
+                    <div className="relative h-60 w-full overflow-hidden bg-stone-100 dark:bg-zinc-800">
                       <Image
-                        src="/drive2/cop3.png"
-                        alt="Agricultural Project"
-                        width={500}
-                        height={300}
-                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                        src={story.image}
+                        alt={story.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover group-hover:scale-106 transition-transform duration-700 ease-out"
                       />
-                      <div className="absolute inset-0 flex flex-col justify-end p-4">
-                        <h2 className="text-white text-lg font-semibold leading-tight drop-shadow">
-                          Impacts of Beekeeping in Indigenous Communities
-                        </h2>
-                        <p className="text-amber-400 text-xs font-bold uppercase tracking-wide mt-1">
-                          This research highlights how gender roles shape access
-                          to resources and economic outcomes, revealing both
-                          barriers and opportunities for women in the sector.
-                        </p>
+                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-zinc-950/20 to-transparent" />
+
+                      <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
+                        <span className="text-[10px] font-bold uppercase tracking-wider bg-yellow-400 text-zinc-950 px-3 py-1 rounded-lg shadow-sm">
+                          {story.category}
+                        </span>
+                        <span className="text-[10px] font-bold bg-black/60 backdrop-blur-md text-stone-200 px-3 py-1 rounded-lg flex items-center gap-1 border border-white/10">
+                          <Clock className="w-3 h-3 text-yellow-300" />
+                          {story.readTime}
+                        </span>
                       </div>
                     </div>
-                  </article>
-                </Link>
-              </div> */}
+                  </Link>
 
-              {/* Right mini card */}
-              <Link href="news/blog1">
-                <motion.article
-                  whileHover={{ scale: 1.03 }}
-                  transition={{ duration: 0.3 }}
-                  className="bg-white dark:bg-zinc-900 border border-neutral-200 dark:border-zinc-800 rounded-2xl shadow-md hover:shadow-xl overflow-hidden relative group cursor-pointer transition-all duration-300"
-                >
-                  {/* Image Section */}
-                  <div className="relative w-full h-56 md:h-64 overflow-hidden">
-                    <Image
-                      src="/drive2/cop3.png"
-                      alt="Indigenous Knowledge & Climate Justice"
-                      width={500}
-                      height={350}
-                      className="w-full h-full object-cover rounded-t-2xl transition-transform duration-700 group-hover:scale-110 group-hover:brightness-90"
-                    />
+                  {/* Body Content */}
+                  <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
+                    <div className="space-y-2.5">
+                      <span className="text-[11px] font-semibold text-stone-400">
+                        {story.date}
+                      </span>
+                      <Link href={`/pages/news/${story.slug}`}>
+                        <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-[#2D241E] dark:text-white leading-snug group-hover:text-[#D1A054] dark:group-hover:text-yellow-400 transition-colors">
+                          {story.title}
+                        </h2>
+                      </Link>
+                      <p className="text-xs sm:text-sm text-stone-600 dark:text-zinc-300 leading-relaxed font-light line-clamp-3">
+                        {story.excerpt}
+                      </p>
+                    </div>
 
-                    {/* Overlay gradient for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+                    {/* Conversational Insight Box */}
+                    <div className="p-3.5 rounded-2xl bg-yellow-50 dark:bg-zinc-800/80 border border-yellow-200/50 dark:border-zinc-700/50 text-xs text-stone-700 dark:text-zinc-300 italic">
+                      💬 &ldquo;{story.conversationalNote}&rdquo;
+                    </div>
 
-                    {/* Title */}
-                    <div className="absolute bottom-3 left-4 right-4">
-                      <h3 className="text-white text-base md:text-lg font-semibold drop-shadow-md leading-snug">
-                        Belém&apos;s Crucible: Indigenous Demands for the Amazon
-                        COP30 🌎
-                      </h3>
+                    <div className="pt-3 border-t border-stone-100 dark:border-zinc-800">
+                      <Link
+                        href={`/pages/news/${story.slug}`}
+                        className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#8B7D6B] dark:text-yellow-400 group-hover:text-yellow-600 transition-colors"
+                      >
+                        <span>Read Full Story</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </Link>
                     </div>
                   </div>
-
-                  {/* Body Text */}
-                  <div className="p-4">
-                    <p className="text-sm text-neutral-600 dark:text-zinc-400 leading-relaxed">
-                      For the first time, this critical global summit is hosted
-                      in the Amazon, a biome vital to global climate
-                      stability{" "}
-                    </p>
-
-                    {/* Animated Button */}
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      className="mt-4 flex justify-start"
-                    >
-                      <span className="inline-flex items-center gap-2 text-amber-700 dark:text-yellow-500 font-medium text-sm hover:text-amber-800 dark:hover:text-yellow-400 transition-colors">
-                        Read Full News →
-                      </span>
-                    </motion.div>
-                  </div>
                 </motion.article>
-              </Link>
-            </div>
-
-            {/* Bottom grid cards */}
-            {/* <div className="grid grid-cols-3 gap-4">
-              <Link href="news/blog3">
-                <article className="border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
-                  <div className="relative h-48 w-full overflow-hidden">
-                    <Image
-                      src="/drive2/m1.png"
-                      alt="Agricultural Project"
-                      width={500}
-                      height={300}
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-3">
-                    <h3 className="text-base font-semibold text-neutral-800">
-                      Methodologies for Uncovering Indigenous Knowledge
-                    </h3>
-                  </div>
-                </article>
-              </Link>
-              <Link href="news/blog4">
-                <article className="border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
-                  <div className="relative h-48 w-full overflow-hidden">
-                    <Image
-                      src="/images/comp.jpg"
-                      alt="Agricultural Project"
-                      width={500}
-                      height={300}
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-3">
-                    <h3 className="text-base font-semibold text-neutral-800">
-                      Promoting the Use of Indigenous Knowledge
-                    </h3>
-                  </div>
-                </article>
-              </Link>
-              <Link href="news/blog5">
-                <article className="border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
-                  <div className="relative h-48 w-full overflow-hidden">
-                    <Image
-                      src="/drive2/f3.webp"
-                      alt="Agricultural Project"
-                      width={500}
-                      height={300}
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-3">
-                    <h3 className="text-base font-semibold text-neutral-800">
-                      Futere of Integrating Indigenous Knowledge
-                    </h3>
-                  </div>
-                </article>
-              </Link>
-            </div> */}
+              ))}
+            </AnimatePresence>
           </div>
-        </div>
-
-        {/* Right small info box (1 column) */}
-        {/* <article className="border border-neutral-200 rounded-xl shadow hover:shadow-lg transition-shadow duration-300 overflow-hidden relative"> */}
-        {/* Image section with text overlay */}
-        {/* <Link href="news/blog6">
-            <div className="relative h-full w-full overflow-hidden">
-              <Image
-                src="/drive2/intro1.png"
-                alt="Agricultural Project"
-                width={500}
-                height={300}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-9 flex flex-col justify-end">
-                <h2 className="text-white text-lg font-semibold leading-tight drop-shadow">
-                  Indigenous and Traditional Knowledge in Climate Justice
-                </h2>
-                <p className="text-amber-400 text-xs font-medium uppercase tracking-wide mt-1">
-                  Lessons from Southern Ghana
-                </p>
-              </div>
-            </div>
-          </Link> */}
-        {/* </article> */}
+        )}
       </section>
-      {/* END:: News Section */}
-
-      {/* START:: Blog Section */}
-      <section className="flex flex-wrap justify-center gap-6 p-6 bg-gradient-to-br from-amber-50 to-white dark:from-zinc-950 dark:to-zinc-900 transition-colors duration-300">
-        {/* Card 1 */}
-        {/* Card 1 */}
-        {/* <article className="w-full sm:w-[48%] lg:w-[23%] bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
-          <Link href="news/blog7">
-            <div className="relative h-48 w-full overflow-hidden">
-              <Image
-                src="/drive2/cop3.png"
-                alt="Agricultural Project"
-                width={500}
-                height={300}
-                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </div>
-            <div className="p-4">
-              <p className="text-base font-semibold text-neutral-800 leading-snug group-hover:text-amber-700 transition-colors duration-300">
-                Disaster Risk Reduction and Response
-              </p>
-            </div>
-          </Link>
-        </article> */}
-        {/* Card 2 */}
-        {/* <article className="w-full sm:w-[48%] lg:w-[23%] bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
-          <Link href="news/blog8">
-            <div className="relative h-48 w-full overflow-hidden">
-              <Image
-                src="/drive2/climate1.jpeg"
-                alt="Empowering local farmers"
-                width={500}
-                height={300}
-                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </div>
-            <div className="p-4">
-              <p className="text-base font-semibold text-neutral-800 leading-snug group-hover:text-amber-700 transition-colors duration-300">
-                Advancing Climate Justice 🌿
-              </p>
-            </div>
-          </Link>
-        </article> */}
-        {/* Card 3 */}
-        {/* <article className="w-full sm:w-[48%] lg:w-[23%] bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
-          <Link href="news/blog9">
-            <div className="relative h-48 w-full overflow-hidden">
-              <Image
-                src="/drive2/lop2.jpg"
-                alt="Climate Smart Agriculture"
-                width={500}
-                height={300}
-                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </div>
-            <div className="p-4">
-              <p className="text-base font-semibold text-neutral-800 leading-snug group-hover:text-amber-700 transition-colors duration-300">
-                Lobbying Strategies for Climate-Affected Farmers
-              </p>
-            </div>
-          </Link>
-        </article> */}
-
-        {/* Card 4 */}
-        {/* <article className="w-full sm:w-[48%] lg:w-[23%] bg-white border border-neutral-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden relative group">
-          <Link href="news/blog10">
-            <div className="relative h-48 w-full overflow-hidden">
-              <Image
-                src="/drive2/beeleive1.jpeg"
-                alt="Youth initiatives"
-                width={500}
-                height={300}
-                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </div>
-            <div className="p-4">
-              <p className="text-base font-semibold text-neutral-800 leading-snug group-hover:text-amber-700 transition-colors duration-300">
-                Beelieve Smart Project — Teacher Mante
-              </p>
-            </div>
-          </Link>
-        </article> */}
-      </section>
-      {/* END:: Blog Section */}
     </div>
   );
 }

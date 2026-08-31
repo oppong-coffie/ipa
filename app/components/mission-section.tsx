@@ -1,135 +1,191 @@
 "use client";
 
-import { Card } from "antd";
-import { motion } from "framer-motion";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-
-const MotionImage = motion(Image);
+import Link from "next/link";
+import { Sprout, Briefcase, Users, Landmark, ArrowRight, Quote, Sparkles } from "lucide-react";
 
 export function MissionSection() {
-  useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
-  }, []);
+  const [activeTab, setActiveTab] = useState<number>(0);
 
   const missions = [
     {
+      id: "climate",
       number: "01",
+      icon: <Sprout className="w-5 h-5" />,
       title: "Climate Resilience",
+      quote: "Bridging ancestral ecological knowledge with modern climate solutions.",
       description:
-        "Helping communities adapt to climate change using traditional knowledge and modern solutions.",
+        "We help farming clusters adapt to unpredictable weather patterns by planting indigenous flora, setting up bee pollination corridors, and building local climate leadership.",
       image: "/climate.jpg",
+      fieldStory: "Tested across Eastern Region and Teacher Mante farming communities.",
+      highlight: "200+ Hives & Pollinator Sanctuaries",
     },
     {
+      id: "livelihoods",
       number: "02",
+      icon: <Briefcase className="w-5 h-5" />,
       title: "Sustainable Livelihoods",
+      quote: "Creating resilient income opportunities that honor indigenous tradition.",
       description:
-        "Creating income opportunities that preserve culture and sustain communities.",
+        "Through the Ghana Api-Resilience Fund (GARF) and agricultural value chains, we train youth and women in commercial beekeeping, honey harvesting, and eco-enterprises.",
       image: "/drive/d(15).jpg",
+      fieldStory: "Providing steady supplemental income to over 120 rural farming families.",
+      highlight: "120+ Farmers Trained",
     },
     {
+      id: "equity",
       number: "03",
-      title: "Social Equity",
+      icon: <Users className="w-5 h-5" />,
+      title: "Social Equity & Inclusion",
+      quote: "Ensuring indigenous voices hold a rightful seat at policy tables.",
       description:
-        "Advocating for indigenous rights and representation in decisions.",
+        "We advocate for indigenous rights, resource tenure, and youth participation in national climate decisions, amplifying grassroots voices where decisions are made.",
       image: "/images/missio.jpg",
+      fieldStory: "Active policy dialogues with traditional authorities and regional councils.",
+      highlight: "5 High-Level Policy Engagements",
     },
     {
+      id: "culture",
       number: "04",
+      icon: <Landmark className="w-5 h-5" />,
       title: "Cultural Preservation",
+      quote: "Preserving sacred languages, folklore, and heritage for the next generation.",
       description:
-        "Supporting initiatives celebrating indigenous languages, traditions, and practices for next generations.",
+        "Through our Indigenous Green Schools initiative, we document indigenous environmental wisdom and ensure the youth inherit both their cultural roots and tools for the future.",
       image: "/images/missi.jpg",
+      fieldStory: "Engaging village elders and youth through intergenerational workshops.",
+      highlight: "Mother Community Hub in Amanokrom",
     },
   ];
 
+  const currentMission = missions[activeTab];
+
   return (
-    <section className="py-20 dark:bg-zinc-950 text-[#3e2723] dark:text-zinc-300 transition-colors duration-300">
-      <div className="max-w-6xl mx-auto px-6 lg:px-12">
-        {/* Heading */}
-        <div className="text-center mb-16" data-aos="fade-up">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#3e2723] dark:text-yellow-500">
-            Our Core Mission
+    <section className="w-full py-20 lg:py-28 bg-[#FFFDF5] dark:bg-zinc-950 text-[#2D241E] dark:text-zinc-100 transition-colors duration-300 relative overflow-hidden px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20">
+      {/* Background Soft Glows */}
+      <div className="absolute top-10 left-0 w-96 h-96 bg-yellow-200/30 dark:bg-yellow-500/5 blur-3xl rounded-full pointer-events-none" />
+      <div className="absolute bottom-10 right-0 w-96 h-96 bg-[#8B7D6B]/15 dark:bg-zinc-800/30 blur-3xl rounded-full pointer-events-none" />
+
+      <div className="w-full relative z-10">
+        {/* Section Header */}
+        <div className="text-center max-w-4xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-yellow-100 dark:bg-yellow-950/60 border border-yellow-300/60 dark:border-yellow-700/50 text-[#8B7D6B] dark:text-yellow-400 text-xs font-bold uppercase tracking-wider mb-4">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Our Theory of Change</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#2D241E] dark:text-white tracking-tight mb-4">
+            How We Create Lasting Change{" "}
+            <span className="text-[#D1A054] dark:text-yellow-400">Together</span>
           </h2>
-          <p className="text-lg max-w-3xl mx-auto text-[#5d4037] dark:text-zinc-400">
-            We work at the intersection of traditional wisdom and innovative
-            solutions to create lasting change in Ghana&apos;s indigenous
-            communities.
+
+          <p className="text-base sm:text-lg lg:text-xl text-stone-600 dark:text-zinc-400 leading-relaxed">
+            We don&apos;t impose outside solutions. We sit with community elders, youth, and women
+            to co-create grassroots voluntary initiatives grounded in four key pillars:
           </p>
         </div>
 
-        {/* Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {missions.map((mission, i) => (
-            <motion.div
-              key={mission.number}
-              data-aos="fade-up"
-              data-aos-delay={i * 300}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.2 }}
-              className="group"
+        {/* Interactive Pillar Selector Tabs */}
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
+          {missions.map((mission, idx) => (
+            <button
+              key={mission.id}
+              onClick={() => setActiveTab(idx)}
+              className={`flex items-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-2xl text-xs sm:text-sm lg:text-base font-bold transition-all duration-300 cursor-pointer ${
+                activeTab === idx
+                  ? "bg-[#D1A054] text-zinc-950 shadow-lg shadow-yellow-500/20 scale-102"
+                  : "bg-white dark:bg-zinc-900 text-stone-600 dark:text-zinc-400 hover:bg-yellow-50 dark:hover:bg-zinc-800 border border-yellow-200/50 dark:border-zinc-800"
+              }`}
             >
-              <Card
-                hoverable
-                className="border-border dark:border-zinc-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 bg-[#F5EBDD] dark:bg-zinc-900 overflow-hidden"
-                cover={
-                  <div className="relative">
-                    <MotionImage
-                      alt={mission.title}
-                      src={mission.image}
-                      width={800}
-                      height={192}
-                      className="w-full object-cover rounded-t-lg"
-                      whileHover={{
-                        scale: 1.05,
-                        filter: "brightness(1.1)",
-                        transition: { duration: 0.3 },
-                      }}
-                      whileTap={{
-                        scale: 0.95,
-                        transition: { duration: 0.2 },
-                      }}
-                    />
-
-                    {/* Number badge */}
-                    <div className="absolute top-3 left-3 bg-[#FACC15] dark:bg-yellow-600 text-[#3e2723] dark:text-zinc-950 font-bold px-3 py-1 rounded-lg shadow-md text-sm">
-                      {mission.number}
-                    </div>
-                  </div>
-                }
-              >
-                <div className="text-center px-2">
-                  <h3 className="text-xl font-semibold text-[#8B7D6B] dark:text-yellow-500/80 group-hover:text-[#A67C52] dark:group-hover:text-yellow-500 mb-3 transition-colors duration-300">
-                    {mission.title}
-                  </h3>
-                  <p className="text-base text-[#5d4037] dark:text-zinc-400 group-hover:text-[#8B5E3C] dark:group-hover:text-zinc-200 leading-relaxed transition-colors duration-300">
-                    {mission.description}
-                  </p>
-                </div>
-              </Card>
-            </motion.div>
+              <span>{mission.icon}</span>
+              <span>{mission.title}</span>
+            </button>
           ))}
         </div>
 
-        {/* Button */}
-        <div
-          className="text-center flex justify-center mt-16"
-          data-aos="fade-up"
-        >
-          <motion.div
-            whileHover={{ scale: 1.05, rotate: 1 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <a href="/pages/about">
-              <div className="bg-[#8B7D6B] dark:bg-zinc-800 hover:bg-[#A67C52] dark:hover:bg-zinc-700 border border-[#FACC15] dark:border-yellow-600 text-[#3e2723] dark:text-yellow-500 rounded-xl px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 w-96">
-                Learn More About Our Work
+        {/* Dynamic Feature Spotlight Card (Full Width) */}
+        <div className="w-full bg-white dark:bg-zinc-900 border border-yellow-200/60 dark:border-zinc-800 rounded-3xl p-6 sm:p-10 lg:p-14 shadow-xl">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentMission.id}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.4 }}
+              className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center"
+            >
+              {/* Image side */}
+              <div className="lg:col-span-5 relative h-80 sm:h-96 lg:h-[480px] w-full rounded-3xl overflow-hidden shadow-md">
+                <Image
+                  src={currentMission.image}
+                  alt={currentMission.title}
+                  fill
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                />
+                <div className="absolute top-4 left-4 bg-yellow-400 text-zinc-950 font-black px-3.5 py-1.5 rounded-xl text-xs shadow-md">
+                  Pillar {currentMission.number}
+                </div>
+                <div className="absolute bottom-4 left-4 right-4 bg-black/65 backdrop-blur-md text-white p-4 rounded-2xl text-xs border border-white/10">
+                  <p className="font-bold text-yellow-300 text-sm">{currentMission.highlight}</p>
+                  <p className="text-xs text-zinc-300 mt-0.5">{currentMission.fieldStory}</p>
+                </div>
               </div>
-            </a>
-          </motion.div>
+
+              {/* Text & Dialogue side */}
+              <div className="lg:col-span-7 space-y-6">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-yellow-50 dark:bg-zinc-800 text-[#8B7D6B] dark:text-yellow-400 text-xs sm:text-sm font-semibold">
+                  <span>Pillar Focus</span>
+                  <span>•</span>
+                  <span>{currentMission.title}</span>
+                </div>
+
+                <div className="relative pl-6 border-l-4 border-yellow-400">
+                  <Quote className="w-6 h-6 text-yellow-500 absolute -top-2 -left-3.5 opacity-30" />
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#2D241E] dark:text-white leading-snug">
+                    &ldquo;{currentMission.quote}&rdquo;
+                  </h3>
+                </div>
+
+                <p className="text-base sm:text-lg lg:text-xl text-stone-600 dark:text-zinc-300 leading-relaxed font-light">
+                  {currentMission.description}
+                </p>
+
+                {/* Conversational Callout Bubble */}
+                <div className="p-5 rounded-3xl bg-yellow-50/80 dark:bg-zinc-800/60 border border-yellow-200/80 dark:border-zinc-700/60 flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-2xl bg-yellow-400 text-zinc-950 flex items-center justify-center font-bold text-base shrink-0">
+                    💬
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#8B7D6B] dark:text-yellow-400">
+                      Why This Matters in Ghana
+                    </h4>
+                    <p className="text-xs sm:text-sm lg:text-base text-stone-700 dark:text-zinc-300 mt-1 leading-relaxed">
+                      Grassroots communities hold deep traditional wisdom. When backed by youth-led tools and funding, they solve environmental challenges from within.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-2 flex flex-wrap gap-4 items-center">
+                  <Link
+                    href="/pages/about"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-[#8B7D6B] hover:bg-[#7A6B5A] dark:bg-zinc-800 dark:hover:bg-zinc-700 text-white font-bold text-sm sm:text-base shadow-md transition-all group"
+                  >
+                    <span>Read Our Co-Creation Model</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+
+                  <Link
+                    href="/pages/impart"
+                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#8B7D6B] dark:text-yellow-400 hover:underline"
+                  >
+                    <span>See voluntary projects under this pillar &rarr;</span>
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </section>
