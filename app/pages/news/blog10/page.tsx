@@ -76,14 +76,14 @@ const Blog1: React.FC = () => {
             </blockquote>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mt-4">
               {[
-                "beeleive2.jpg",
-                "beeleive3.jpg",
-                "beeleive4.jpg",
-                "beeleive6.jpg",
+                "beeh4.jpg",
+                "beeh3.jpg",
+                "beeh1.jpg",
+                "beeh2.jpg",
               ].map((img) => (
                 <Image
                   key={img}
-                  src={`/drive2/${img}`}
+                  src={`/images/${img}`}
                   alt="Beelieve Smart project"
                   width={300}
                   height={200}

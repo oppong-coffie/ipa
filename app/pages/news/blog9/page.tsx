@@ -31,7 +31,7 @@ const Blog1: React.FC = () => {
           <div className="flex flex-col md:flex-row gap-4 items-start">
             <div className="md:w-1/2 rounded-lg overflow-hidden shadow-md">
               <Image
-                src="/drive2/lop2.jpg"
+                src="/images/peoples.jpg"
                 alt="Farmers in Klotekpo"
                 width={500}
                 height={300}
@@ -80,7 +80,7 @@ const Blog1: React.FC = () => {
             </blockquote>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-3">
               <Image
-                src="/drive2/lob4.jpg"
+                src="/images/discussion.jpg"
                 alt="Workshop session"
                 width={400}
                 height={250}
@@ -94,7 +94,7 @@ const Blog1: React.FC = () => {
                 className="rounded-lg object-cover shadow-sm"
               />
               <Image
-                src="/drive2/lob3.jpg"
+                src="/images/think.jpg"
                 alt="Participant group"
                 width={400}
                 height={250}

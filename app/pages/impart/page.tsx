@@ -181,7 +181,7 @@ const voluntaryProjects: VoluntaryProject[] = [
     timeline: "2024 – Ongoing",
     beneficiaries: "Basic & Junior High School Learners",
     location: "Kintampo South District, Bono East Region",
-    image: "/images/school.jpg",
+    image: "/images/green.jpg",
     icon: <GraduationCap className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
     description:
       "An experiential, outdoor-based ecological curriculum integrating traditional environmental folklore, botany, climate science, and school garden stewardship to nurture the next generation of indigenous environmental stewards.",

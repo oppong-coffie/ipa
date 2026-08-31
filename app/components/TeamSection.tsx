@@ -79,8 +79,7 @@ export default function TeamSection() {
           </h2>
 
           <p className="text-base sm:text-lg lg:text-xl text-stone-600 dark:text-zinc-400 leading-relaxed">
-            Our multidisciplinary team of grassroots researchers, technologists, and community advocates
-            works side-by-side with Ghana&apos;s indigenous leaders and volunteer networks.
+            Our multidisciplinary team of researchers, technologists, and community advocates.
           </p>
         </div>
 
@@ -118,12 +117,6 @@ export default function TeamSection() {
 
               {/* Conversational Quote Body */}
               <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
-                <div className="relative pl-3 border-l-2 border-yellow-400">
-                  <p className="text-xs sm:text-sm text-stone-700 dark:text-zinc-300 italic leading-relaxed">
-                    &ldquo;{member.quote}&rdquo;
-                  </p>
-                </div>
-
                 <div className="pt-3 border-t border-stone-100 dark:border-zinc-800 flex items-center justify-between text-xs">
                   <span className="text-stone-500 dark:text-zinc-400 font-medium">
                     {member.focus}

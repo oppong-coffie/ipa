@@ -129,15 +129,14 @@ export function ImpactSection() {
               </div>
 
               <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#2D241E] dark:text-white tracking-tight leading-tight mb-4">
-                Real Numbers. Real Voices.{" "}
+                Real Numbers.{" "}
                 <span className="text-[#D1A054] dark:text-yellow-400">
                   Lasting Impact.
                 </span>
               </h2>
 
               <p className="text-base sm:text-lg lg:text-xl text-stone-600 dark:text-zinc-400 leading-relaxed font-light">
-                When you partner with IPA, your support transforms directly into hives on the ground,
-                policy dialogues with chiefs, and tangible economic independence for indigenous youth and women through voluntary projects.
+                When you partner with IPA, your support transforms directly into hives on the ground and tangible economic independence for indigenous youth and women through voluntary projects.
               </p>
             </div>
 

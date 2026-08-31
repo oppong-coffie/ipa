@@ -107,7 +107,7 @@ const Blog1: React.FC = () => {
               />
 
               <Image
-                src="/drive2/8.jpg"
+                src="/images/think.jpg"
                 alt="Knowledge sharing and adaptation"
                 width={400}
                 height={250}
@@ -269,7 +269,7 @@ const Blog1: React.FC = () => {
             <Link href="blog3">
               <div className="relative h-32 w-full overflow-hidden">
                 <Image
-                  src="/drive2/lop2.jpg"
+                  src="/images/lob.jpg"
                   alt="Agricultural Project"
                   width={500}
                   height={300}
@@ -287,7 +287,7 @@ const Blog1: React.FC = () => {
             <Link href="blog1">
               <div className="relative h-32 w-full overflow-hidden">
                 <Image
-                  src="/drive2/bee1.jpeg"
+                  src="/images/ind.jpg"
                   alt="Agricultural Project"
                   width={500}
                   height={300}

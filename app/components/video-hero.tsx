@@ -116,7 +116,6 @@ export function VideoHero() {
         >
           Empowering Communities. <br />
           <span className="bg-gradient-to-r from-yellow-300 via-amber-300 to-[#D1A054] bg-clip-text text-transparent">
-            Co-Creating an Equitable Future.
           </span>
         </motion.h1>
 

@@ -99,28 +99,28 @@ const Blog1: React.FC = () => {
           {/* Sub-images */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
             <Image
-              src="/drive2/6.jpg"
+              src="/images/discussion.jpg"
               alt="Community discussion"
               width={300}
               height={200}
               className="rounded-md object-cover shadow-sm hover:scale-105 transition-transform"
             />
             <Image
-              src="/drive2/7.jpg"
+              src="/images/land.jpg"
               alt="Cultural landscape"
               width={300}
               height={200}
               className="rounded-md object-cover shadow-sm hover:scale-105 transition-transform"
             />
             <Image
-              src="/drive2/18.jpg"
+              src="/images/elders.jpg"
               alt="Elders meeting"
               width={300}
               height={200}
               className="rounded-md object-cover shadow-sm hover:scale-105 transition-transform"
             />
             <Image
-              src="/drive2/16.jpg"
+              src="/images/bio.jpg"
               alt="Biodiversity and traditional lands"
               width={300}
               height={200}
@@ -224,7 +224,7 @@ const Blog1: React.FC = () => {
             <Link href="blog3">
               <div className="relative h-32 w-full overflow-hidden">
                 <Image
-                  src="/drive2/lop2.jpg"
+                  src="/images/know.jpg"
                   alt="Agricultural Project"
                   width={500}
                   height={300}
@@ -242,7 +242,7 @@ const Blog1: React.FC = () => {
             <Link href="blog1">
               <div className="relative h-32 w-full overflow-hidden">
                 <Image
-                  src="/drive2/bee1.jpeg"
+                  src="/images/impact.jpg"
                   alt="Agricultural Project"
                   width={500}
                   height={300}

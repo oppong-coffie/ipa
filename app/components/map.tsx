@@ -20,13 +20,12 @@ export default function MapLocation() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#2D241E] dark:text-white tracking-tight mb-4">
-            Visit Our Community{" "}
+            Visit Our {" "}
             <span className="text-[#D1A054] dark:text-yellow-400">Headquarters</span>
           </h2>
 
           <p className="text-base sm:text-lg lg:text-xl text-stone-600 dark:text-zinc-400 leading-relaxed">
             Our doors are always open to partners, volunteers, researchers, and community champions.
-            Drop by our headquarters in Accra or visit our mother hub in Amanokrom, Eastern Region.
           </p>
         </div>
 

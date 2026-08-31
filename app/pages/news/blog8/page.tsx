@@ -90,7 +90,7 @@ const Blog1: React.FC = () => {
            className="rounded-lg object-cover shadow-sm"
          />
          <Image
-           src="/drive2/risk3.jpg"
+           src="/images/risk.jpg"
            alt="Mutual aid in recovery"
            width={400}
            height={250}
@@ -238,7 +238,7 @@ const Blog1: React.FC = () => {
             <Link href="blog3">
               <div className="relative h-32 w-full overflow-hidden">
                 <Image
-                  src="/drive2/lop2.jpg"
+                  src="/images/beeh2.jpg"
                   alt="Agricultural Project"
                   width={500}
                   height={300}
@@ -256,7 +256,7 @@ const Blog1: React.FC = () => {
             <Link href="blog1">
               <div className="relative h-32 w-full overflow-hidden">
                 <Image
-                  src="/drive2/bee1.jpeg"
+                  src="/images/beeh1.jpg"
                   alt="Agricultural Project"
                   width={500}
                   height={300}

@@ -234,26 +234,40 @@ export default function TeamPage() {
               {selectedMember.role}
             </p>
 
-            <Tabs defaultActiveKey="1" centered className="text-left">
-              <Tabs.TabPane tab="Bio" key="1">
-                <p className="text-[#5B3A1A] dark:text-zinc-300 leading-relaxed px-4 text-center">
-                  {selectedMember.details}
-                </p>
-              </Tabs.TabPane>
-              <Tabs.TabPane tab="Experience" key="2">
-                <p className="text-[#5B3A1A] dark:text-zinc-300 leading-relaxed px-4 text-center">
-                  {/* Add detailed experience info here */}
-                  {selectedMember.experience ||
-                    "Experience details coming soon."}
-                </p>
-              </Tabs.TabPane>
-              <Tabs.TabPane tab="Impact" key="3">
-                <p className="text-[#5B3A1A] dark:text-zinc-300 leading-relaxed px-4 text-center">
-                  {/* Add detailed impact info here */}
-                  {selectedMember.impact || "Impact details coming soon."}
-                </p>
-              </Tabs.TabPane>
-            </Tabs>
+            <Tabs
+              defaultActiveKey="1"
+              centered
+              className="text-left"
+              items={[
+                {
+                  key: "1",
+                  label: "Bio",
+                  children: (
+                    <p className="text-[#5B3A1A] dark:text-zinc-300 leading-relaxed px-4 text-center">
+                      {selectedMember.details}
+                    </p>
+                  ),
+                },
+                {
+                  key: "2",
+                  label: "Experience",
+                  children: (
+                    <p className="text-[#5B3A1A] dark:text-zinc-300 leading-relaxed px-4 text-center">
+                      {selectedMember.experience || "Experience details coming soon."}
+                    </p>
+                  ),
+                },
+                {
+                  key: "3",
+                  label: "Impact",
+                  children: (
+                    <p className="text-[#5B3A1A] dark:text-zinc-300 leading-relaxed px-4 text-center">
+                      {selectedMember.impact || "Impact details coming soon."}
+                    </p>
+                  ),
+                },
+              ]}
+            />
 
             <Button
               onClick={closeModal}

@@ -110,11 +110,8 @@ export default function PagesLayout({
 
       {/* --- Conversational Global Full-Width Top Banner --- */}
       <div className="w-full bg-gradient-to-r from-[#8B7D6B] via-[#A78B60] to-[#7A6B5A] text-white py-2 px-4 sm:px-8 text-xs sm:text-sm font-medium text-center flex items-center justify-center gap-2 relative z-50">
-        <span className="inline-flex items-center gap-1 bg-yellow-400/20 text-yellow-200 px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider">
-          🌱 Grassroots Voice
-        </span>
         <span>
-          Empowering Ghana&apos;s indigenous communities through youth-led innovation &amp; co-creation.
+          Empowering Ghana&apos;s indigenous communities through innovation &amp; co-creation.
         </span>
         <Link
           href="/pages/contactus"
@@ -192,7 +189,7 @@ export default function PagesLayout({
               <MessageSquareText className="w-4 h-4" />
               <span>Let&apos;s Talk</span>
             </Link>
-
+            <span className="text-5xl animate-pulse">🌱</span>
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}

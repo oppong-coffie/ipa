@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,6 +8,7 @@ import { Sprout, Briefcase, Users, Landmark, ArrowRight, Quote, Sparkles } from 
 
 export function MissionSection() {
   const [activeTab, setActiveTab] = useState<number>(0);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
 
   const missions = [
     {
@@ -60,10 +61,24 @@ export function MissionSection() {
     },
   ];
 
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setActiveTab((prev) => (prev + 1) % missions.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isPaused, missions.length]);
+
   const currentMission = missions[activeTab];
 
   return (
-    <section className="w-full py-20 lg:py-28 bg-[#FFFDF5] dark:bg-zinc-950 text-[#2D241E] dark:text-zinc-100 transition-colors duration-300 relative overflow-hidden px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20">
+    <section
+      className="w-full py-20 lg:py-28 bg-[#FFFDF5] dark:bg-zinc-950 text-[#2D241E] dark:text-zinc-100 transition-colors duration-300 relative overflow-hidden px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       {/* Background Soft Glows */}
       <div className="absolute top-10 left-0 w-96 h-96 bg-yellow-200/30 dark:bg-yellow-500/5 blur-3xl rounded-full pointer-events-none" />
       <div className="absolute bottom-10 right-0 w-96 h-96 bg-[#8B7D6B]/15 dark:bg-zinc-800/30 blur-3xl rounded-full pointer-events-none" />
@@ -78,12 +93,11 @@ export function MissionSection() {
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#2D241E] dark:text-white tracking-tight mb-4">
             How We Create Lasting Change{" "}
-            <span className="text-[#D1A054] dark:text-yellow-400">Together</span>
           </h2>
 
           <p className="text-base sm:text-lg lg:text-xl text-stone-600 dark:text-zinc-400 leading-relaxed">
             We don&apos;t impose outside solutions. We sit with community elders, youth, and women
-            to co-create grassroots voluntary initiatives grounded in four key pillars:
+            to create voluntary initiatives grounded in four key pillars:
           </p>
         </div>
 

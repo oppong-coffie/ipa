@@ -62,7 +62,7 @@ const stories: Story[] = [
     category: "Policy & Advocacy",
     readTime: "4 min read",
     date: "May 2025",
-    image: "/images/comp.jpg",
+    image: "/images/think.jpg",
     excerpt:
       "Bridging the gap between scientific climate models and generational wisdom practiced by Ghanaian smallholders.",
     conversationalNote: "Local chiefs and council elders must have direct seats on district development committees.",
@@ -122,7 +122,7 @@ const stories: Story[] = [
     category: "Policy & Advocacy",
     readTime: "6 min read",
     date: "December 2024",
-    image: "/drive2/lop2.jpg",
+    image: "/images/lob.jpg",
     excerpt:
       "Empowering farmer associations with legislative tools and coalition-building tactics for agricultural subsidies.",
     conversationalNote: "Helping smallholders negotiate fair pricing and fertilizer access.",
@@ -179,7 +179,7 @@ export default function NewsPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-[#2D241E] dark:text-white tracking-tight mb-4"
           >
-            Stories, Insights &amp;{" "}
+            Insights &amp;{" "}
             <span className="text-[#D1A054] dark:text-yellow-400">Field Updates</span>
           </motion.h1>
 
@@ -189,7 +189,7 @@ export default function NewsPage() {
           </p>
 
           {/* Search & Filter */}
-          <div className="mt-8 space-y-4 max-w-2xl mx-auto">
+          <div className="mt-8 space-y-4 max-w-4xl mx-auto">
             <div className="relative">
               <Search className="w-5 h-5 text-stone-400 absolute left-4 top-1/2 -translate-y-1/2" />
               <input

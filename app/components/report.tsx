@@ -11,7 +11,7 @@ export default function AnnualReportSection() {
       year: "2024",
       label: "2024 Annual Impact & Financial Report",
       description:
-        "Comprehensive breakdown of project outcomes, voluntary drives in Amanokrom & Teacher Mante, and financial accountability.",
+        "Comprehensive breakdown of project outcomes, voluntary and financial accountability.",
       downloadUrl: "/reports/report-2024.pdf",
       size: "PDF • 4.2 MB",
       highlights: ["500+ Beneficiaries", "GARF Api-Fund Rollout", "100% Grassroots Audited"],
@@ -42,7 +42,6 @@ export default function AnnualReportSection() {
 
           <p className="text-base sm:text-lg lg:text-xl text-stone-600 dark:text-zinc-400 leading-relaxed">
             Every donation, grant, and volunteer hour entrusted to IPA Ghana is tracked and documented.
-            Explore our verified annual reports to see how resources drive real impact on the ground.
           </p>
         </div>
 
