@@ -109,15 +109,18 @@ export default function PagesLayout({
       </AnimatePresence>
 
       {/* --- Conversational Global Full-Width Top Banner --- */}
-      <div className="w-full bg-gradient-to-r from-[#8B7D6B] via-[#A78B60] to-[#7A6B5A] text-white py-2 px-4 sm:px-8 text-xs sm:text-sm font-medium text-center flex items-center justify-center gap-2 relative z-50">
-        <span>
-          Empowering Ghana&apos;s indigenous communities through innovation &amp; co-creation.
+      <div
+        suppressHydrationWarning
+        className="w-full bg-gradient-to-r from-[#8B7D6B] via-[#A78B60] to-[#7A6B5A] text-white py-2 px-4 sm:px-8 text-xs sm:text-sm font-medium text-center flex items-center justify-center gap-2 relative z-50"
+      >
+        <span suppressHydrationWarning>
+          {"Empowering Ghana's indigenous communities through innovation."}
         </span>
         <Link
           href="/pages/contactus"
           className="hidden sm:inline-flex items-center gap-1 text-yellow-300 hover:text-white underline font-semibold transition-colors ml-1"
         >
-          Join our mission &rarr;
+          {"Join our mission →"}
         </Link>
       </div>
 
@@ -187,9 +190,8 @@ export default function PagesLayout({
               className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-yellow-400 to-amber-400 hover:from-yellow-300 hover:to-amber-300 text-zinc-950 font-extrabold text-xs sm:text-sm shadow-md hover:shadow-yellow-500/20 hover:scale-103 active:scale-97 transition-all duration-200"
             >
               <MessageSquareText className="w-4 h-4" />
-              <span>Let&apos;s Talk</span>
+              <span>{"Let's Talk"}</span>
             </Link>
-            <span className="text-5xl animate-pulse">🌱</span>
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}

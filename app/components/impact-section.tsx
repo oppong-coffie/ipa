@@ -85,7 +85,7 @@ export function ImpactSection() {
       icon: <Users className="w-5 h-5 text-yellow-500" />,
     },
     {
-      number: 200,
+      number: 22,
       suffix: "+",
       label: "Sustainable Hives Installed",
       context: "GARF Beekeeping project in Eastern Ghana",

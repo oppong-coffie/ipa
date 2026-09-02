@@ -115,15 +115,7 @@ export default function TeamSection() {
                 </div>
               </div>
 
-              {/* Conversational Quote Body */}
-              <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
-                <div className="pt-3 border-t border-stone-100 dark:border-zinc-800 flex items-center justify-between text-xs">
-                  <span className="text-stone-500 dark:text-zinc-400 font-medium">
-                    {member.focus}
-                  </span>
-                  <span className="w-2 h-2 rounded-full bg-yellow-400" />
-                </div>
-              </div>
+
             </motion.div>
           ))}
         </div>
